@@ -1,3 +1,5 @@
+import 'package:royal_plate/Chatbot/chatbot.dart';
+import 'package:royal_plate/HomeScreen.dart';
 import 'package:royal_plate/Splash_Screen1.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget
   {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen1(),
+      home: HomeScreen(),
     );
   }
 }

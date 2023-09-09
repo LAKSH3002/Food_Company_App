@@ -1,3 +1,4 @@
+import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/OnBoarding4.dart';
 import 'package:royal_plate/Outlets.dart';
 import 'package:royal_plate/SetFav_home.dart';
@@ -648,11 +649,14 @@ List<CardItem> items = const [
                 },
               ),
               ListTile(
-                title: Text('Delivery'),
-                leading: Icon(Icons.delivery_dining),
+                title: Text('Chat WIth Us'),
+                leading: Icon(Icons.chat_bubble),
                 onTap: () {
                   setState(() {
-                    const HomeScreen();
+                    Navigator.of(context).push(MaterialPageRoute
+                  (builder: (BuildContext context) =>
+                  const Royalplate_chatbot() 
+                  ));
                   });
                 },
               ),

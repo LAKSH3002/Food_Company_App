@@ -2,15 +2,20 @@ import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:royal_plate/Chatbot/Messages.dart';
 
-class Royalplate_chatbot extends StatelessWidget {
+
+class Royalplate_chatbot extends StatefulWidget {
   const Royalplate_chatbot({super.key});
 
   @override
+  State<Royalplate_chatbot> createState() => _Royalplate_chatbotState();
+}
+
+class _Royalplate_chatbotState extends State<Royalplate_chatbot> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Home()
-    );
+    return Home();
   }
 }
 
@@ -31,12 +36,74 @@ class _HomeState extends State<Home>
   @override
   void initState()
   {
+    DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
 
+      appBar: AppBar(
+        title: Text('Royal Plate Chat Bot'),
+        backgroundColor: Colors.deepPurple,
+      ),
+
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Expanded(child: MessagesScreen(messages: messaged)),
+
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 14,vertical: 8),
+              color: Color.fromARGB(255, 143, 127, 49),
+              child: Row(children: [
+                Expanded(
+                child: TextField(controller: _controller,
+                style: TextStyle(color: Colors.white,fontSize: 24),)),
+
+                IconButton(onPressed: (){
+                  sendMessages(_controller.text);
+                  _controller.clear();
+                }, icon: Icon(Icons.send)),
+              ]),
+            )
+          ],
+        ),
+      ),
     );
+  }
+  sendMessages(String text)async
+  {
+    if(text.isEmpty)
+    {
+      print('Please Enter Some Message');
+    }
+    else{
+      // Handling user message
+      setState(() 
+      {
+        addMessage(Message(
+          text: DialogText(text: [text])
+        ),true);
+      });
+      DetectIntentResponse response = await dialogFlowtter.detectIntent(
+      queryInput: QueryInput(text: TextInput(text: text)));
+      
+      // Handling dialog flutter message
+      if(response.message == null) return;
+      setState(() {
+        addMessage(response.message!);
+      });
+    }
+  }
+
+  addMessage(Message message,[bool isUserMessage = false])
+  {
+    messaged.add({
+      'message':message,
+      'isUserMessage': isUserMessage,
+    });
   }
 }
