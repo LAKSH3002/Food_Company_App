@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:royal_plate/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/OnBoarding4.dart';
 import 'package:royal_plate/Outlets.dart';
@@ -5,6 +7,7 @@ import 'package:royal_plate/SetFav_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/services.dart';
 
 class CardItem{
   final String urlImage;
@@ -52,8 +55,26 @@ List<CardItem> items = const [
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        title: const Text("Royal Plates"),
-      ),
+        title: Row(
+          children: 
+          [
+            const Text("Royal Plates"),
+            SizedBox(width: 120,),
+            
+            CupertinoButton(
+              child: Icon(Icons.account_circle,
+              color: Colors.white,
+              size:40.0),
+              onPressed: (){
+                setState(() {
+                  Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>
+                  const AccountScreen()));
+                });
+              }),
+          ]
+            )
+        ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
 
@@ -594,7 +615,7 @@ List<CardItem> items = const [
           children: [
             const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.orange, 
+              color: Colors.red, 
             ),
 
             child: UserAccountsDrawerHeader(
@@ -661,11 +682,13 @@ List<CardItem> items = const [
                 },
               ),
               ListTile(
-                title: Text('Settings'),
-                leading: Icon(Icons.settings),
+                title: Text('Your Account'),
+                leading: Icon(Icons.person),
                 onTap: () {
                   setState(() {
-                    const HomeScreen();
+                    Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => 
+                    const AccountScreen()));
                   });
                 },
               ),
@@ -675,6 +698,15 @@ List<CardItem> items = const [
                 onTap: () {
                   setState(() {
                     const HomeScreen();
+                  });
+                },
+              ),
+              ListTile(
+                title: Text('Log Out'),
+                leading: Icon(Icons.logout_sharp),
+                onTap: () {
+                  setState(() {
+                  
                   });
                 },
               ),
