@@ -20,18 +20,24 @@ class _OutletsState extends State<Outlets> {
       ),
 
       body: Center(
-        child: Column
+        child: ListView
         (
           children: [
 
             // children 1  
             SizedBox(
-            height: 263,
+            height: 262,
             child: Image.asset("images/entry.jpeg",fit: BoxFit.cover,)),
-          
-            // children 2
+
+            SizedBox(height: 12,),
+
+            Text("  Royal Plate Outlets",style: TextStyle(fontSize: 20,color: Colors.purple,fontWeight: FontWeight.w500),),
+
+            SizedBox(height: 30,),
+
+            // children 3
             Container(
-              color: Color.fromARGB(255, 209, 215, 215),
+              color: Color.fromARGB(210, 241, 239, 239),
               width: 400,
               height: 72,
               child: Column(
@@ -39,18 +45,90 @@ class _OutletsState extends State<Outlets> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: const [
                   SizedBox(height: 8,),
-                  Text("  Royal Plates",
+                  Text(" >> Byculla West",
                   style: TextStyle(fontWeight: FontWeight.w600,fontSize: 24,color: Colors.deepPurple),),
             
                   SizedBox(height: 12,),
-                  Text("   Healthy Food, Best Italian & Mexcican food with Indian",
-                  style: TextStyle(fontSize: 15,fontStyle: FontStyle.italic),),
+                  Text("   703,Kinjal Tower,NM Joshi Marg, Byculla west.",
+                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
                 ],
               ),
             ),
 
-            // children 3
+            SizedBox(height: 12,),
 
+            // Children 4
+            Container(
+              color: Color.fromARGB(210, 241, 239, 239),
+              width: 400,
+              height: 72,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  SizedBox(height: 8,),
+                  Text(" >> Phoenix Palladium",
+                  style: TextStyle(fontWeight: FontWeight.w600,fontSize: 24,color: Colors.deepPurple),),
+            
+                  SizedBox(height: 12,),
+                  Text("   Palladium Shop Number 24, 2nd floor, Mumbai.",
+                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 12,),
+
+            // children 5
+            Container(
+              color: Color.fromARGB(210, 241, 239, 239),
+              width: 400,
+              height: 72,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  SizedBox(height: 8,),
+                  Text(" >> Sterling Theatres",
+                  style: TextStyle(fontWeight: FontWeight.w600,fontSize: 24,color: Colors.deepPurple),),
+            
+                  SizedBox(height: 12,),
+                  Text("   Near Chatrapati Shivaji Terminus,Mumbai.",
+                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 12,),
+
+            // Children 6
+            Container(
+              color: Color.fromARGB(210, 241, 239, 239),
+              width: 400,
+              height: 72,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  SizedBox(height: 8,),
+                  Text(" >> Charni Road East",
+                  style: TextStyle(fontWeight: FontWeight.w600,fontSize: 24,color: Colors.deepPurple),),
+            
+                  SizedBox(height: 12,),
+                  Text("   In lane of Hinduja College, Mumbai.",
+                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 10,),
+            
+
+            ElevatedButton(
+            onPressed: (){
+              
+            }, 
+            child: Text("Navigate Outlets",style: TextStyle(fontSize: 20),))
           ],
         ),
       ),
