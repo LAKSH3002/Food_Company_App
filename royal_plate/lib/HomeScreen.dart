@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
+import 'package:royal_plate/OnBoarding15.dart';
 import 'package:royal_plate/OnBoarding4.dart';
 import 'package:royal_plate/Outlets.dart';
 import 'package:royal_plate/SetFav_home.dart';
@@ -707,7 +708,9 @@ List<CardItem> items = const [
                 leading: Icon(Icons.logout_sharp),
                 onTap: () {
                   setState(() {
-                  
+                    Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => 
+                    const OnBoarding15()));
                   });
                 },
               ),

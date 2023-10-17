@@ -16,7 +16,7 @@ class _OutletsState extends State<Outlets> {
       appBar: AppBar
       (
         backgroundColor: Colors.deepPurple,
-        title: const Text("Royal Plates - Outlets"),
+        title: const Text("Royal Plates - Outlets",style: TextStyle(color: Colors.white),),
       ),
 
       body: Center(
@@ -39,7 +39,7 @@ class _OutletsState extends State<Outlets> {
             Container(
               color: Color.fromARGB(210, 241, 239, 239),
               width: 400,
-              height: 72,
+              height: 90,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +50,7 @@ class _OutletsState extends State<Outlets> {
             
                   SizedBox(height: 12,),
                   Text("   703,Kinjal Tower,NM Joshi Marg, Byculla west.",
-                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                  style: TextStyle(fontSize: 14,fontStyle: FontStyle.italic),),
                 ],
               ),
             ),
@@ -61,7 +61,7 @@ class _OutletsState extends State<Outlets> {
             Container(
               color: Color.fromARGB(210, 241, 239, 239),
               width: 400,
-              height: 72,
+              height: 90,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -72,7 +72,7 @@ class _OutletsState extends State<Outlets> {
             
                   SizedBox(height: 12,),
                   Text("   Palladium Shop Number 24, 2nd floor, Mumbai.",
-                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                  style: TextStyle(fontSize: 14,fontStyle: FontStyle.italic),),
                 ],
               ),
             ),
@@ -83,7 +83,7 @@ class _OutletsState extends State<Outlets> {
             Container(
               color: Color.fromARGB(210, 241, 239, 239),
               width: 400,
-              height: 72,
+              height: 90,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -94,7 +94,7 @@ class _OutletsState extends State<Outlets> {
             
                   SizedBox(height: 12,),
                   Text("   Near Chatrapati Shivaji Terminus,Mumbai.",
-                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                  style: TextStyle(fontSize: 14,fontStyle: FontStyle.italic),),
                 ],
               ),
             ),
@@ -105,7 +105,7 @@ class _OutletsState extends State<Outlets> {
             Container(
               color: Color.fromARGB(210, 241, 239, 239),
               width: 400,
-              height: 72,
+              height: 90,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -116,7 +116,7 @@ class _OutletsState extends State<Outlets> {
             
                   SizedBox(height: 12,),
                   Text("   In lane of Hinduja College, Mumbai.",
-                  style: TextStyle(fontSize: 17,fontStyle: FontStyle.italic),),
+                  style: TextStyle(fontSize: 14,fontStyle: FontStyle.italic),),
                 ],
               ),
             ),
@@ -125,10 +125,13 @@ class _OutletsState extends State<Outlets> {
             
 
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlueAccent
+              ),
             onPressed: (){
               
             }, 
-            child: Text("Navigate Outlets",style: TextStyle(fontSize: 20),))
+            child: Text("Navigate Outlets",style: TextStyle(fontSize: 20,color: Colors.red),))
           ],
         ),
       ),
