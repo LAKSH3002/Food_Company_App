@@ -58,13 +58,13 @@ List<CardItem> items = const [
         title: Row(
           children: 
           [
-            const Text("Royal Plates"),
-            SizedBox(width: 120,),
+            const Text("Royal Plate",style: TextStyle(color: Colors.white),),
+            SizedBox(width: 100,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
               color: Colors.white,
-              size:40.0),
+              size:30.0),
               onPressed: (){
                 setState(() {
                   Navigator.of(context).push(
@@ -90,7 +90,7 @@ List<CardItem> items = const [
 
               const SizedBox(height: 10,),  
               Row(children: const [
-                  Text("   Current Location",
+                  Text(" Current Location",
               style: TextStyle(fontSize: 15,color:Colors.blueGrey),),
 
               SizedBox(width: 170,),
@@ -104,7 +104,7 @@ List<CardItem> items = const [
               Row(
                 children: const [
 
-                  SizedBox(width: 10,),
+                  SizedBox(width: 5,),
 
                   Icon(Icons.location_on),
 
@@ -112,7 +112,7 @@ List<CardItem> items = const [
 
                   Text("Mumbai"),
 
-                  SizedBox(width: 177,),
+                  SizedBox(width: 166,),
 
                   Text("How it Works?"),
                   
@@ -155,7 +155,7 @@ List<CardItem> items = const [
       ),
 
                            Expanded(
-                          child: AspectRatio(aspectRatio: 5/3.1,
+                          child: AspectRatio(aspectRatio: 5/2.8,
                           child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset("images/Food_home.jpeg"), ),)),
@@ -215,6 +215,7 @@ List<CardItem> items = const [
                               suffixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(),
                               errorBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder()
                             ),
               ),
             ),
@@ -225,7 +226,7 @@ List<CardItem> items = const [
                 duration: const Duration(seconds: 3),
                 child: Row(
                   children: [
-                    const SizedBox(width: 15,),
+                    
 
                     Container(
                       width: 160,
@@ -376,7 +377,7 @@ List<CardItem> items = const [
 
               const SizedBox(height: 24,),
 
-              const Text(" Starters                                          More Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blue),),
+              const Text(" Starters                                 More Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blue),),
 
               SizedBox(height: 20,),
 
@@ -428,7 +429,7 @@ List<CardItem> items = const [
                           Text("    -> Served By WaitStaff",style: TextStyle(fontSize: 18),),
                           SizedBox(height: 7,),
                           Text("    -> Best For Weddings, Events....",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 14,),
+                          SizedBox(height: 2,),
                           Text("                          Know More",style: TextStyle(fontSize: 16,color: Colors.blue),)
                         ],
                       ),
@@ -461,7 +462,7 @@ List<CardItem> items = const [
                           Text("     -> Elegant Decorations",style: TextStyle(fontSize: 18),),
                           SizedBox(height: 7,),
                           Text("     -> Best For Weddings, Events....",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 12,),
+                          SizedBox(height: 4,),
                           Text("                          Know More",style: TextStyle(fontSize: 16,color: Colors.blue),)
                         ],
                       ),
@@ -479,14 +480,14 @@ List<CardItem> items = const [
               // How does it Work
               SizedBox
               (
-              height: 770,
+              height: 840,
               child: Column(
               children: 
               [
                 // Row 1 of the Entire Column
                 Row(children: [
                   Image.asset("images/menu.png",height: 105,),
-                  const SizedBox(width: 40,),
+                  const SizedBox(width: 16,),
                   Column
                   (
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -498,7 +499,7 @@ List<CardItem> items = const [
                   ],
                   )
                 ],),
-                const SizedBox(height: 16,),
+                const SizedBox(height: 22,),
 
                 // Row 2 of the column
                 Row(children: [
@@ -515,15 +516,15 @@ List<CardItem> items = const [
                     Text("",style: TextStyle(fontSize: 16),),
                   ],
                   ),
-                  const SizedBox(width: 33,),
+                  const SizedBox(width: 25,),
                   Image.asset("images/service.jpeg",height: 105,)
                 ],),
                 const SizedBox(height: 18,),
 
                 // Row 3 of the Column
                 Row(children: [
-                  Image.asset("images/pricing.jpeg",height: 104,),
-                  const SizedBox(width: 10,),
+                  Image.asset("images/pricing.jpeg",height: 80,),
+                  
                   Column
                   (
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -554,24 +555,24 @@ List<CardItem> items = const [
                     Text("",style: TextStyle(fontSize: 16),),
                   ],
                   ),
-                  const SizedBox(width: 34,),
+                  const SizedBox(width: 28,),
                   Image.asset("images/trace.jpeg",height: 105,)
                 ],),
                 const SizedBox(height: 22,),
 
                 // Row 5 of column
                 Row(children: [
-                  Image.asset("images/taste.jpeg",height: 105,),
-                  const SizedBox(width: 38,),
+                  Image.asset("images/taste.jpeg",height: 100,),
+                  const SizedBox(width: 6,),
                   Column
                   (
                     crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text("Taste Your Samples",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    Text(" Taste Your Samples",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
                     SizedBox(height: 5,),
-                    Text("Explode Your Taste bud with",style: TextStyle(fontSize: 16),),
-                    Text("samples of what you order(on",style: TextStyle(fontSize: 16),),
-                    Text("request for eligible orders).",style: TextStyle(fontSize: 16),),
+                    Text(" Explode Your Taste bud with",style: TextStyle(fontSize: 16),),
+                    Text(" samples of what you order(on",style: TextStyle(fontSize: 16),),
+                    Text(" request for eligible orders).",style: TextStyle(fontSize: 16),),
                     Text("",style: TextStyle(fontSize: 16),),
                   ],
                   )
@@ -591,7 +592,7 @@ List<CardItem> items = const [
                     Text("and customized food",style: TextStyle(fontSize: 16),),
                   ],
                   ),
-                  const SizedBox(width: 22,),
+                  const SizedBox(width: 11,),
                   Image.asset("images/enjoy.jpeg",height: 105,)
                 ],),
                 const SizedBox(height: 18,),

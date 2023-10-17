@@ -79,8 +79,21 @@ class _OnBoarding4State extends State<OnBoarding4>
                             ),
               ),
             ),
+
+            const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: TextField(
+                decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.password_rounded),
+                              hintText: "Confirm Password*",
+                              suffixIcon: Icon(Icons.visibility),
+                              border: OutlineInputBorder(),
+                              errorBorder: OutlineInputBorder(),
+                            ),
+              ),
+            ),
       
-            const SizedBox(height: 250),
+            const SizedBox(height: 130),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
@@ -97,7 +110,7 @@ class _OnBoarding4State extends State<OnBoarding4>
                         const HomeScreen() ));
                 },
                 child:const Text("Let's Start",
-                style: TextStyle(fontSize: 17),) ),
+                style: TextStyle(fontSize: 17,color: Colors.white),) ),
               ),
             ),
             

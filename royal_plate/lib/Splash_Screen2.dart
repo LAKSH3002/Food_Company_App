@@ -58,6 +58,8 @@ class _SplashScreen2State extends State<SplashScreen2> {
           ],
         ),
       ),
+
+      // Next Screen Details.
       nextScreen: const Walkthrough(),
       splashTransition: SplashTransition.fadeTransition,),
     );

@@ -68,11 +68,11 @@ class _OnBoarding15State extends State<OnBoarding15> {
                         const OnBoarding4() ));
                 },
                 child:const Text("Continue",
-                style: TextStyle(fontSize: 17),) ),
+                style: TextStyle(fontSize: 17,color: Colors.white),) ),
               ),
             ),
       
-            const SizedBox(height: 240),
+            const SizedBox(height: 180),
       
             const Center(child: Text("By Continuing, You Agree to Our")),
       
@@ -80,7 +80,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
       
              Row(
                children: [
-                 Center(child: CupertinoButton(child: const Text("            Terms Of Service",style: TextStyle(fontSize: 18),), 
+                 Center(child: CupertinoButton(child: const Text("       Terms Of Service",style: TextStyle(fontSize: 18),), 
                     onPressed:(){
                        
                     } )),

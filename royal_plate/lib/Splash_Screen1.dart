@@ -17,6 +17,7 @@ class _SplashScreen1State extends State<SplashScreen1>
 {
 
   @override
+  // What is the use Of InitState?
   void initState() {
     
     super.initState();
@@ -36,13 +37,16 @@ class _SplashScreen1State extends State<SplashScreen1>
         height: double.infinity,
         width: double.infinity,
         color: Colors.deepPurple,
+        // Animated Splash Screen
         child: AnimatedSplashScreen(
         backgroundColor: Colors.deepPurple,
+        // splash - is the animation.
         splash: const Text("WELCOME TO",style: TextStyle(
         fontSize: 25,
         color: Colors.greenAccent,
         letterSpacing: 4,
-        fontWeight: FontWeight.bold),), 
+        fontWeight: FontWeight.bold),),
+        // The Navigation to the next Screen and then Transition to reach there. 
         nextScreen: const SplashScreen2(),
         splashTransition: SplashTransition.fadeTransition),
       ),

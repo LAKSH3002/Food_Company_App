@@ -13,6 +13,7 @@ class Walkthrough extends StatefulWidget {
 
 class _WalkthroughState extends State<Walkthrough> 
 {
+  // Page Controller helps in controlling the pages of the app.
   final PageController _pageController = PageController(
     initialPage: 0
   );
@@ -20,6 +21,7 @@ class _WalkthroughState extends State<Walkthrough>
   // The index of the current page
   int _activepage = 0;
 
+  // list of widgets.
   final List<Widget> _pages = [
     const PageOne(),
     const PageTwo(),
@@ -29,6 +31,8 @@ class _WalkthroughState extends State<Walkthrough>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // Explanation.
       body: Stack(
         children: [
           PageView.builder(
@@ -70,11 +74,11 @@ class _PageOneState extends State<PageOne> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          const SizedBox(height: 60),
+          const SizedBox(height: 40),
 
           Row(
             children: [
-              const SizedBox(width: 320),
+              const SizedBox(width: 280),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -92,7 +96,7 @@ class _PageOneState extends State<PageOne> {
             ],
           ),
 
-          const SizedBox(height: 80),
+          const SizedBox(height: 40),
 
           Image.asset("images/dinner_set.jpeg"),
 
@@ -108,7 +112,7 @@ class _PageOneState extends State<PageOne> {
 
           const Center(
             child: Text(
-              "  Create Unforgettable memories with our",
+              "  Create Unforgettable memories with our  ",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -119,7 +123,7 @@ class _PageOneState extends State<PageOne> {
 
            const Center(
             child: Text(
-              "   unique feature to curate your favourite",
+              "   unique feature to curate your favourite  ",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -130,7 +134,7 @@ class _PageOneState extends State<PageOne> {
 
            const Center(
             child: Text(
-              "   Cusines and food, tailored to your special",
+              "   Cusines and food, tailored to your",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -141,7 +145,7 @@ class _PageOneState extends State<PageOne> {
 
           const Center(
             child: Text(
-              "   Occassion.",
+              "  Special Occassion.",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -160,24 +164,24 @@ class _PageOneState extends State<PageOne> {
             ],
           ),
 
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
 
           Row(
             children: [
               const SizedBox(width: 110),
 
               Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 137, 16, 156),
-                  borderRadius: BorderRadius.circular(10)
+                  borderRadius: BorderRadius.circular(15)
                 ),
                 ),
 
                 const SizedBox(width: 10),
                 Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[100],
@@ -187,7 +191,7 @@ class _PageOneState extends State<PageOne> {
                 
                 const SizedBox(width: 10),
                 Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[100],
@@ -208,7 +212,8 @@ class PageTwo extends StatefulWidget {
   State<PageTwo> createState() => _PageTwoState();
 }
 
-class _PageTwoState extends State<PageTwo> {
+class _PageTwoState extends State<PageTwo> 
+{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -216,11 +221,11 @@ class _PageTwoState extends State<PageTwo> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          const SizedBox(height: 60),
+          const SizedBox(height: 40),
 
           Row(
             children: [
-              const SizedBox(width: 320),
+              const SizedBox(width: 280),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -240,7 +245,7 @@ class _PageTwoState extends State<PageTwo> {
 
           const SizedBox(height: 80),
 
-          Image.asset("images/Thoughts.png"),
+          Image.asset("images/Thoughts.png",height: 185,),
 
           const SizedBox(height: 20),
 
@@ -254,7 +259,7 @@ class _PageTwoState extends State<PageTwo> {
 
           const Center(
             child: Text(
-              "  Experience Culinary artistry like never",
+              "Experience Culinary artistry like never",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -265,7 +270,7 @@ class _PageTwoState extends State<PageTwo> {
 
            const Center(
             child: Text(
-              "   before with our innovative and exquisite",
+              "before with our innovative and exquisite",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -276,7 +281,7 @@ class _PageTwoState extends State<PageTwo> {
 
            const Center(
             child: Text(
-              "   Cuisine creations.",
+              "Cuisine creations.",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -285,11 +290,11 @@ class _PageTwoState extends State<PageTwo> {
               ),
           ),
 
-           const SizedBox(height: 88),
+           const SizedBox(height: 80),
 
           Row(
             children: [
-              const SizedBox(width: 110),
+              const SizedBox(width: 90),
 
               Container(
                 width: 55,
@@ -345,11 +350,11 @@ class _PageThreeState extends State<PageThree> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          const SizedBox(height: 60),
+          const SizedBox(height: 40),
 
           Row(
             children: [
-              const SizedBox(width: 320),
+              const SizedBox(width: 280),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -367,11 +372,11 @@ class _PageThreeState extends State<PageThree> {
             ],
           ),
 
-          const SizedBox(height: 140),
+          const SizedBox(height: 80),
 
           Image.asset("images/Calling.jpeg"),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
 
           const Text("Personal Order Executive",
           style: TextStyle(
@@ -383,7 +388,7 @@ class _PageThreeState extends State<PageThree> {
 
           const Center(
             child: Text(
-              "  Embark on a personalized culinary journey",
+              "Embark on a personalized culinary ",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -394,7 +399,7 @@ class _PageThreeState extends State<PageThree> {
 
            const Center(
             child: Text(
-              "   with our dedicated one-to-one customer",
+              "with our dedicated one-to-one customer",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -450,7 +455,7 @@ class _PageThreeState extends State<PageThree> {
 
           Row(
             children: [
-              const SizedBox(width: 110),
+              const SizedBox(width: 90),
 
               Container(
                 width: 55,
@@ -483,11 +488,11 @@ class _PageThreeState extends State<PageThree> {
             ],
           ),
 
-          const SizedBox(height: 75,),
+          const SizedBox(height: 55,),
 
           Row(
             children: [
-              const SizedBox(width: 330,),
+              const SizedBox(width: 280,),
 
               Container(
                 child: FloatingActionButton(
