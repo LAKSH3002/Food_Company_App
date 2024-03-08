@@ -28,7 +28,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnimatedSplashScreen(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.purple,
       splash: Center(
         child: Column(
           children: [
@@ -44,12 +44,13 @@ class _SplashScreen2State extends State<SplashScreen2> {
               ),
         
               Container(
-             child: const Text(
+              height: 15,
+              child: const Text(
              "You customise, We Cater",
               style: TextStyle(
               letterSpacing: 1,
               color: Colors.greenAccent,
-              fontSize: 14,
+              fontSize: 12,
               fontWeight:FontWeight.w400,
               fontStyle: FontStyle.italic
           ),
@@ -62,10 +63,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       // Next Screen Details.
       nextScreen: const Walkthrough(),
       splashTransition: SplashTransition.fadeTransition,),
-    );
-        
-              
-        
+    );     
           //     Container(
           //     child: const Center(
           //     child: Text("Craft My Plate",

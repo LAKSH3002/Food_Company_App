@@ -1,32 +1,24 @@
-import 'package:royal_plate/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:royal_plate/Issue.dart';
 
-class OnBoarding4 extends StatefulWidget {
-  const OnBoarding4({super.key});
+
+class Page1 extends StatefulWidget {
+  const Page1({super.key});
 
   @override
-  State<OnBoarding4> createState() => _OnBoarding4State();
+  State<Page1> createState() => _Page1State();
 }
 
-class _OnBoarding4State extends State<OnBoarding4> 
-{
-  bool password = false;
-  @override
-  void initState()
-  {
-    super.initState();
-    password = true;
-  }
-
+class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar
       (
         backgroundColor: Colors.deepPurple,
-        elevation: 20,
+        elevation: 5,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -36,7 +28,7 @@ class _OnBoarding4State extends State<OnBoarding4>
             const SizedBox(height:40),
       
             const Text(
-              "    Just a step away",
+              "   BOOK PAGE!",
               style: TextStyle(
                 fontSize: 20,
               ),),
@@ -47,8 +39,8 @@ class _OnBoarding4State extends State<OnBoarding4>
               padding: EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.person),
-                              hintText: "Full name*",
+                              prefixIcon: Icon(Icons.book),
+                              hintText: "Book Name",
                               border: OutlineInputBorder(),
                               errorBorder: OutlineInputBorder(),
                             ),
@@ -59,8 +51,8 @@ class _OnBoarding4State extends State<OnBoarding4>
               padding: EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.email),
-                              hintText: "Email id*",
+                              prefixIcon: Icon(Icons.published_with_changes_rounded),
+                              hintText: "Publisher Name*",
                               border: OutlineInputBorder(),
                               errorBorder: OutlineInputBorder(),
                             ),
@@ -71,34 +63,20 @@ class _OnBoarding4State extends State<OnBoarding4>
               padding: EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Create Password*",
-                              suffixIcon: Icon(Icons.visibility),
-                              border: OutlineInputBorder(),
-                              errorBorder: OutlineInputBorder(),
-                            ),
-              ),
-            ),
-
-            const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Confirm Password*",
-                              suffixIcon: Icon(Icons.visibility),
+                              prefixIcon: Icon(Icons.add_a_photo),
+                              hintText: "Branch",
                               border: OutlineInputBorder(),
                               errorBorder: OutlineInputBorder(),
                             ),
               ),
             ),
       
-            const SizedBox(height: 130),
+          const SizedBox(height: 130),
       
            Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(14.0),
               child: SizedBox(
-                width: 380,
+                width: 180,
                 height: 45,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -107,9 +85,9 @@ class _OnBoarding4State extends State<OnBoarding4>
                 onPressed: (){
                   Navigator.of(context).push(MaterialPageRoute
                         (builder: (BuildContext context) =>
-                        const HomeScreen() ));
+                        const Page2() ));
                 },
-                child:const Text("Let's Start",
+                child:const Text("NEXT PAGE",
                 style: TextStyle(fontSize: 17,color: Colors.white),) ),
               ),
             ),

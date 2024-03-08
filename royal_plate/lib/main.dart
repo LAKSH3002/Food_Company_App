@@ -3,6 +3,9 @@ import 'package:royal_plate/HomeScreen.dart';
 import 'package:royal_plate/Outlets.dart';
 import 'package:royal_plate/Splash_Screen1.dart';
 import 'package:flutter/material.dart';
+import 'package:royal_plate/Book.dart';
+
+import 'Splash_Screen2.dart';
 
 void main() 
 {
