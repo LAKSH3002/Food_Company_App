@@ -1,0 +1,35 @@
+Features in App
+
+Pages  
+Start page, Sign up page, home page, Chatbot page, Fav Food Page, Accounts page, Order Page.
+
+// Contact Page
+Things done
+- UI part done
+
+Things left
+- Significant changes in UI required.
+- SMS provider required.
+- paintwork to be done if possible
+
+
+// Sign up Page
+Things done
+- Email Validation done
+- Password visibility and visibility_off done
+
+Things left
+- Database Connectivity
+- Routing of page on basis of validations.
+
+
+// Home Page
+Things done
+- 70 percent UI done
+- Drawer done
+- Bottom Navigation bar done
+
+Things left
+- Each page for order of food
+- 
+

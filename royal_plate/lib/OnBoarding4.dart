@@ -2,6 +2,7 @@ import 'package:royal_plate/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:email_validator/email_validator.dart';
 
 class OnBoarding4 extends StatefulWidget {
   const OnBoarding4({super.key});
@@ -12,13 +13,16 @@ class OnBoarding4 extends StatefulWidget {
 
 class _OnBoarding4State extends State<OnBoarding4> 
 {
-  bool password = false;
+  bool passwordVisible = false;
+  TextEditingController inputcontroller = TextEditingController();
   @override
-  void initState()
-  {
-    super.initState();
-    password = true;
+
+  // Function to validate email id.
+  void Validate(String email) {
+    bool isvalid = EmailValidator.validate(email);
+    print(isvalid);
   }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +59,11 @@ class _OnBoarding4State extends State<OnBoarding4>
               ),
             ),
       
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
+                controller: inputcontroller,
+                keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.email),
                               hintText: "Email id*",
@@ -67,33 +73,61 @@ class _OnBoarding4State extends State<OnBoarding4>
               ),
             ),
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
+                obscureText: passwordVisible,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
                               hintText: "Create Password*",
-                              suffixIcon: Icon(Icons.visibility),
                               border: OutlineInputBorder(),
                               errorBorder: OutlineInputBorder(),
+                              helperText:"Password must contain special character",
+                    suffixIcon: IconButton(
+                    icon: Icon(passwordVisible
+                         ? Icons.visibility_off
+                         : Icons.visibility),
+                     onPressed: () {
+                       setState(
+                         () {
+                           passwordVisible = !passwordVisible;
+                         },
+                       );
+                     },
+                   ),
                             ),
+                 keyboardType: TextInputType.visiblePassword,
+                 textInputAction: TextInputAction.done
               ),
             ),
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
+                obscureText: passwordVisible,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
                               hintText: "Confirm Password*",
-                              suffixIcon: Icon(Icons.visibility),
+                              helperText: 'Confirm password must match Create Password',
                               border: OutlineInputBorder(),
                               errorBorder: OutlineInputBorder(),
+                              suffixIcon: IconButton(
+                    icon: Icon(passwordVisible
+                         ? Icons.visibility_off
+                         : Icons.visibility),
+                     onPressed: () {
+                       setState(
+                         () {
+                           passwordVisible = !passwordVisible;
+                         },
+                       );
+                     },
+                   ),
                             ),
               ),
             ),
       
-            const SizedBox(height: 130),
+            const SizedBox(height: 100),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
@@ -105,11 +139,12 @@ class _OnBoarding4State extends State<OnBoarding4>
                     backgroundColor: Colors.deepPurple,
                   ),
                 onPressed: (){
+                  Validate(inputcontroller.text);
                   Navigator.of(context).push(MaterialPageRoute
                         (builder: (BuildContext context) =>
                         const HomeScreen() ));
                 },
-                child:const Text("Let's Start",
+                child:const Text("Let's Proceed",
                 style: TextStyle(fontSize: 17,color: Colors.white),) ),
               ),
             ),
