@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'Color.dart';
+
 class OnBoarding15 extends StatefulWidget {
   const OnBoarding15({super.key});
 
@@ -17,82 +19,99 @@ class _OnBoarding15State extends State<OnBoarding15> {
     return Scaffold(
 
       body: 
-      SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-      
+      Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [
+            hexStringToColor("CB2B93"),
+            hexStringToColor("9546C4"),
+            hexStringToColor("5E61F4")
+          ],begin: Alignment.topCenter, end: Alignment.bottomCenter),
           
-            Container(
-              height: 270,
-              width: 400,
-              color: Colors.deepPurple,
-              child: const Center(child: Text("ROYAL PLATE",
-              style: TextStyle(fontSize: 25,color: Colors.greenAccent),)),
-            ),
-      
-            const SizedBox(height: 20),
-      
-            const Text(
-              "    Login or Signup",
-              style: TextStyle(
-                fontSize: 20,
-              ),),
-      
-              const SizedBox(height: 10),
-      
-            const Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.call),
-                              hintText: "Enter Phone Number",
-                              border: OutlineInputBorder(),
-                              errorBorder: OutlineInputBorder(),
-                            ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+        
+            
+              Container(
+                height: 340,
+                width: 400,
+                // color: Colors.deepPurple,
+                child: const Center(child: Text("ROYAL PLATE",
+                style: TextStyle(fontSize: 35,color: Colors.greenAccent,
+                fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),)),
               ),
-            ),
-      
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 380,
-                height: 45,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                  ),
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute
-                        (builder: (BuildContext context) =>
-                        const OnBoarding4() ));
-                },
-                child:const Text("Continue",
-                style: TextStyle(fontSize: 17,color: Colors.white),) ),
+        
+              const SizedBox(height: 20),
+        
+              const Text(
+                "    Login or Signup",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white
+                ),),
+        
+                const SizedBox(height: 10),
+        
+              Padding(
+                padding: EdgeInsets.all(12.0),
+                child: TextField(
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                                prefixIconColor: Colors.yellow,
+                                prefixIcon: Icon(Icons.call),
+                                hintText: "Enter Phone Number",hintStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ),
+                                errorBorder: OutlineInputBorder(),
+                              ),
+                ),
               ),
-            ),
-      
-            const SizedBox(height: 180),
-      
-            const Center(child: Text("By Continuing, You Agree to Our")),
-      
-            // const SizedBox(height: 4),
-      
-             Row(
-               children: [
-                 Center(child: CupertinoButton(child: const Text("       Terms Of Service",style: TextStyle(fontSize: 18),), 
-                    onPressed:(){
-                       
-                    } )),
-      
-                  CupertinoButton(child: const Text("Privacy Policy",style: TextStyle(fontSize: 18),), 
-                    onPressed:(){
-                       
-                    } ),
-               ],
-             ),
-      
-          ],
+        
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 380,
+                  height: 45,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepPurple,
+                    ),
+                  onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute
+                          (builder: (BuildContext context) =>
+                          const OnBoarding4() ));
+                  },
+                  child:const Text("Continue",
+                  style: TextStyle(fontSize: 17,color: Colors.white),) ),
+                ),
+              ),
+        
+              const SizedBox(height: 160),
+        
+              const Center(child: Text("By Continuing, You Agree to Our",
+              style: TextStyle(color: Colors.black87, fontSize: 16),),),
+        
+              // const SizedBox(height: 4),
+        
+               Row(
+                 children: [
+                   Center(child: CupertinoButton(child: const Text("           Terms Of Service",style: TextStyle(fontSize: 18,color: Colors.white),), 
+                      onPressed:(){
+                         
+                      } )),
+        
+                    CupertinoButton(child: const Text("Privacy Policy",style: TextStyle(fontSize: 18, color: Colors.white),), 
+                      onPressed:(){
+                         
+                      } ),
+                 ],
+               ),
+        
+            ],
+          ),
         ),
       ),
 
