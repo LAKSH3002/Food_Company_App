@@ -20,14 +20,6 @@ class _OnBoarding15State extends State<OnBoarding15> {
 
       body: 
       Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            hexStringToColor("CB2B93"),
-            hexStringToColor("9546C4"),
-            hexStringToColor("5E61F4")
-          ],begin: Alignment.topCenter, end: Alignment.bottomCenter),
-          
-        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,9 +27,9 @@ class _OnBoarding15State extends State<OnBoarding15> {
         
             
               Container(
-                height: 340,
+                height: 310,
                 width: 400,
-                // color: Colors.deepPurple,
+                color: Colors.deepPurple,
                 child: const Center(child: Text("ROYAL PLATE",
                 style: TextStyle(fontSize: 35,color: Colors.greenAccent,
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),)),
@@ -49,7 +41,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                 "    Login or Signup",
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.white
+                
                 ),),
         
                 const SizedBox(height: 10),
@@ -59,9 +51,9 @@ class _OnBoarding15State extends State<OnBoarding15> {
                 child: TextField(
                   cursorColor: Colors.white,
                   decoration: InputDecoration(
-                                prefixIconColor: Colors.yellow,
+                                
                                 prefixIcon: Icon(Icons.call),
-                                hintText: "Enter Phone Number",hintStyle: TextStyle(color: Colors.white),
+                                hintText: "Enter Phone Number",hintStyle: TextStyle(),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                 ),
@@ -89,21 +81,21 @@ class _OnBoarding15State extends State<OnBoarding15> {
                 ),
               ),
         
-              const SizedBox(height: 160),
+              const SizedBox(height: 175),
         
               const Center(child: Text("By Continuing, You Agree to Our",
-              style: TextStyle(color: Colors.black87, fontSize: 16),),),
+              style: TextStyle(color: Colors.black87, fontSize: 15),),),
         
               // const SizedBox(height: 4),
         
                Row(
                  children: [
-                   Center(child: CupertinoButton(child: const Text("           Terms Of Service",style: TextStyle(fontSize: 18,color: Colors.white),), 
+                   Center(child: CupertinoButton(child: const Text("            Terms Of Service",style: TextStyle(fontSize: 18),), 
                       onPressed:(){
                          
                       } )),
         
-                    CupertinoButton(child: const Text("Privacy Policy",style: TextStyle(fontSize: 18, color: Colors.white),), 
+                    CupertinoButton(child: const Text("Privacy Policy",style: TextStyle(fontSize: 18),), 
                       onPressed:(){
                          
                       } ),

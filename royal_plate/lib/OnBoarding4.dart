@@ -30,7 +30,7 @@ class _OnBoarding4State extends State<OnBoarding4>
       appBar: AppBar
       (
         backgroundColor: Colors.deepPurple,
-        elevation: 20,
+        elevation: 10,
       ),
       body: SingleChildScrollView(
         child: Column(

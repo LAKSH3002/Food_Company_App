@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'Color.dart';
+
 class SplashScreen1 extends StatefulWidget {
   const SplashScreen1({super.key});
 
@@ -38,16 +40,16 @@ class _SplashScreen1State extends State<SplashScreen1>
         width: double.infinity,
         color: Colors.deepPurple,
         // Animated Splash Screen
-        child: AnimatedSplashScreen(
+        child: AnimatedSplashScreen(   
         backgroundColor: Colors.deepPurple,
         // splash - is the animation.
-        splash: const Text("WELCOME TO",style: TextStyle(
-        fontSize: 25,
+        splash: const Text("WELCOME",style: TextStyle(
+        fontSize: 35,
         color: Colors.greenAccent,
         letterSpacing: 4,
-        fontWeight: FontWeight.bold),),
+        fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
         // The Navigation to the next Screen and then Transition to reach there. 
-        nextScreen: const SplashScreen2(),
+        nextScreen: const SplashScreen1(),
         splashTransition: SplashTransition.fadeTransition),
       ),
 

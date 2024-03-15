@@ -27,43 +27,34 @@ class _SplashScreen2State extends State<SplashScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedSplashScreen(
-      backgroundColor: Colors.purple,
-      splash: Center(
-        child: Column(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: Colors.deepPurple,
+        // Animated Splash Screen
+        child: AnimatedSplashScreen(   
+        backgroundColor: Colors.deepPurple,
+        // splash - is the animation.
+        splash: Column(
           children: [
-              Container(
-              child: const Center(
-              child: Text("Royal Plate",
-              style: TextStyle(
-              color: Colors.greenAccent,
-              letterSpacing: 2,
-              fontSize: 40,
-              fontWeight:FontWeight.w500,
-              fontStyle: FontStyle.italic ),)),
-              ),
-        
-              Container(
-              height: 15,
-              child: const Text(
-             "You customise, We Cater",
-              style: TextStyle(
-              letterSpacing: 1,
-              color: Colors.greenAccent,
-              fontSize: 12,
-              fontWeight:FontWeight.w400,
-              fontStyle: FontStyle.italic
-          ),
-              )
-              )
+            const Text("ROYAL PLATE",style: TextStyle(
+            fontSize: 40,
+            color: Colors.greenAccent,
+            letterSpacing: 4,
+            fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
+
+            const Text("you Customize, we cater!",style: TextStyle(
+            fontSize: 14,
+            color: Colors.greenAccent,
+            letterSpacing: 3,
+            fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
           ],
         ),
-      ),
-
-      // Next Screen Details.
-      nextScreen: const Walkthrough(),
-      splashTransition: SplashTransition.fadeTransition,),
-    );     
+        // The Navigation to the next Screen and then Transition to reach there. 
+        nextScreen: const Walkthrough(),
+        splashTransition: SplashTransition.fadeTransition),
+      )
+    );    
           //     Container(
           //     child: const Center(
           //     child: Text("Craft My Plate",
@@ -85,7 +76,6 @@ class _SplashScreen2State extends State<SplashScreen2> {
           //     fontStyle: FontStyle.italic
           // ),
           //     )
-          //     )
-            
+          //     )        
 }
 }
