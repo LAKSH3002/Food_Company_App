@@ -41,7 +41,8 @@ class _OnBoarding15State extends State<OnBoarding15> {
                 "    Login or Signup",
                 style: TextStyle(
                   fontSize: 20,
-                
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w500
                 ),),
         
                 const SizedBox(height: 10),
@@ -70,6 +71,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
+                      onPrimary: Colors.yellowAccent
                     ),
                   onPressed: (){
                     Navigator.of(context).push(MaterialPageRoute
@@ -77,14 +79,14 @@ class _OnBoarding15State extends State<OnBoarding15> {
                           const OnBoarding4() ));
                   },
                   child:const Text("Continue",
-                  style: TextStyle(fontSize: 17,color: Colors.white),) ),
+                  style: TextStyle(fontSize: 17),) ),
                 ),
               ),
         
               const SizedBox(height: 175),
         
               const Center(child: Text("By Continuing, You Agree to Our",
-              style: TextStyle(color: Colors.black87, fontSize: 15),),),
+              style: TextStyle(color: Colors.black87, fontSize: 17,fontWeight: FontWeight.bold),),),
         
               // const SizedBox(height: 4),
         
@@ -95,7 +97,8 @@ class _OnBoarding15State extends State<OnBoarding15> {
                          
                       } )),
         
-                    CupertinoButton(child: const Text("Privacy Policy",style: TextStyle(fontSize: 18),), 
+                    CupertinoButton(child: const Text("Privacy Policy",
+                    style: TextStyle(fontSize: 18),), 
                       onPressed:(){
                          
                       } ),

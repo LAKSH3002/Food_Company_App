@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen2(),
+      home: SplashScreen1(),
     );
   }
 }

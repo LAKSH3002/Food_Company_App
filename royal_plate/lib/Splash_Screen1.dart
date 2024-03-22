@@ -49,7 +49,7 @@ class _SplashScreen1State extends State<SplashScreen1>
         letterSpacing: 4,
         fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
         // The Navigation to the next Screen and then Transition to reach there. 
-        nextScreen: const SplashScreen1(),
+        nextScreen: const SplashScreen2(),
         splashTransition: SplashTransition.fadeTransition),
       ),
 

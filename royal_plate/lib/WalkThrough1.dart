@@ -74,11 +74,11 @@ class _PageOneState extends State<PageOne> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          const SizedBox(height: 40),
+          const SizedBox(height: 70),
 
           Row(
             children: [
-              const SizedBox(width: 280),
+              const SizedBox(width: 320),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -98,13 +98,13 @@ class _PageOneState extends State<PageOne> {
 
           const SizedBox(height: 40),
 
-          Image.asset("images/dinner_set.jpeg"),
+          Image.asset("images/dinner_set.jpeg",height: 220,),
 
           const SizedBox(height: 40),
 
-          const Text("Create Your Own Plate",
+          const Text("Create Your Own Cart",
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 35,
             fontWeight: FontWeight.w500
           ),),
 
@@ -114,7 +114,7 @@ class _PageOneState extends State<PageOne> {
             child: Text(
               "  Create Unforgettable memories with our  ",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 4,
               ),
@@ -125,7 +125,7 @@ class _PageOneState extends State<PageOne> {
             child: Text(
               "   unique feature to curate your favourite  ",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 3,
               ),
@@ -136,7 +136,7 @@ class _PageOneState extends State<PageOne> {
             child: Text(
               "   Cusines and food, tailored to your",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 4,
               ),
@@ -147,7 +147,7 @@ class _PageOneState extends State<PageOne> {
             child: Text(
               "  Special Occassion.",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 4,
               ),
@@ -168,7 +168,7 @@ class _PageOneState extends State<PageOne> {
 
           Row(
             children: [
-              const SizedBox(width: 110),
+              const SizedBox(width: 130),
 
               Container(
                 width: 45,
@@ -221,11 +221,11 @@ class _PageTwoState extends State<PageTwo>
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          const SizedBox(height: 40),
+          const SizedBox(height: 70),
 
           Row(
             children: [
-              const SizedBox(width: 280),
+              const SizedBox(width: 320),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -245,13 +245,13 @@ class _PageTwoState extends State<PageTwo>
 
           const SizedBox(height: 80),
 
-          Image.asset("images/Thoughts.png",height: 185,),
+          Image.asset("images/Thoughts.png",height: 205,),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
 
           const Text("Exquisite Catering",
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 35,
             fontWeight: FontWeight.w500
           ),),
 
@@ -261,7 +261,7 @@ class _PageTwoState extends State<PageTwo>
             child: Text(
               "Experience Culinary artistry like never",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 4,
               ),
@@ -272,7 +272,7 @@ class _PageTwoState extends State<PageTwo>
             child: Text(
               "before with our innovative and exquisite",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 3,
               ),
@@ -283,7 +283,7 @@ class _PageTwoState extends State<PageTwo>
             child: Text(
               "Cuisine creations.",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.w300,
                 wordSpacing: 4,
               ),
@@ -294,10 +294,10 @@ class _PageTwoState extends State<PageTwo>
 
           Row(
             children: [
-              const SizedBox(width: 90),
+              const SizedBox(width: 130),
 
               Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[100],
@@ -307,7 +307,7 @@ class _PageTwoState extends State<PageTwo>
 
                 const SizedBox(width: 10),
                 Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 137, 16, 156),
@@ -317,7 +317,7 @@ class _PageTwoState extends State<PageTwo>
                 
                 const SizedBox(width: 10),
                 Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[100],
@@ -350,11 +350,11 @@ class _PageThreeState extends State<PageThree> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
-          const SizedBox(height: 40),
+          const SizedBox(height: 70),
 
           Row(
             children: [
-              const SizedBox(width: 280),
+              const SizedBox(width: 320),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -372,15 +372,15 @@ class _PageThreeState extends State<PageThree> {
             ],
           ),
 
-          const SizedBox(height: 80),
+          const SizedBox(height: 120),
 
-          Image.asset("images/Calling.jpeg"),
+          Image.asset("images/Calling.jpeg",),
 
-          const SizedBox(height: 40),
+          const SizedBox(height: 16),
 
           const Text("Personal Order Executive",
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 33,
             fontWeight: FontWeight.w500
           ),),
 
@@ -410,7 +410,7 @@ class _PageThreeState extends State<PageThree> {
 
            const Center(
             child: Text(
-              "   support, ensuring a seamless and ",
+              "   support, ensuring a seamless",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -421,18 +421,7 @@ class _PageThreeState extends State<PageThree> {
 
           const Center(
             child: Text(
-              "   satisying experience every step of the ",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w300,
-                wordSpacing: 4,
-              ),
-              ),
-          ),
-
-           const Center(
-            child: Text(
-              "   way.",
+              "   experience every step of the way ",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
@@ -443,22 +432,14 @@ class _PageThreeState extends State<PageThree> {
 
           const SizedBox(height: 15),
 
-          Row(
-            children: const [
-             Center(
-
-             )
-            ],
-          ),
-
-          const SizedBox(height: 10),
+          const SizedBox(height: 40),
 
           Row(
             children: [
-              const SizedBox(width: 90),
+              const SizedBox(width: 130),
 
               Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[100],
@@ -468,7 +449,7 @@ class _PageThreeState extends State<PageThree> {
 
                 const SizedBox(width: 10),
                 Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color: Colors.lightBlue[100],
@@ -478,7 +459,7 @@ class _PageThreeState extends State<PageThree> {
                 
                 const SizedBox(width: 10),
                 Container(
-                width: 55,
+                width: 45,
                 height: 15,
                 decoration: BoxDecoration(
                   color:Color.fromARGB(255, 137, 16, 156),
@@ -488,11 +469,11 @@ class _PageThreeState extends State<PageThree> {
             ],
           ),
 
-          const SizedBox(height: 55,),
+          const SizedBox(height: 58,),
 
           Row(
             children: [
-              const SizedBox(width: 280,),
+              const SizedBox(width: 328,),
 
               Container(
                 child: FloatingActionButton(

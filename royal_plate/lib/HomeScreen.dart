@@ -59,8 +59,8 @@ List<CardItem> items = const [
         title: Row(
           children: 
           [
-            const Text("Royal Plate",style: TextStyle(color: Colors.greenAccent),),
-            SizedBox(width: 100,),
+            const Text("Royal Plate",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+            SizedBox(width: 130,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -87,14 +87,16 @@ List<CardItem> items = const [
               const SizedBox(height: 10,),
 
               const Text(" Hi, Laksh!",
-              style: TextStyle(fontSize: 40,color:Colors.deepPurple),) ,
+              style: TextStyle(fontSize: 40,color:Colors.deepPurple,
+              fontFamily: AutofillHints.addressCity,
+              fontWeight: FontWeight.w400),) ,
 
               const SizedBox(height: 10,),  
               Row(children: const [
                   Text(" Current Location",
               style: TextStyle(fontSize: 15,color:Colors.blueGrey),),
 
-              SizedBox(width: 160,),
+              SizedBox(width: 190,),
 
               Icon(Icons.play_circle_sharp),
               ],),
@@ -113,7 +115,7 @@ List<CardItem> items = const [
 
                   Text("Mumbai"),
 
-                  SizedBox(width: 160,),
+                  SizedBox(width: 190,),
 
                   Text("How it Works?"),
                   
@@ -124,25 +126,26 @@ List<CardItem> items = const [
 
               // List View 1
               Container(
-              height: 146 ,
+                // color: Colors.red,
+              height: 136 ,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  // container -1
+
+                // container -1
                 Container(
                 decoration: BoxDecoration
                 (
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(5.0),
                   color: Colors.black,
                 ),
-                 width: 340,
-                // height: 100,
+                 width: 362,
                  child: Row(
               children: [
-             Column(
+              Column(
             children: const [
 
-           SizedBox(height: 20,),
+           SizedBox(height: 30,),
 
            Text(" Enjoy Your First     ",
            style: TextStyle(fontSize: 16,color:Colors.white),),
@@ -153,13 +156,13 @@ List<CardItem> items = const [
            Text(" our delicious food!",
            style: TextStyle(fontSize: 16,color: Colors.white),),
         ],
-      ),
+       ),
 
                            Expanded(
-                          child: AspectRatio(aspectRatio: 5/2.8,
+                          child: AspectRatio(aspectRatio: 5/4.3,
                           child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("images/Food_home.jpeg"), ),)),
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset("images/Food_home.jpeg",), ),)),
                           ],
   ),),
 
@@ -167,38 +170,36 @@ List<CardItem> items = const [
                   
                   // container-2
                   Container(
-                  decoration: BoxDecoration
+                decoration: BoxDecoration
                 (
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(5.0),
                   color: Colors.black,
                 ),
-                  width: 340,
-                  height: 100,
-                  // color: Colors.black,
-                  child: Row(
-                  children: [
-                   Column(
-                   children: const [
+                 width: 362,
+                 child: Row(
+              children: [
+              Column(
+            children: const [
 
-                 SizedBox(height: 20,),
+           SizedBox(height: 30,),
 
-                 Text("  Try out Our Best     ",
+           Text(" Enjoy Your First     ",
            style: TextStyle(fontSize: 16,color:Colors.white),),
 
-                 Text("   Meals, Their tase will   ",
+           Text("  order, the taste of   ",
            style: TextStyle(fontSize: 16,color: Colors.white),),
 
-                 Text("Amaze You!!   ",
+           Text(" our delicious food!",
            style: TextStyle(fontSize: 16,color: Colors.white),),
         ],
-      ),
+       ),
 
-                          Expanded(
-                          child: AspectRatio(aspectRatio: 2/3,
+                           Expanded(
+                          child: AspectRatio(aspectRatio: 5/4.3,
                           child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("images/Pizza.jpeg"), ),)),
-    ],
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset("images/Food_home.jpeg",), ),)),
+                          ],
   ),),
                   SizedBox(width: 5,),
                 ],
@@ -212,11 +213,11 @@ List<CardItem> items = const [
               ),
               child: TextField(
               decoration: InputDecoration(
-                              hintText: "Search Food or Events",hintStyle: TextStyle(color: Colors.blue),
+                              hintText: " Search Food or Events",hintStyle: TextStyle(color: Colors.blue),
                               suffixIcon: Icon(Icons.search),
-                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
                               errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
-                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
+                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
                             ),
               ),
             ),
@@ -228,7 +229,7 @@ List<CardItem> items = const [
                 child: Row(
                   children: [
                     Container(
-                      width: 160,
+                      width: 180,
                       height: 140,
                       decoration: BoxDecoration(
                         color:  Color.fromARGB(255, 243, 242, 242),
@@ -323,7 +324,8 @@ List<CardItem> items = const [
                           ),
 
                           const SizedBox(height: 10,),
-                          const Text("    Starts at 777 Rs Only"),  
+                          const Text("    Starts at 777 Rs Only",
+                          style: TextStyle(fontWeight: FontWeight.bold),),  
 
                         ],
                       ),
@@ -332,7 +334,7 @@ List<CardItem> items = const [
                     const SizedBox(width: 10,),
                     // Container - 2
                     Container(
-                      width: 190,
+                      width: 210,
                       height: 280,
                       decoration: BoxDecoration(color: Colors.greenAccent,borderRadius: BorderRadius.circular(12.0)),
                       child: Column(
@@ -368,7 +370,8 @@ List<CardItem> items = const [
                           ),
 
                           const SizedBox(height: 10,),
-                          const Text("    Starts at 927 Rs Only"), 
+                          const Text("    Starts at 927 Rs Only",
+                          style: TextStyle(fontWeight: FontWeight.bold),), 
                         ],
                       ),
                     )
@@ -378,7 +381,7 @@ List<CardItem> items = const [
 
               const SizedBox(height: 24,),
 
-              const Text(" Starters                                 More Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blue),),
+              const Text(" Starters                                      More Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blue),),
 
               SizedBox(height: 20,),
 
@@ -391,86 +394,6 @@ List<CardItem> items = const [
               itemCount: 3)),
 
               const SizedBox(height: 30,),
-
-              const Text("  Services",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-
-              const SizedBox(height: 10,),
-
-              // List View 3.
-              // Services
-              Container(
-                height: 330,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    const SizedBox(width: 5,),
-
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 243, 242, 242),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      width: 300,
-                      height: 380,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  [
-                          const SizedBox(height: 10,),
-                          Row(
-                            children: [
-                              const SizedBox(width: 15,),
-                              Image.asset("images/candies.jpeg",height: 150),
-                            ],
-                          ),
-                          const SizedBox(height: 10,),
-                          Text("   Signature - 1",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.purple),),
-                          SizedBox(height: 8,),
-                          Text("    -> High Quality Disposable Cutlery",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 7,),
-                          Text("    -> Served By WaitStaff",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 7,),
-                          Text("    -> Best For Weddings, Events....",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 2,),
-                          Text("                          Know More",style: TextStyle(fontSize: 16,color: Colors.blue),)
-                        ],
-                      ),
-                    ),
-
-                    const SizedBox(width: 12,),
-
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 243, 242, 242),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      width: 300,
-                      height: 250,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  [
-                          const SizedBox(height: 10,),
-                          Row(
-                            children: [
-                              const SizedBox(width: 15,),
-                              Image.asset("images/candies.jpeg",height: 150),
-                            ],
-                          ),
-                          const SizedBox(height: 10,),
-                          Text("   Signature - 2",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.purple),),
-                          SizedBox(height: 8,),
-                          Text("     -> Disposable Cutlery",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 7,),
-                          Text("     -> Elegant Decorations",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 7,),
-                          Text("     -> Best For Weddings, Events....",style: TextStyle(fontSize: 18),),
-                          SizedBox(height: 4,),
-                          Text("                          Know More",style: TextStyle(fontSize: 16,color: Colors.blue),)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
 
               const SizedBox(height: 25,),
 
@@ -628,10 +551,7 @@ List<CardItem> items = const [
             ),
             accountEmail: Text("lakshd1999@gmail.com",style: TextStyle(fontSize: 22),),
             currentAccountPictureSize: Size.square(40),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.black,
-              child: Text("L",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.tealAccent),),
-            ),),
+            ),
             // child:Text('Select your Shows',style: TextStyle(color:Colors.greenAccent,fontSize: 22,),),
               ),
 

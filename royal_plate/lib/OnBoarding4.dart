@@ -30,7 +30,7 @@ class _OnBoarding4State extends State<OnBoarding4>
       appBar: AppBar
       (
         backgroundColor: Colors.deepPurple,
-        elevation: 10,
+        elevation: 5,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -43,17 +43,20 @@ class _OnBoarding4State extends State<OnBoarding4>
               "    Just a step away",
               style: TextStyle(
                 fontSize: 20,
+                fontWeight: FontWeight.bold
               ),),
       
-              SizedBox(height: 30),
+              SizedBox(height: 20),
       
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.person),
-                              hintText: "Full name*",
-                              border: OutlineInputBorder(),
+                              hintText: "Enter Your Full name*",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(25.0)
+                              ),
                               errorBorder: OutlineInputBorder(),
                             ),
               ),
@@ -66,8 +69,10 @@ class _OnBoarding4State extends State<OnBoarding4>
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.email),
-                              hintText: "Email id*",
-                              border: OutlineInputBorder(),
+                              hintText: "Enter Your Email id*",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(25.0)
+                              ),
                               errorBorder: OutlineInputBorder(),
                             ),
               ),
@@ -79,8 +84,10 @@ class _OnBoarding4State extends State<OnBoarding4>
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Create Password*",
-                              border: OutlineInputBorder(),
+                              hintText: "Create Your Own Password*",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(25.0)
+                              ),
                               errorBorder: OutlineInputBorder(),
                               helperText:"Password must contain special character",
                     suffixIcon: IconButton(
@@ -109,7 +116,9 @@ class _OnBoarding4State extends State<OnBoarding4>
                               prefixIcon: Icon(Icons.password_rounded),
                               hintText: "Confirm Password*",
                               helperText: 'Confirm password must match Create Password',
-                              border: OutlineInputBorder(),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(25.0)
+                              ),
                               errorBorder: OutlineInputBorder(),
                               suffixIcon: IconButton(
                     icon: Icon(passwordVisible
@@ -137,6 +146,7 @@ class _OnBoarding4State extends State<OnBoarding4>
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurple,
+                    onPrimary: Colors.yellowAccent
                   ),
                 onPressed: (){
                   Validate(inputcontroller.text);
@@ -144,8 +154,8 @@ class _OnBoarding4State extends State<OnBoarding4>
                         (builder: (BuildContext context) =>
                         const HomeScreen() ));
                 },
-                child:const Text("Let's Proceed",
-                style: TextStyle(fontSize: 17,color: Colors.white),) ),
+                child:const Text("Proceed",
+                style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
               ),
             ),
             
