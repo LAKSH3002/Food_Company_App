@@ -31,7 +31,7 @@ class _AccountScreenState extends State<AccountScreen> {
             child: Row(
               children: [
                 Icon(Icons.arrow_back,
-                color: Colors.white,),
+                color: Colors.yellow),
               ],
             ),
             onPressed: (){
@@ -68,10 +68,6 @@ class _AccountScreenState extends State<AccountScreen> {
                 ],
               ),
             ),),
-
-            ListView(
-
-            )
           ],
         ),
       ),

@@ -1,0 +1,128 @@
+// This is a code for catering company thing.
+
+Text("  How Does It Work?",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+
+              const SizedBox(height: 25,),
+
+              // How does it Work
+              SizedBox
+              (
+              height: 840,
+              child: Column(
+              children: 
+              [
+                // Row 1 of the Entire Column
+                Row(children: [
+                  Image.asset("images/menu.png",height: 105,),
+                  const SizedBox(width: 16,),
+                  Column
+                  (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text("Customize Menu",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 5,),
+                    Text("Select Items for a single Event",style: TextStyle(fontSize: 16),),
+                    Text("Or Multiple Events",style: TextStyle(fontSize: 16),),
+                  ],
+                  )
+                ],),
+                const SizedBox(height: 22,),
+
+                // Row 2 of the column
+                Row(children: [
+                  const SizedBox(width: 10,),
+                  Column
+                  (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text("Choose Services",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 5,),
+                    Text("Select the type of Services",style: TextStyle(fontSize: 16),),
+                    Text("from varying cutlery,mode of",style: TextStyle(fontSize: 16),),
+                    Text("Serving options & more",style: TextStyle(fontSize: 16),),
+                    Text("",style: TextStyle(fontSize: 16),),
+                  ],
+                  ),
+                  const SizedBox(width: 25,),
+                  Image.asset("images/service.jpeg",height: 105,)
+                ],),
+                const SizedBox(height: 18,),
+
+                // Row 3 of the Column
+                Row(children: [
+                  Image.asset("images/pricing.jpeg",height: 80,),
+                  
+                  Column
+                  (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text("Dynamic Pricing",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 5,),
+                    Text("Price per plate varies with no ",style: TextStyle(fontSize: 16),),
+                    Text("of Items in a plate and no of ",style: TextStyle(fontSize: 16),),
+                    Text("plates selected",style: TextStyle(fontSize: 16),),
+                    Text("",style: TextStyle(fontSize: 16),),
+                  ],
+                  )
+                ],),
+                const SizedBox(height: 18,),
+
+                 // Row 4 of column 
+                 Row(children: [
+                  const SizedBox(width: 10,),
+                  Column
+                  (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text("Track Your Order",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 5,),
+                    Text("Track the Order Status and",style: TextStyle(fontSize: 16),),
+                    Text("seek help from the best",style: TextStyle(fontSize: 16),),
+                    Text("executives anytime",style: TextStyle(fontSize: 16),),
+                    Text("",style: TextStyle(fontSize: 16),),
+                  ],
+                  ),
+                  const SizedBox(width: 28,),
+                  Image.asset("images/trace.jpeg",height: 105,)
+                ],),
+                const SizedBox(height: 22,),
+
+                // Row 5 of column
+                Row(children: [
+                  Image.asset("images/taste.jpeg",height: 100,),
+                  const SizedBox(width: 6,),
+                  Column
+                  (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(" Taste Your Samples",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 5,),
+                    Text(" Explode Your Taste bud with",style: TextStyle(fontSize: 16),),
+                    Text(" samples of what you order(on",style: TextStyle(fontSize: 16),),
+                    Text(" request for eligible orders).",style: TextStyle(fontSize: 16),),
+                    Text("",style: TextStyle(fontSize: 16),),
+                  ],
+                  )
+                ],),
+                const SizedBox(height: 12,),
+
+                // Row 6 of column
+                Row(children: [
+                  const SizedBox(width: 10,),
+                  Column
+                  (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text("Enjoy Food and Services",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 5,),
+                    Text("Enjoy Event with delicious",style: TextStyle(fontSize: 16),),
+                    Text("and customized food",style: TextStyle(fontSize: 16),),
+                  ],
+                  ),
+                  const SizedBox(width: 11,),
+                  Image.asset("images/enjoy.jpeg",height: 105,)
+                ],),
+                const SizedBox(height: 18,),
+
+                ],
+              ),),

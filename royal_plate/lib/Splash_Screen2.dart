@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:royal_plate/OnBoarding4.dart';
 import 'package:royal_plate/WalkThrough1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+
+import 'OnBoarding15.dart';
 
 class SplashScreen2 extends StatefulWidget {
   const SplashScreen2({super.key});
@@ -37,7 +40,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
         // splash - is the animation.
         splash: Column(
           children: [
-            const Text("ROYAL PLATE",style: TextStyle(
+            const Text("DANODALDSS....",style: TextStyle(
             fontSize: 40,
             color: Colors.greenAccent,
             letterSpacing: 4,
@@ -51,7 +54,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
           ],
         ),
         // The Navigation to the next Screen and then Transition to reach there. 
-        nextScreen: const Walkthrough(),
+        nextScreen: const OnBoarding15(),
         splashTransition: SplashTransition.fadeTransition),
       )
     );    

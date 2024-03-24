@@ -83,9 +83,16 @@ flutter:
     - images/enjoy.jpeg
     - images/candies.jpeg
     - images/pizza2.png
-    - images/gobi.jpeg
     - images/candies2.jpeg
     - images/entry.jpeg
+    - images/Pasta_image.jpeg
+    - images/gobi.jpeg
+    - images/veg_crispy.jpeg
+    - images/pizzas/cheesepizza.jpg
+    - images/pizzas/Peppypaneer.jpg
+    - images/pizzas/veg-farmhouse-pizza.jpg
+    - images/pizzas/VeggiParadise_B_260216.jpg
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

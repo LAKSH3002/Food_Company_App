@@ -30,7 +30,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                 height: 310,
                 width: 400,
                 color: Colors.deepPurple,
-                child: const Center(child: Text("ROYAL PLATE",
+                child: const Center(child: Text("DANODALDSS...",
                 style: TextStyle(fontSize: 35,color: Colors.greenAccent,
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),)),
               ),

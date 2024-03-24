@@ -30,7 +30,7 @@ class HomeScreen extends StatefulWidget
 
 class _HomeScreenState extends State<HomeScreen> 
 {
-List<CardItem> items = const [
+List<CardItem> items =  [
   CardItem(
     urlImage: "images/Paneer_chilli.jpeg",
     title: "Paneer chilli"
@@ -42,13 +42,20 @@ List<CardItem> items = const [
   ),
 
   CardItem(
-    urlImage: "images/Veggies_fry.jpeg",
-    title: "Veggies Fry"
+    urlImage: "images/gobi.jpeg",
+    title: "Gobi Manchurian" 
   ),
 
   CardItem(
-  urlImage: "images/gobi.jpeg",
-  title: "Gobi Manchurian")
+    urlImage: "images/veg_crispy.jpeg", 
+    title: "Veg Crispy"
+  ),
+
+  CardItem(
+    urlImage: "images/Veggies_fry.jpeg", 
+    title: "Veggies Fry"
+  ),
+
 ];
 
   @override
@@ -59,8 +66,8 @@ List<CardItem> items = const [
         title: Row(
           children: 
           [
-            const Text("Royal Plate",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 130,),
+            const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+            SizedBox(width: 113,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -93,34 +100,20 @@ List<CardItem> items = const [
 
               const SizedBox(height: 10,),  
               Row(children: const [
-                  Text(" Current Location",
+                  Text("   Your Current Location",
               style: TextStyle(fontSize: 15,color:Colors.blueGrey),),
 
-              SizedBox(width: 190,),
-
-              Icon(Icons.play_circle_sharp),
-              ],),
-              
-
-              const SizedBox(height: 8,),
-
-              Row(
-                children: const [
-
-                  SizedBox(width: 5,),
+                SizedBox(width: 120,),
 
                   Icon(Icons.location_on),
 
-                  SizedBox(width: 3,),
+                SizedBox(width: 3,),
 
                   Text("Mumbai"),
 
-                  SizedBox(width: 190,),
-
-                  Text("How it Works?"),
-                  
-                ],
-              ),
+              ],),
+              
+              const SizedBox(height: 8,),
 
               const SizedBox(height: 20,), 
 
@@ -183,13 +176,13 @@ List<CardItem> items = const [
 
            SizedBox(height: 30,),
 
-           Text(" Enjoy Your First     ",
+           Text("    Enjoy The Best      ",
            style: TextStyle(fontSize: 16,color:Colors.white),),
 
-           Text("  order, the taste of   ",
+           Text("    of italian Dishes   ",
            style: TextStyle(fontSize: 16,color: Colors.white),),
 
-           Text(" our delicious food!",
+           Text(" with Royal Plate",
            style: TextStyle(fontSize: 16,color: Colors.white),),
         ],
        ),
@@ -198,10 +191,44 @@ List<CardItem> items = const [
                           child: AspectRatio(aspectRatio: 5/4.3,
                           child: ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
-                          child: Image.asset("images/Food_home.jpeg",), ),)),
+                          child: Image.asset("images/Pasta_image.jpeg",), ),)),
                           ],
   ),),
                   SizedBox(width: 5,),
+
+                   // container-3
+                  Container(
+                decoration: BoxDecoration
+                (
+                  borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.black,
+                ),
+                 width: 362,
+                 child: Row(
+              children: [
+              Column(
+            children: const [
+
+           SizedBox(height: 30,),
+
+           Text("    Enjoy The Best      ",
+           style: TextStyle(fontSize: 16,color:Colors.white),),
+
+           Text("    of italian Dishes   ",
+           style: TextStyle(fontSize: 16,color: Colors.white),),
+
+           Text(" with Royal Plate",
+           style: TextStyle(fontSize: 16,color: Colors.white),),
+        ],
+       ),
+
+                           Expanded(
+                          child: AspectRatio(aspectRatio: 5/4.3,
+                          child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset("images/Pasta_image.jpeg",), ),)),
+                          ],
+  ),),
                 ],
               ),),
 
@@ -213,7 +240,7 @@ List<CardItem> items = const [
               ),
               child: TextField(
               decoration: InputDecoration(
-                              hintText: " Search Food or Events",hintStyle: TextStyle(color: Colors.blue),
+                              hintText: " Search Food of Your Choice",hintStyle: TextStyle(color: Colors.red),
                               suffixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
                               errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -228,24 +255,27 @@ List<CardItem> items = const [
                 duration: const Duration(seconds: 3),
                 child: Row(
                   children: [
+
+                    const SizedBox(width: 1,),
+
                     Container(
                       width: 180,
-                      height: 140,
+                      height: 145,
                       decoration: BoxDecoration(
-                        color:  Color.fromARGB(255, 243, 242, 242),
-                        borderRadius: BorderRadius.circular(20),
+                        color:  Color.fromARGB(255, 235, 222, 221),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
                         children: [
                         Expanded(
-                          child: AspectRatio(aspectRatio: 4/3.5,
+                          child: AspectRatio(aspectRatio: 10/3.5,
                           child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset("images/Indian_thali.jpeg"), ),)),
 
                         const SizedBox(height: 5,),
 
-                          const Text("Default platters",style: TextStyle(fontWeight: FontWeight.bold),),
+                          const Text("Default platters",style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 3, 14)),),
                         ],
                       ),
                       
@@ -253,281 +283,157 @@ List<CardItem> items = const [
                     const SizedBox(width: 15,),
 
                     Container(
-                      width: 160,
-                      height: 140,
+                      width: 180,
+                      height: 145,
                       decoration: BoxDecoration(
-                        color:  Color.fromARGB(255, 243, 242, 242),
-                        backgroundBlendMode: null,
-                        borderRadius: BorderRadius.circular(20),
+                        color:  Color.fromARGB(255, 235, 222, 221),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-
                       child: Column(
                         children: [
-                          Expanded(
-                          child: AspectRatio(aspectRatio: 4/3.5,
+                        Expanded(
+                          child: AspectRatio(aspectRatio: 10/3.5,
                           child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("images/hakka_noodles.jpeg"), ),)),
+                          child: Image.asset("images/Indian_thali.jpeg"), ),)),
 
-                        // const SizedBox(height: 2,),
+                        const SizedBox(height: 5,),
 
-                          const Text("Craft Your Own Plate",style: TextStyle(fontWeight: FontWeight.bold),),
+                          const Text("Paneer Chilli Starters",style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 3, 14)),),
                         ],
                       ),
-                    )
+                      
+                    ),
                   ],
                 )
               ),
 
-              const SizedBox(height: 30,),
-
-              Container(
-                height: 200,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    const SizedBox(width: 0,),
-                    // Container - 1
-                    Container(
-                      width: 190,
-                      height: 280,
-                      decoration: BoxDecoration(color: Colors.greenAccent,borderRadius: BorderRadius.circular(12.0)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 8,),
-                          const Text("     Default Menu 1",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-                          const SizedBox(height: 14,),
-
-                          Row(children: [
-                            const SizedBox(width: 10,),
-                            Image.asset("images/pizza2.png",height: 70,),
-                            const SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text('3 starters'),
-                                Text('3 Main Course'),
-                                Text('3 Desserts'),
-                                Text('3 Drinks'),
-                              ],
-                            )
-                          ],),
-                          const SizedBox(height: 15,),
-                          Row(
-                            children: [
-                              const SizedBox(width: 10,),
-                              Icon(Icons.person),
-                              const SizedBox(width: 7,),
-                              Text("Min 800"),
-                            ],
-                          ),
-
-                          const SizedBox(height: 10,),
-                          const Text("    Starts at 777 Rs Only",
-                          style: TextStyle(fontWeight: FontWeight.bold),),  
-
-                        ],
-                      ),
-                    ),
-
-                    const SizedBox(width: 10,),
-                    // Container - 2
-                    Container(
-                      width: 210,
-                      height: 280,
-                      decoration: BoxDecoration(color: Colors.greenAccent,borderRadius: BorderRadius.circular(12.0)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 8,),
-                          Text("     Default Menu 2",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
-                          const SizedBox(height: 14,),
-
-                          Row(children: [
-                            const SizedBox(width: 10,),
-                            Image.asset("images/pizza2.png",height: 80,),
-                            const SizedBox(width: 10,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text('3 starters'),
-                                Text('3 Main Course'),
-                                Text('3 Chinese'),
-                                Text('3 Mocktails'),
-                              ],
-                            )
-                          ],),
-
-                          const SizedBox(height: 15,),
-                          Row(
-                            children: [
-                              const SizedBox(width: 10,),
-                              Icon(Icons.person),
-                              const SizedBox(width: 7,),
-                              Text("Min 1000"),
-                            ],
-                          ),
-
-                          const SizedBox(height: 10,),
-                          const Text("    Starts at 927 Rs Only",
-                          style: TextStyle(fontWeight: FontWeight.bold),), 
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-
               const SizedBox(height: 24,),
 
-              const Text(" Starters                                      More Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blue),),
+              Row(
+                children: [
+                  const Text(" Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),),
+
+                  const SizedBox(width: 150,),
+
+                  Text('More Starters-->>',
+                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
+                ],
+              ),
 
               SizedBox(height: 20,),
 
               Container(
-              height: 150 ,
+              height: 160 ,
               child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context,index) =>Buildcard(item: items[index]),
               separatorBuilder: (context, _) => SizedBox(width: 10,),
-              itemCount: 3)),
-
-              const SizedBox(height: 30,),
+              itemCount: 5)),
 
               const SizedBox(height: 25,),
 
-              Text("  How Does It Work?",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              Text('  Pizza"s',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
 
-              const SizedBox(height: 25,),
+              // const SizedBox(width: 100,),
 
-              // How does it Work
-              SizedBox
-              (
-              height: 840,
-              child: Column(
-              children: 
-              [
-                // Row 1 of the Entire Column
-                Row(children: [
-                  Image.asset("images/menu.png",height: 105,),
-                  const SizedBox(width: 16,),
-                  Column
-                  (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Customize Menu",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
-                    Text("Select Items for a single Event",style: TextStyle(fontSize: 16),),
-                    Text("Or Multiple Events",style: TextStyle(fontSize: 16),),
-                  ],
-                  )
-                ],),
-                const SizedBox(height: 22,),
+                  // Text('More Pizza"s-->>',
+                  // style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),),
 
-                // Row 2 of the column
-                Row(children: [
-                  const SizedBox(width: 10,),
-                  Column
-                  (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Choose Services",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
-                    Text("Select the type of Services",style: TextStyle(fontSize: 16),),
-                    Text("from varying cutlery,mode of",style: TextStyle(fontSize: 16),),
-                    Text("Serving options & more",style: TextStyle(fontSize: 16),),
-                    Text("",style: TextStyle(fontSize: 16),),
-                  ],
+             Container(
+              color: Color.fromARGB(255, 229, 232, 234),
+              height: 160,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  // Container 1
+                  Container(
+                    child: CupertinoButton(onPressed: (){}, 
+                    child: Column(
+                      children: [
+
+                        Text('Margherita                  ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
+
+                        Expanded(
+                      child: AspectRatio(
+                        aspectRatio: 18/12,
+                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                        child: Image.asset('images/pizzas/cheesepizza.jpg',
+                        fit:BoxFit.cover),),
+                        ),
+                        
+                    ),
+                      ],
+                    )),
+                  ), const SizedBox(width: 10,),
+
+                  // Container 2
+                   Container(
+                    child: 
+                    CupertinoButton(onPressed: (){}, 
+                    child: Column(
+                      children: [
+
+                        Text('Farmhouse Pizza       ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+
+                         Expanded(
+                      child: AspectRatio(
+                        aspectRatio: 18/12,
+                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                        child: Image.asset('images/pizzas/veg-farmhouse-pizza.jpg',
+                        fit:BoxFit.cover),),
+                        ),
+                    ),
+                      ],
+                    )),
+                   
+                  ), const SizedBox(width: 10,),
+
+                  // Container 3
+                   Container(
+                    child: 
+                    CupertinoButton(onPressed: (){}, 
+                    child: Column(
+                      children: [
+                         Text('Veggie Paradise   ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+
+                         Expanded( 
+                      child: AspectRatio(
+                        aspectRatio: 18/12,
+                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                        child: Image.asset('images/pizzas/VeggiParadise_B_260216.jpg',
+                        fit:BoxFit.cover),),
+                        ),
+                    ),
+                      ],
+                    )),
+                    
                   ),
-                  const SizedBox(width: 25,),
-                  Image.asset("images/service.jpeg",height: 105,)
-                ],),
-                const SizedBox(height: 18,),
 
-                // Row 3 of the Column
-                Row(children: [
-                  Image.asset("images/pricing.jpeg",height: 80,),
+                   // Container 4
+                   Container(
+                    child: 
+                    CupertinoButton(onPressed: (){}, 
+                    child: Column(
+                      children: [
+                         Text('Peppy Paneer             ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+
+                         Expanded(
+                      child: AspectRatio(
+                        aspectRatio: 18/12,
+                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                        child: Image.asset('images/pizzas/Peppypaneer.jpg',
+                        fit:BoxFit.cover),),
+                        ),
+                    ),
+                      ],
+                    )),
+                   
+                  ), const SizedBox(width: 10,),
                   
-                  Column
-                  (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Dynamic Pricing",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
-                    Text("Price per plate varies with no ",style: TextStyle(fontSize: 16),),
-                    Text("of Items in a plate and no of ",style: TextStyle(fontSize: 16),),
-                    Text("plates selected",style: TextStyle(fontSize: 16),),
-                    Text("",style: TextStyle(fontSize: 16),),
-                  ],
-                  )
-                ],),
-                const SizedBox(height: 18,),
-
-                 // Row 4 of column 
-                 Row(children: [
-                  const SizedBox(width: 10,),
-                  Column
-                  (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Track Your Order",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
-                    Text("Track the Order Status and",style: TextStyle(fontSize: 16),),
-                    Text("seek help from the best",style: TextStyle(fontSize: 16),),
-                    Text("executives anytime",style: TextStyle(fontSize: 16),),
-                    Text("",style: TextStyle(fontSize: 16),),
-                  ],
-                  ),
-                  const SizedBox(width: 28,),
-                  Image.asset("images/trace.jpeg",height: 105,)
-                ],),
-                const SizedBox(height: 22,),
-
-                // Row 5 of column
-                Row(children: [
-                  Image.asset("images/taste.jpeg",height: 100,),
-                  const SizedBox(width: 6,),
-                  Column
-                  (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(" Taste Your Samples",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
-                    Text(" Explode Your Taste bud with",style: TextStyle(fontSize: 16),),
-                    Text(" samples of what you order(on",style: TextStyle(fontSize: 16),),
-                    Text(" request for eligible orders).",style: TextStyle(fontSize: 16),),
-                    Text("",style: TextStyle(fontSize: 16),),
-                  ],
-                  )
-                ],),
-                const SizedBox(height: 12,),
-
-                // Row 6 of column
-                Row(children: [
-                  const SizedBox(width: 10,),
-                  Column
-                  (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Enjoy Food and Services",style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 22,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 5,),
-                    Text("Enjoy Event with delicious",style: TextStyle(fontSize: 16),),
-                    Text("and customized food",style: TextStyle(fontSize: 16),),
-                  ],
-                  ),
-                  const SizedBox(width: 11,),
-                  Image.asset("images/enjoy.jpeg",height: 105,)
-                ],),
-                const SizedBox(height: 18,),
-
                 ],
-              ),),
-
-              Text("Delicious Food With Proffesional Service!",
-              style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
-
-              const SizedBox(height: 25,),
+              ),
+             )
 
         ]),
         ),
@@ -637,25 +543,6 @@ List<CardItem> items = const [
           ],
         ),
       ),
-     
-      // bottom navigation bar
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-          label: "Home",
-          icon: Icon(Icons.home,size: 20,),
-          ),
-          BottomNavigationBarItem(
-          label: "Wishlist",
-          icon: Icon(Icons.heart_broken,size: 20,),
-          ),
-          BottomNavigationBarItem(
-          label: "profile",
-          icon: Icon(Icons.account_circle,size: 20,),
-          ),
-          
-        ],
-        ),
     );
   } 
 }
@@ -668,7 +555,7 @@ Widget Buildcard(
                     decoration: BoxDecoration
                 (
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.green,
+                  color: Colors.red,
                 ),
                   width: 150,
                   child: Column(
@@ -680,12 +567,11 @@ Widget Buildcard(
                         child: Image.asset(item.urlImage,
                         fit:BoxFit.cover),),
                         ),
-                        
                     ),
-                    Text(
-                      item.title,
-                      style: TextStyle(color: Colors.white,fontSize: 20),
-                    ),
+                    // Text(
+                    //   item.title,
+                    //   style: TextStyle(color: Colors.white,fontSize: 16),
+                    // ),
                     ]
                   ),
 );
