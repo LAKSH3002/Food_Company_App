@@ -92,6 +92,11 @@ flutter:
     - images/pizzas/Peppypaneer.jpg
     - images/pizzas/veg-farmhouse-pizza.jpg
     - images/pizzas/VeggiParadise_B_260216.jpg
+    - images/sandwich/cct.jpeg
+    - images/sandwich/p_c_s.jpeg
+    - images/sandwich/Sandwich 1.jpeg
+    - images/sandwich/sandwich 2.jpeg
+    - images/sandwich/ps.jpeg
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

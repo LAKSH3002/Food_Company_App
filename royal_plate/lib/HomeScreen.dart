@@ -67,7 +67,7 @@ List<CardItem> items =  [
           children: 
           [
             const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 113,),
+            SizedBox(width: 110,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -179,10 +179,10 @@ List<CardItem> items =  [
            Text("    Enjoy The Best      ",
            style: TextStyle(fontSize: 16,color:Colors.white),),
 
-           Text("    of italian Dishes   ",
+           Text("   of italian Dishes   ",
            style: TextStyle(fontSize: 16,color: Colors.white),),
 
-           Text(" with Royal Plate",
+           Text("   with Danodaldss..  ",
            style: TextStyle(fontSize: 16,color: Colors.white),),
         ],
        ),
@@ -211,22 +211,22 @@ List<CardItem> items =  [
 
            SizedBox(height: 30,),
 
-           Text("    Enjoy The Best      ",
+           Text("Enjoy The Best of   ",
            style: TextStyle(fontSize: 16,color:Colors.white),),
 
-           Text("    of italian Dishes   ",
+           Text("  of chinese starters   ",
            style: TextStyle(fontSize: 16,color: Colors.white),),
 
-           Text(" with Royal Plate",
+           Text("with Danodaldss..   ",
            style: TextStyle(fontSize: 16,color: Colors.white),),
         ],
        ),
 
                            Expanded(
-                          child: AspectRatio(aspectRatio: 5/4.3,
+                          child: AspectRatio(aspectRatio: 6/4.3,
                           child: ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
-                          child: Image.asset("images/Pasta_image.jpeg",), ),)),
+                          child: Image.asset("images/idly_chilli.jpeg",), ),)),
                           ],
   ),),
                 ],
@@ -295,11 +295,11 @@ List<CardItem> items =  [
                           child: AspectRatio(aspectRatio: 10/3.5,
                           child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("images/Indian_thali.jpeg"), ),)),
+                          child: Image.asset("images/hakka_noodles.jpeg"), ),)),
 
                         const SizedBox(height: 5,),
 
-                          const Text("Paneer Chilli Starters",style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 3, 14)),),
+                          const Text("Hakka Noodles",style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 3, 14)),),
                         ],
                       ),
                       
@@ -321,120 +321,120 @@ List<CardItem> items =  [
                 ],
               ),
 
-              SizedBox(height: 20,),
-
               Container(
-              height: 160 ,
-              child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context,index) =>Buildcard(item: items[index]),
-              separatorBuilder: (context, _) => SizedBox(width: 10,),
-              itemCount: 5)),
-
-              const SizedBox(height: 25,),
-
-              Text('  Pizza"s',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
-
-              // const SizedBox(width: 100,),
-
-                  // Text('More Pizza"s-->>',
-                  // style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),),
-
-             Container(
-              color: Color.fromARGB(255, 229, 232, 234),
+              // color: Color.fromARGB(255, 229, 232, 234),
               height: 160,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  // Container 1
-                  Container(
-                    child: CupertinoButton(onPressed: (){}, 
-                    child: Column(
-                      children: [
-
-                        Text('Margherita                  ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
-
-                        Expanded(
-                      child: AspectRatio(
-                        aspectRatio: 18/12,
-                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('images/pizzas/cheesepizza.jpg',
-                        fit:BoxFit.cover),),
-                        ),
-                        
-                    ),
-                      ],
-                    )),
-                  ), const SizedBox(width: 10,),
-
-                  // Container 2
-                   Container(
-                    child: 
-                    CupertinoButton(onPressed: (){}, 
-                    child: Column(
-                      children: [
-
-                        Text('Farmhouse Pizza       ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-
-                         Expanded(
-                      child: AspectRatio(
-                        aspectRatio: 18/12,
-                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('images/pizzas/veg-farmhouse-pizza.jpg',
-                        fit:BoxFit.cover),),
-                        ),
-                    ),
-                      ],
-                    )),
-                   
-                  ), const SizedBox(width: 10,),
-
-                  // Container 3
-                   Container(
-                    child: 
-                    CupertinoButton(onPressed: (){}, 
-                    child: Column(
-                      children: [
-                         Text('Veggie Paradise   ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-
-                         Expanded( 
-                      child: AspectRatio(
-                        aspectRatio: 18/12,
-                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('images/pizzas/VeggiParadise_B_260216.jpg',
-                        fit:BoxFit.cover),),
-                        ),
-                    ),
-                      ],
-                    )),
-                    
-                  ),
-
-                   // Container 4
-                   Container(
-                    child: 
-                    CupertinoButton(onPressed: (){}, 
-                    child: Column(
-                      children: [
-                         Text('Peppy Paneer             ',style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-
-                         Expanded(
-                      child: AspectRatio(
-                        aspectRatio: 18/12,
-                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
-                        child: Image.asset('images/pizzas/Peppypaneer.jpg',
-                        fit:BoxFit.cover),),
-                        ),
-                    ),
-                      ],
-                    )),
-                   
-                  ), const SizedBox(width: 10,),
-                  
+                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Chilli                   '),
+                  BuildItem('images/idly_chilli.jpeg', 'Idli Chilly                       '),
+                  BuildItem('images/veg_crispy.jpeg', 'Veg Crispy                      '),
+                  BuildItem('images/Veggies_fry.jpeg', 'Veggies Fry                    '),
+                  BuildItem('images/veg_crispy.jpeg', 'Paneer Crispy               '),
                 ],
               ),
-             )
+             ),
 
+              const SizedBox(height: 25,),
+
+              Row(
+                children: [
+                  Text('  Pizza"s',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
+
+                  const SizedBox(width: 150,),
+
+                  Text('More Pizza"s--->>',
+                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
+                ],
+              ),
+
+
+             Container(
+              // color: Color.fromARGB(255, 229, 232, 234),
+              height: 160,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  BuildItem('images/pizzas/cheesepizza.jpg', 'Margherita                   '),
+                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Farmhouse Pizza      '),
+                  BuildItem('images/pizzas/VeggiParadise_B_260216.jpg', 'Veggie Paradise   '),
+                  BuildItem('images/pizzas/Peppypaneer.jpg', 'Peppy Paneer Pizza   '),
+                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Pasta Pizza                '),
+                ],
+              ),
+             ),
+
+             const SizedBox(height: 25,),
+
+              Row(
+                children: [
+                  Text('  Sandwich',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
+
+                  const SizedBox(width: 120,),
+
+                  Text('More Sandwiches->',
+                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
+                ],
+              ),
+
+             Container(
+              // color: Color.fromARGB(255, 229, 232, 234),
+              height: 160,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich               '),
+                  BuildItem('images/sandwich/sandwich 2.jpeg', 'Subway Special      '),
+                  BuildItem('images/sandwich/cct.jpeg', 'Cheese chilly toast   '),
+                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich   '),
+                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich'),
+                ],
+              ),
+             ),
+
+             const SizedBox(height: 10,),
+
+              Text('  Delivery Outlets Near You',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
+
+
+             Card(
+            margin: EdgeInsets.all(9),
+
+            elevation: 10,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:  [
+
+                Image.asset('images/entry.jpeg',
+                fit: BoxFit.fitWidth,
+                width: 380,
+                ),
+
+                const SizedBox(height: 10,),
+
+                 const Text('Byculla West, 1st Cross Lane ',style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),),
+
+                const SizedBox(height: 10,),
+
+                Row(
+                  children: [
+                    Text('  Rating'),
+                    const SizedBox(width: 90,),
+                    ElevatedButton(onPressed: (){
+
+                    }, child: Text('Order Now!!')),
+
+                  ],
+                ),
+                const SizedBox(height: 10,),
+              ],
+            ),
+          ),
         ]),
         ),
       ),
@@ -543,35 +543,50 @@ List<CardItem> items =  [
           ],
         ),
       ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home,color: Colors.blue,),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.reviews,color: Colors.blue),
+            label: 'Write Review',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.feedback,color:Colors.blue,),
+            label: 'Complain',
+          ),
+          
+        ],
+        // currentIndex: _selectedIndex,
+        // selectedItemColor: Colors.amber[800],
+        // onTap: _onItemTapped,
+      ),
     );
   } 
 }
-// ignore: non_constant_identifier_names
-Widget Buildcard(
-  {
-    required CardItem item,
-  }
-) => Container(
-                    decoration: BoxDecoration
-                (
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.red,
-                ),
-                  width: 150,
-                  child: Column(
-                    children: [
-                      Expanded(
+
+Widget BuildItem(image, title)
+{
+  return Container(
+    child: CupertinoButton(onPressed: (){}, 
+                    child: Column(
+                      children: [
+
+                        Text(title,style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
+
+                        Expanded(
                       child: AspectRatio(
-                        aspectRatio: 4/2,
-                        child: ClipRRect(borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(item.urlImage,
+                        aspectRatio: 18/12,
+                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
+                        child: Image.asset(image,
                         fit:BoxFit.cover),),
                         ),
+                        
                     ),
-                    // Text(
-                    //   item.title,
-                    //   style: TextStyle(color: Colors.white,fontSize: 16),
-                    // ),
-                    ]
-                  ),
-);
+                      ],
+                    )),
+                  );
+}
