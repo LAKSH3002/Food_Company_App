@@ -1,7 +1,6 @@
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/HomeScreen.dart';
 import 'package:royal_plate/OnBoarding4.dart';
-import 'package:royal_plate/Outlets.dart';
 import 'package:royal_plate/Splash_Screen1.dart';
 import 'package:flutter/material.dart';
 import 'package:royal_plate/Book.dart';

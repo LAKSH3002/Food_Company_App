@@ -97,6 +97,9 @@ flutter:
     - images/sandwich/Sandwich 1.jpeg
     - images/sandwich/sandwich 2.jpeg
     - images/sandwich/ps.jpeg
+    - images/outlets/outlet.jpeg
+    - images/outlets/outlet2.jpeg
+    - images/outlets/outlet3.jpeg
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

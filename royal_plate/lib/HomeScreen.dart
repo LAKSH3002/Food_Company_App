@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
+import 'package:royal_plate/Menu_page/Menu.dart';
 import 'package:royal_plate/OnBoarding15.dart';
 import 'package:royal_plate/OnBoarding4.dart';
-import 'package:royal_plate/Outlets.dart';
 import 'package:royal_plate/SetFav_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -240,7 +240,7 @@ List<CardItem> items =  [
               ),
               child: TextField(
               decoration: InputDecoration(
-                              hintText: " Search Food of Your Choice",hintStyle: TextStyle(color: Colors.red),
+                              hintText: " Search Food/Outlet of Your Choice",hintStyle: TextStyle(color: Colors.red),
                               suffixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(25.0)),
                               errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -249,77 +249,7 @@ List<CardItem> items =  [
               ),
             ),
 
-              const SizedBox(height: 25,),
-
-              AnimatedContainer(
-                duration: const Duration(seconds: 3),
-                child: Row(
-                  children: [
-
-                    const SizedBox(width: 1,),
-
-                    Container(
-                      width: 180,
-                      height: 145,
-                      decoration: BoxDecoration(
-                        color:  Color.fromARGB(255, 235, 222, 221),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                        Expanded(
-                          child: AspectRatio(aspectRatio: 10/3.5,
-                          child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("images/Indian_thali.jpeg"), ),)),
-
-                        const SizedBox(height: 5,),
-
-                          const Text("Default platters",style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 3, 14)),),
-                        ],
-                      ),
-                      
-                    ),
-                    const SizedBox(width: 15,),
-
-                    Container(
-                      width: 180,
-                      height: 145,
-                      decoration: BoxDecoration(
-                        color:  Color.fromARGB(255, 235, 222, 221),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                        Expanded(
-                          child: AspectRatio(aspectRatio: 10/3.5,
-                          child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset("images/hakka_noodles.jpeg"), ),)),
-
-                        const SizedBox(height: 5,),
-
-                          const Text("Hakka Noodles",style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 34, 3, 14)),),
-                        ],
-                      ),
-                      
-                    ),
-                  ],
-                )
-              ),
-
-              const SizedBox(height: 24,),
-
-              Row(
-                children: [
-                  const Text(" Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),),
-
-                  const SizedBox(width: 150,),
-
-                  Text('More Starters-->>',
-                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
-                ],
-              ),
+              const SizedBox(height: 10,),
 
               Container(
               // color: Color.fromARGB(255, 229, 232, 234),
@@ -327,114 +257,94 @@ List<CardItem> items =  [
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Chilli                   '),
-                  BuildItem('images/idly_chilli.jpeg', 'Idli Chilly                       '),
-                  BuildItem('images/veg_crispy.jpeg', 'Veg Crispy                      '),
-                  BuildItem('images/Veggies_fry.jpeg', 'Veggies Fry                    '),
-                  BuildItem('images/veg_crispy.jpeg', 'Paneer Crispy               '),
+                  BuildItem('images/Indian_thali.jpeg', 'Default Platter'),
+                  BuildItem('images/hakka_noodles.jpeg', 'hakka Noodles'),
+                  BuildItem('images/candies2.jpeg', 'Candies for kids'),
+                  BuildItem('images/Default_platter.jpeg', 'Indian Thali'),
                 ],
               ),
              ),
 
-              const SizedBox(height: 25,),
-
-              Row(
-                children: [
-                  Text('  Pizza"s',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
-
-                  const SizedBox(width: 150,),
-
-                  Text('More Pizza"s--->>',
-                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
-                ],
-              ),
-
-
-             Container(
-              // color: Color.fromARGB(255, 229, 232, 234),
-              height: 160,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  BuildItem('images/pizzas/cheesepizza.jpg', 'Margherita                   '),
-                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Farmhouse Pizza      '),
-                  BuildItem('images/pizzas/VeggiParadise_B_260216.jpg', 'Veggie Paradise   '),
-                  BuildItem('images/pizzas/Peppypaneer.jpg', 'Peppy Paneer Pizza   '),
-                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Pasta Pizza                '),
-                ],
-              ),
-             ),
-
-             const SizedBox(height: 25,),
-
-              Row(
-                children: [
-                  Text('  Sandwich',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
-
-                  const SizedBox(width: 120,),
-
-                  Text('More Sandwiches->',
-                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
-                ],
-              ),
-
-             Container(
-              // color: Color.fromARGB(255, 229, 232, 234),
-              height: 160,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich               '),
-                  BuildItem('images/sandwich/sandwich 2.jpeg', 'Subway Special      '),
-                  BuildItem('images/sandwich/cct.jpeg', 'Cheese chilly toast   '),
-                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich   '),
-                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich'),
-                ],
-              ),
-             ),
+              const SizedBox(height: 10,),
 
              const SizedBox(height: 10,),
 
               Text('  Delivery Outlets Near You',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
 
+             CupertinoButton(
+              onPressed: (){
+                setState(() {
+                  Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>
+                  const Menu_page(image: 'images/entry.jpeg',)));
+                });
+              },
+               child: BuildOutletCard(
+              'images/entry.jpeg', 
+              ' Byculla West, 1st Cross Lane', 
+               Icons.star, '4.2', '2.0 Km',
+               Icons.delivery_dining, 
+               '  10% discount', 'Order Now'),
+             ),
 
-             Card(
-            margin: EdgeInsets.all(9),
+             const SizedBox(height: 10,),
 
-            elevation: 10,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children:  [
+             CupertinoButton(
+              onPressed: (){
+                setState(() {
+                  Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>
+                  const Menu_page(image: 'images/outlets/outlet.jpeg',)));
+                });
+              },
+               child: BuildOutletCard(
+              'images/outlets/outlet.jpeg', 
+              ' Bombay Central, Reliance Mart', 
+               Icons.star, '3.8', '4.6 Km',
+               Icons.delivery_dining, 
+               '  12% discount', 'Order Now'),
+             ),
 
-                Image.asset('images/entry.jpeg',
-                fit: BoxFit.fitWidth,
-                width: 380,
-                ),
+             const SizedBox(height: 10,),
 
-                const SizedBox(height: 10,),
+             CupertinoButton(
+              onPressed: (){
+                setState(() {
+                  Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>
+                  const Menu_page(image:'images/outlets/outlet2.jpeg')));
+                });
+              },
+               child: BuildOutletCard(
+              'images/outlets/outlet2.jpeg', 
+              '  Breach Candy, Napency Road', 
+               Icons.star, '4.6', '7.6 Km',
+               Icons.delivery_dining, 
+               '  10% discount', 'Order Now'),
+             ),
 
-                 const Text('Byculla West, 1st Cross Lane ',style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),),
+             const SizedBox(height: 10,),
 
-                const SizedBox(height: 10,),
+             CupertinoButton(
+              onPressed: (){
+                setState(() {
+                  Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context)=>
+                  const Menu_page(image:'images/outlets/outlet3.jpeg')));
+                });
+              },
+               child: BuildOutletCard(
+              'images/outlets/outlet3.jpeg', 
+              '  Matunga Road, Kings Circle', 
+               Icons.star, '4.0', '8.0 Km',
+               Icons.delivery_dining, 
+               '  10% discount', 'Order Now'),
+             ),
 
-                Row(
-                  children: [
-                    Text('  Rating'),
-                    const SizedBox(width: 90,),
-                    ElevatedButton(onPressed: (){
+             const SizedBox(height: 20,),
 
-                    }, child: Text('Order Now!!')),
-
-                  ],
-                ),
-                const SizedBox(height: 10,),
-              ],
-            ),
-          ),
+             Text('GET DELICIOUS FOOD WITH OUR EXCELLENT SERVICE!!',
+             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
         ]),
         ),
       ),
@@ -469,18 +379,6 @@ List<CardItem> items =  [
                     Navigator.of(context).push(MaterialPageRoute
                   (builder: (BuildContext context) =>
                   const HomeScreen() 
-                  ));
-                  });
-                },
-              ),
-              ListTile(
-                title:Text('Our Outlets'),
-                leading: Icon(Icons.restaurant),
-                onTap: () {
-                  setState(() {
-                    Navigator.of(context).push(MaterialPageRoute
-                  (builder: (BuildContext context) =>
-                  const Outlets() 
                   ));
                   });
                 },
@@ -551,12 +449,12 @@ List<CardItem> items =  [
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.reviews,color: Colors.blue),
-            label: 'Write Review',
+            icon: Icon(Icons.shopping_cart,color: Colors.blue),
+            label: 'Your Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.feedback,color:Colors.blue,),
-            label: 'Complain',
+            icon: Icon(Icons.reviews,color:Colors.blue,),
+            label: 'Review/Complain',
           ),
           
         ],
@@ -574,9 +472,6 @@ Widget BuildItem(image, title)
     child: CupertinoButton(onPressed: (){}, 
                     child: Column(
                       children: [
-
-                        Text(title,style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
-
                         Expanded(
                       child: AspectRatio(
                         aspectRatio: 18/12,
@@ -586,7 +481,68 @@ Widget BuildItem(image, title)
                         ),
                         
                     ),
+                    const SizedBox(height: 10,),
+                    Center(child: Text(title,style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),)),
                       ],
                     )),
                   );
 }
+
+Widget BuildOutletCard(image, Head, icon1, rate, distance, icon2, discount, buttontext)
+{
+return Card(
+            margin: EdgeInsets.all(0),
+             
+                elevation: 15,
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:  [
+             
+                  Center(
+                    child: Image.asset(image,
+                    fit: BoxFit.fitWidth,
+                    width: 350,
+                    ),
+                  ),
+             
+                  const SizedBox(height: 10,),
+             
+                  Text(Head, 
+                  style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),),
+
+                  const SizedBox(height: 15,),
+                  
+                  Row(
+                    children: [
+                      SizedBox(width: 10,),
+                      Icon(icon1),
+                      SizedBox(width: 10,),
+                      Text(rate,style: TextStyle(fontSize: 18),),
+                      SizedBox(width: 80,),
+                      Text(distance,style: TextStyle(fontSize: 18),),
+                      SizedBox(width: 90,),
+                      Icon(icon2,size: 30,)
+                    ],
+                  ),
+
+                  SizedBox(height: 5,),
+
+                  Row(
+                    children: [
+                      Text(discount,
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                      SizedBox(width: 100,),
+                      ElevatedButton(
+                      onPressed: (){}, 
+                      child: Text(buttontext)),
+                    ],
+                  ),
+
+                  SizedBox(height: 5,),
+
+                ],
+                         ),
+                       );
+}
+
