@@ -492,7 +492,7 @@ Widget BuildOutletCard(image, Head, icon1, rate, distance, icon2, discount, butt
 {
 return Card(
             margin: EdgeInsets.all(0),
-             
+             // color: Color.fromARGB(255, 223, 218, 223),
                 elevation: 15,
                 child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -546,3 +546,9 @@ return Card(
                        );
 }
 
+// HomeScreen done
+// Accounts Page Done
+// Menu Page 80 percent done
+
+// chatbot page UI left.
+// SMS provider to be implemented.

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: SplashScreen1(),
     );
   }
 }

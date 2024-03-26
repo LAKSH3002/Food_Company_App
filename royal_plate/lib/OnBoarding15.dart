@@ -71,7 +71,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
-                      onPrimary: Colors.yellowAccent
+                      onPrimary: Colors.yellowAccent,
                     ),
                   onPressed: (){
                     Navigator.of(context).push(MaterialPageRoute

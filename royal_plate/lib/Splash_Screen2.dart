@@ -46,7 +46,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
             letterSpacing: 4,
             fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
 
-            const Text("you Customize, we cater!",style: TextStyle(
+            const Text("You Starve? Order Our Food",style: TextStyle(
             fontSize: 14,
             color: Colors.greenAccent,
             letterSpacing: 3,

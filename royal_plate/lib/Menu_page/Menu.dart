@@ -157,11 +157,11 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich               '),
-                  BuildItem('images/sandwich/sandwich 2.jpeg', 'Subway Special      '),
-                  BuildItem('images/sandwich/cct.jpeg', 'Cheese chilly toast   '),
-                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich   '),
-                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich'),
+                  BuildItem('images/hakka_noodles.jpeg', 'Hakka Noodles               '),
+                  BuildItem('images/Fried_rice.jpeg', 'Fried Rice      '),
+                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Manchurian   '),
+                  BuildItem('images/Noodles.jpg', 'Schezwan Noodles  '),
+                  BuildItem('images/sandwich/p_c_s.jpeg', 'Schezwan Sandwich'),
                 ],
               ),
              ),

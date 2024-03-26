@@ -37,7 +37,7 @@ class _OnBoarding4State extends State<OnBoarding4>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
       
-            const SizedBox(height:40),
+            const SizedBox(height:30),
       
             const Text(
               "    Just a step away",
@@ -136,7 +136,7 @@ class _OnBoarding4State extends State<OnBoarding4>
               ),
             ),
       
-            const SizedBox(height: 100),
+            const SizedBox(height: 110),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
