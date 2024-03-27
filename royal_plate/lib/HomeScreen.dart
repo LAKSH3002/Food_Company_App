@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
+import 'package:royal_plate/LoginScreen.dart';
 import 'package:royal_plate/Menu_page/Menu.dart';
 import 'package:royal_plate/OnBoarding15.dart';
 import 'package:royal_plate/OnBoarding4.dart';
@@ -67,7 +68,7 @@ List<CardItem> items =  [
           children: 
           [
             const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 110,),
+            SizedBox(width: 81,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -103,7 +104,7 @@ List<CardItem> items =  [
                   Text("   Your Current Location",
               style: TextStyle(fontSize: 15,color:Colors.blueGrey),),
 
-                SizedBox(width: 120,),
+                SizedBox(width: 100,),
 
                   Icon(Icons.location_on),
 
@@ -434,7 +435,7 @@ List<CardItem> items =  [
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => 
-                    const OnBoarding15()));
+                    const Login_Screen()));
                   });
                 },
               ),
@@ -521,7 +522,7 @@ return Card(
                       Text(rate,style: TextStyle(fontSize: 18),),
                       SizedBox(width: 80,),
                       Text(distance,style: TextStyle(fontSize: 18),),
-                      SizedBox(width: 90,),
+                      SizedBox(width: 70,),
                       Icon(icon2,size: 30,)
                     ],
                   ),
@@ -532,7 +533,7 @@ return Card(
                     children: [
                       Text(discount,
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                      SizedBox(width: 100,),
+                      SizedBox(width: 90,),
                       ElevatedButton(
                       onPressed: (){}, 
                       child: Text(buttontext)),

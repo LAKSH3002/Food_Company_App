@@ -24,7 +24,7 @@ class _Menu_pageState extends State<Menu_page> {
           children: 
           [
             const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 110,),
+            SizedBox(width: 80,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -59,7 +59,7 @@ class _Menu_pageState extends State<Menu_page> {
                 children: [
                   const Text(" Starters", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),),
 
-                  const SizedBox(width: 150,),
+                  const SizedBox(width: 125,),
 
                   Text('More Starters-->>',
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
@@ -87,7 +87,7 @@ class _Menu_pageState extends State<Menu_page> {
                 children: [
                   Text('  Pizza"s',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
 
-                  const SizedBox(width: 150,),
+                  const SizedBox(width: 125,),
 
                   Text('More Pizza"s--->>',
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
@@ -116,7 +116,7 @@ class _Menu_pageState extends State<Menu_page> {
                 children: [
                   Text('  Sandwich',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
 
-                  const SizedBox(width: 120,),
+                  const SizedBox(width: 95,),
 
                   Text('More Sandwiches->',
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
@@ -144,9 +144,9 @@ class _Menu_pageState extends State<Menu_page> {
                 children: [
                   Text('  Chinese',style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.red),),
 
-                  const SizedBox(width: 130,),
+                  const SizedBox(width: 120,),
 
-                  Text('More chinese--->>>',
+                  Text('More chinese-->>',
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
                 ],
               ),

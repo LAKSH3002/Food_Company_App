@@ -45,7 +45,7 @@ class _HomeState extends State<Home>
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('Royal Plate Chat Bot',style: TextStyle(color: Colors.white),),
+        title: Text('Danodaldss.. Chat Bot',style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
         backgroundColor: Colors.deepPurple,
       ),
 
@@ -57,16 +57,16 @@ class _HomeState extends State<Home>
 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 14,vertical: 8),
-              color: Color.fromARGB(255, 212, 210, 202),
+              color: Color.fromARGB(255, 188, 150, 12),
               child: Row(children: [
                 Expanded(
                 child: TextField(controller: _controller,
-                style: TextStyle(color: Colors.black,fontSize: 24),)),
+                style: TextStyle(color: Colors.white,fontSize: 24),)),
 
                 IconButton(onPressed: (){
                   sendMessages(_controller.text);
                   _controller.clear();
-                }, icon: Icon(Icons.send)),
+                }, icon: Icon(Icons.send,color: Colors.red,)),
               ]),
             )
           ],

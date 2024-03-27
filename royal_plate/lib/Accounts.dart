@@ -14,6 +14,7 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
@@ -21,7 +22,7 @@ class _AccountScreenState extends State<AccountScreen> {
           children: 
           [
             const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 110,),
+            SizedBox(width: 81,),
             
             CupertinoButton(
               child: Icon(Icons.home,
@@ -71,21 +72,21 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),),
       
-              Box(Icons.restaurant, 'Outlets', Icons.keyboard_arrow_right,250.0),
+              Box(Icons.restaurant, 'Outlets', Icons.keyboard_arrow_right,230.0),
               SizedBox(height: 1,),
-              Box(Icons.info, 'About Us', Icons.keyboard_arrow_right,235.0),
+              Box(Icons.info, 'About Us', Icons.keyboard_arrow_right,215.0),
               SizedBox(height: 1,),
-              Box(Icons.amp_stories, 'Stories', Icons.keyboard_arrow_right,247.0),
+              Box(Icons.amp_stories, 'Stories', Icons.keyboard_arrow_right,227.0),
               SizedBox(height: 1,),
-              Box(Icons.border_outer_outlined, 'Your Orders', Icons.keyboard_arrow_right,214.0),
+              Box(Icons.border_outer_outlined, 'Your Orders', Icons.keyboard_arrow_right,194.0),
               SizedBox(height: 1,),
-              Box(Icons.text_format_sharp, 'Terms and Conditions', Icons.keyboard_arrow_right,147.0),
+              Box(Icons.text_format_sharp, 'Terms and Conditions', Icons.keyboard_arrow_right,127.0),
               SizedBox(height: 1,),
-              Box(Icons.policy, 'Privacy Policy', Icons.keyboard_arrow_right,197.0),
+              Box(Icons.policy, 'Privacy Policy', Icons.keyboard_arrow_right,177.0),
               SizedBox(height: 1,),
-              Box(Icons.question_answer, 'FAQs', Icons.keyboard_arrow_right,250.0),
+              Box(Icons.question_answer, 'FAQs', Icons.keyboard_arrow_right,230.0),
               SizedBox(height: 1,),
-              Box(Icons.help_center, 'Help & Support', Icons.keyboard_arrow_right,185.0),
+              Box(Icons.help_center, 'Help & Support', Icons.keyboard_arrow_right,165.0),
               
             ],
           ),

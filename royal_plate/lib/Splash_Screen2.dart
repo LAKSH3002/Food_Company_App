@@ -41,13 +41,13 @@ class _SplashScreen2State extends State<SplashScreen2> {
         splash: Column(
           children: [
             const Text("DANODALDSS....",style: TextStyle(
-            fontSize: 40,
+            fontSize: 30,
             color: Colors.greenAccent,
             letterSpacing: 4,
             fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
 
             const Text("You Starve? Order Our Food",style: TextStyle(
-            fontSize: 14,
+            fontSize: 12,
             color: Colors.greenAccent,
             letterSpacing: 3,
             fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),

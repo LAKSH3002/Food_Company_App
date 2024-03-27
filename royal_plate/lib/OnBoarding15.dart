@@ -27,7 +27,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
         
             
               Container(
-                height: 310,
+                height: 270,
                 width: 400,
                 color: Colors.deepPurple,
                 child: const Center(child: Text("DANODALDSS...",
@@ -92,7 +92,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
         
                Row(
                  children: [
-                   Center(child: CupertinoButton(child: const Text("            Terms Of Service",style: TextStyle(fontSize: 18),), 
+                   Center(child: CupertinoButton(child: const Text("       Terms Of Service",style: TextStyle(fontSize: 18),), 
                       onPressed:(){
                          
                       } )),
