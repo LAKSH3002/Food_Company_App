@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class CardItem{
   final String urlImage;
@@ -433,9 +435,13 @@ List<CardItem> items =  [
                 leading: Icon(Icons.logout_sharp),
                 onTap: () {
                   setState(() {
-                    Navigator.of(context).push(MaterialPageRoute(
+                    FirebaseAuth.instance.signOut().then((value) {
+                      print('You Have Signed Out');
+                      Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => 
                     const Login_Screen()));
+                    });
+                
                   });
                 },
               ),

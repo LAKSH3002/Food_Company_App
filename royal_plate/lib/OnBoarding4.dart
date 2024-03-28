@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class OnBoarding4 extends StatefulWidget {
   const OnBoarding4({super.key});
@@ -13,17 +15,22 @@ class OnBoarding4 extends StatefulWidget {
 
 class _OnBoarding4State extends State<OnBoarding4> 
 {
+  // text editing controller
   bool passwordVisible = false;
-  TextEditingController inputcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController confirmpasswordcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   @override
 
+  // Method to validate the email the take
+  // the user email as an input and 
+  // print the bool value in the console.
   // Function to validate email id.
   void Validate(String email) {
     bool isvalid = EmailValidator.validate(email);
     print(isvalid);
   }
  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,16 +44,16 @@ class _OnBoarding4State extends State<OnBoarding4>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
       
-            const SizedBox(height:10),
+            const SizedBox(height:25),
       
             const Text(
-              "    Just a step away",
+              "   Just a step away",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold
               ),),
       
-              SizedBox(height: 20),
+              SizedBox(height: 25),
       
             Padding(
               padding: EdgeInsets.all(12.0),
@@ -65,7 +72,7 @@ class _OnBoarding4State extends State<OnBoarding4>
             Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
-                controller: inputcontroller,
+                controller: emailcontroller,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.email),
@@ -115,7 +122,7 @@ class _OnBoarding4State extends State<OnBoarding4>
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
                               hintText: "Confirm Password*",
-                              helperText: 'Confirm password must match Create Password',
+                              // helperText: 'Confirm password must match Create Password',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25.0)
                               ),
@@ -133,10 +140,12 @@ class _OnBoarding4State extends State<OnBoarding4>
                      },
                    ),
                             ),
+                  keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.done
               ),
             ),
       
-            const SizedBox(height: 110),
+            const SizedBox(height: 130),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
@@ -148,13 +157,29 @@ class _OnBoarding4State extends State<OnBoarding4>
                     backgroundColor: Colors.deepPurple,
                     onPrimary: Colors.yellowAccent
                   ),
-                onPressed: (){
-                  Validate(inputcontroller.text);
-                  Navigator.of(context).push(MaterialPageRoute
+                // User entry with email and password.  
+                onPressed: ()
+                {
+                    FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: emailcontroller.text, 
+                    password: passwordcontroller.text).then((value) {
+                      print('Created New Account');
+                      Navigator.of(context).push(MaterialPageRoute
                         (builder: (BuildContext context) =>
                         const HomeScreen() ));
+                    }).onError((error, stackTrace) {
+                      print("Error" "${error.toString()}");
+                    });
+                  // Three things on this press
+                  // 1 - email validation.
+                  // 2 - To check password and confirm password are the same.
+                  // 3 - Storing values in the database.
+                  // Validate(emailcontroller.text);
+                  // Navigator.of(context).push(MaterialPageRoute
+                  //       (builder: (BuildContext context) =>
+                  //       const HomeScreen() ));
                 },
-                child:const Text("Proceed",
+                child:const Text("Proceed to App",
                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
               ),
             ),
@@ -165,3 +190,8 @@ class _OnBoarding4State extends State<OnBoarding4>
     );
   }
 }
+
+// Email Validation done
+// Password icon visibility on and off done.
+
+// Now Firebase Authentiaction.

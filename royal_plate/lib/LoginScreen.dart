@@ -1,8 +1,11 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/HomeScreen.dart';
+import 'package:royal_plate/OnBoarding4.dart';
 
 class Login_Screen extends StatefulWidget {
   const Login_Screen({super.key});
@@ -13,7 +16,8 @@ class Login_Screen extends StatefulWidget {
 
 class _Login_ScreenState extends State<Login_Screen> {
    bool passwordVisible = false;
-  TextEditingController inputcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller =  TextEditingController();
   @override
 
   // Function to validate email id.
@@ -45,7 +49,7 @@ class _Login_ScreenState extends State<Login_Screen> {
             Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
-                controller: inputcontroller,
+                controller: emailcontroller,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.email),
@@ -103,16 +107,32 @@ class _Login_ScreenState extends State<Login_Screen> {
                         backgroundColor: Colors.deepPurple,
                         onPrimary: Colors.yellowAccent
                       ),
-                    onPressed: (){
-                      Validate(inputcontroller.text);
-                      Navigator.of(context).push(MaterialPageRoute
+                    onPressed: ()
+                    {
+                      FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailcontroller.text,
+                      password: passwordcontroller.text).then((value){
+                        Navigator.of(context).push(MaterialPageRoute
                             (builder: (BuildContext context) =>
-                            const HomeScreen() ));
+                            const HomeScreen()));
+                      });
+                      // Validate(emailcontroller.text);
+                      // Navigator.of(context).push(MaterialPageRoute
+                      //       (builder: (BuildContext context) =>
+                      //       const HomeScreen() ));
                     },
                     child:const Text("Login",
                     style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
                   ),
                 ),
+
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute
+                            (builder: (BuildContext context) =>
+                            const OnBoarding4() ));
+                }, child: Text('SIGN UP',
+                style: TextStyle(fontSize: 22,color: Colors.green),),
+                )
              ],
            ),
             
