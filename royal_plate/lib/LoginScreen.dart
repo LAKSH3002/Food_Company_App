@@ -1,6 +1,5 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -96,11 +95,11 @@ class _Login_ScreenState extends State<Login_Screen> {
       
            Row(
              children: [
-              const SizedBox(width: 90,),
+              const SizedBox(width: 65,),
                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    width: 200,
+                    width: 100,
                     height: 45,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -109,17 +108,10 @@ class _Login_ScreenState extends State<Login_Screen> {
                       ),
                     onPressed: ()
                     {
-                      FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: emailcontroller.text,
-                      password: passwordcontroller.text).then((value){
-                        Navigator.of(context).push(MaterialPageRoute
+                      Validate(emailcontroller.text);
+                      Navigator.of(context).push(MaterialPageRoute
                             (builder: (BuildContext context) =>
-                            const HomeScreen()));
-                      });
-                      // Validate(emailcontroller.text);
-                      // Navigator.of(context).push(MaterialPageRoute
-                      //       (builder: (BuildContext context) =>
-                      //       const HomeScreen() ));
+                            const HomeScreen() ));
                     },
                     child:const Text("Login",
                     style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),

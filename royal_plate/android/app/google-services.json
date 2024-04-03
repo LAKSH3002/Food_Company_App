@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "937906202395",
-    "project_id": "danodalds",
-    "storage_bucket": "danodalds.appspot.com"
+    "project_number": "621906350958",
+    "project_id": "danodalds-a38dc",
+    "storage_bucket": "danodalds-a38dc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:937906202395:android:81473d41d95cea64e255be",
+        "mobilesdk_app_id": "1:621906350958:android:ad5e49cf68621acb49677f",
         "android_client_info": {
           "package_name": "com.example.royal_plate"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA1srsnxoUmY-l79CfBvT-DLIZNajOosko"
+          "current_key": "AIzaSyCoXEgVl7QeKztJ5TH-CB7lyG4HRZyMDSE"
         }
       ],
       "services": {

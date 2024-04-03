@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 
 class CardItem{
   final String urlImage;
@@ -434,15 +434,7 @@ List<CardItem> items =  [
                 title: Text('Log Out'),
                 leading: Icon(Icons.logout_sharp),
                 onTap: () {
-                  setState(() {
-                    FirebaseAuth.instance.signOut().then((value) {
-                      print('You Have Signed Out');
-                      Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => 
-                    const Login_Screen()));
-                    });
-                
-                  });
+                 
                 },
               ),
           ],

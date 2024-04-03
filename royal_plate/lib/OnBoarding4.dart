@@ -1,10 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:royal_plate/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class OnBoarding4 extends StatefulWidget {
   const OnBoarding4({super.key});
@@ -16,7 +15,7 @@ class OnBoarding4 extends StatefulWidget {
 class _OnBoarding4State extends State<OnBoarding4> 
 {
   // text editing controller
-  bool passwordVisible = false;
+  bool passwordVisible = true;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
@@ -88,6 +87,7 @@ class _OnBoarding4State extends State<OnBoarding4>
             Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
+                controller: passwordcontroller,
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
@@ -118,6 +118,7 @@ class _OnBoarding4State extends State<OnBoarding4>
             Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
+                controller: confirmpasswordcontroller,
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
@@ -160,24 +161,17 @@ class _OnBoarding4State extends State<OnBoarding4>
                 // User entry with email and password.  
                 onPressed: ()
                 {
-                    FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: emailcontroller.text, 
-                    password: passwordcontroller.text).then((value) {
-                      print('Created New Account');
-                      Navigator.of(context).push(MaterialPageRoute
+                  FirebaseAuth.instance.createUserWithEmailAndPassword(
+                  email: emailcontroller.text,
+                  password: passwordcontroller.text)
+                  .then((value)
+                  {
+                    print("New Account Created");
+                    Navigator.of(context).push(MaterialPageRoute
                         (builder: (BuildContext context) =>
-                        const HomeScreen() ));
-                    }).onError((error, stackTrace) {
-                      print("Error" "${error.toString()}");
-                    });
-                  // Three things on this press
-                  // 1 - email validation.
-                  // 2 - To check password and confirm password are the same.
-                  // 3 - Storing values in the database.
-                  // Validate(emailcontroller.text);
-                  // Navigator.of(context).push(MaterialPageRoute
-                  //       (builder: (BuildContext context) =>
-                  //       const HomeScreen() ));
+                        const HomeScreen() )).onError((error, stackTrace){
+                        });
+                  });
                 },
                 child:const Text("Proceed to App",
                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
