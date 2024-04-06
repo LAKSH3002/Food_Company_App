@@ -15,6 +15,9 @@ class Menu_page extends StatefulWidget {
 
 class _Menu_pageState extends State<Menu_page> {
 
+  int food_count = 0;
+  String foodcount = '0';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +26,8 @@ class _Menu_pageState extends State<Menu_page> {
         title: Row(
           children: 
           [
-            const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 80,),
+            const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold,fontSize: 26),),
+            SizedBox(width: 140,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -66,17 +69,20 @@ class _Menu_pageState extends State<Menu_page> {
                 ],
               ),
 
+              const SizedBox(height: 10,),
+
               Container(
               // color: Color.fromARGB(255, 229, 232, 234),
               height: 160,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Chilli                   '),
-                  BuildItem('images/idly_chilli.jpeg', 'Idli Chilly                       '),
-                  BuildItem('images/veg_crispy.jpeg', 'Veg Crispy                      '),
+                  
+                  BuildItem('images/idly_chilli.jpeg', 'Idli Chilly                              '),
                   BuildItem('images/Veggies_fry.jpeg', 'Veggies Fry                    '),
-                  BuildItem('images/veg_crispy.jpeg', 'Paneer Crispy               '),
+                  BuildItem('images/veg_crispy.jpeg', 'Paneer Crispy                   '),
+                  BuildItem('images/Veggies_fry.jpeg', 'Veg Crispy                        '),
+                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Chilli         '),
                 ],
               ),
              ),
@@ -93,6 +99,7 @@ class _Menu_pageState extends State<Menu_page> {
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
                 ],
               ),
+              const SizedBox(height: 10,),
 
 
              Container(
@@ -101,12 +108,12 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/pizzas/cheesepizza.jpg', 'Margherita                   '),
-                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Farmhouse Pizza      '),
+                  BuildItem('images/pizzas/cheesepizza.jpg', 'Margherita                            '),
+                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Farmhouse Pizza                 '),
                   BuildItem('images/pizzas/VeggiParadise_B_260216.jpg', 'Veggie Paradise   '),
                   BuildItem('images/pizzas/Peppypaneer.jpg', 'Peppy Paneer Pizza   '),
-                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Pasta Pizza                '),
-                ],
+                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Pasta Pizza                          '),
+                ], 
               ),
              ),
 
@@ -122,6 +129,7 @@ class _Menu_pageState extends State<Menu_page> {
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
                 ],
               ),
+              const SizedBox(height: 10,),
 
              Container(
               // color: Color.fromARGB(255, 229, 232, 234),
@@ -129,11 +137,11 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich               '),
+                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich                      '),
                   BuildItem('images/sandwich/sandwich 2.jpeg', 'Subway Special      '),
                   BuildItem('images/sandwich/cct.jpeg', 'Cheese chilly toast   '),
-                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich   '),
-                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich'),
+                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich          '),
+                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich            '),
                 ],
               ),
              ),
@@ -150,6 +158,7 @@ class _Menu_pageState extends State<Menu_page> {
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.red),)
                 ],
               ),
+              const SizedBox(height: 10,),
 
              Container(
               // color: Color.fromARGB(255, 229, 232, 234),
@@ -157,15 +166,19 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/hakka_noodles.jpeg', 'Hakka Noodles               '),
-                  BuildItem('images/Fried_rice.jpeg', 'Fried Rice      '),
+                  BuildItem('images/hakka_noodles.jpeg', 'Hakka Noodles                    '),
+                  BuildItem('images/Fried_rice.jpeg', 'Fried Rice                            '),
                   BuildItem('images/Paneer_chilli.jpeg', 'Paneer Manchurian   '),
-                  BuildItem('images/Noodles.jpg', 'Schezwan Noodles  '),
-                  BuildItem('images/sandwich/p_c_s.jpeg', 'Schezwan Sandwich'),
+                  BuildItem('images/Noodles.jpg', 'Schezwan Noodles         '),
+                  BuildItem('images/sandwich/p_c_s.jpeg', 'Schezwan Sandwich               '),
                 ],
               ),
              ),
+
+             const SizedBox(height: 30,),
+             
             ],
+            
           ),
         ),)
     );
@@ -175,27 +188,66 @@ class _Menu_pageState extends State<Menu_page> {
 Widget BuildItem(image, title)
 {
   return Container(
-    child: CupertinoButton(onPressed: (){}, 
-                    child: Column(
-                      children: [
+    child: Column(
+      children: [
 
-                        Text(title,style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
+        Text(title,style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
 
-                        Expanded(
-                      child: AspectRatio(
-                        aspectRatio: 18/12,
-                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
-                        child: Image.asset(image,
-                        fit:BoxFit.cover),),
-                        ),
-                        
-                    ),
-                      ],
-                    )),
+        Expanded(
+        child: AspectRatio(
+        aspectRatio: 20/12,
+        child: ClipRRect(borderRadius: BorderRadius.circular(15.0),
+        child: Image.asset(image,
+        ),),
+        ),
+        ),
+        
+        SizedBox(height: 2,),
+        OrderCount(),
+      ],
+    ),
                   );
 }
 
 Widget ImageBuilder(image)
 {
   return Image.asset(image);
+}
+
+Widget OrderCount()
+{
+  int food_count = 0;
+  String foodcount = '0';
+
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(4),
+      color: Color.fromARGB(255, 234, 237, 239)
+    ),
+              width: 170,
+              height: 20,
+              child: Row(
+              // child 1
+              children: [
+                // Button to subract items.
+                FloatingActionButton.small(child: Icon(Icons.exposure_minus_1,size: 15,),
+                onPressed: (){
+                  // String to integer conversion
+                  var c = int.parse(foodcount);
+                  // subraction of item from food list
+                  c = c-1;
+                  // Integer to String Conversion
+                  String newvalue = c.toString();
+                },),
+                SizedBox(width: 30),
+                Text(foodcount),
+                SizedBox(width: 35,),
+                // SizedBox(width: 48,),
+                // Button to add items.
+                FloatingActionButton.small(
+                child: Icon(Icons.plus_one,size: 15,),
+                onPressed: (){},)
+              ],
+             ),
+  );
 }

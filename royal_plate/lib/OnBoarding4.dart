@@ -159,9 +159,9 @@ class _OnBoarding4State extends State<OnBoarding4>
                     onPrimary: Colors.yellowAccent
                   ),
                 // User entry with email and password.  
-                onPressed: ()
+                onPressed: () async
                 {
-                  FirebaseAuth.instance.createUserWithEmailAndPassword(
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
                   email: emailcontroller.text,
                   password: passwordcontroller.text)
                   .then((value)
@@ -185,7 +185,9 @@ class _OnBoarding4State extends State<OnBoarding4>
   }
 }
 
-// Email Validation done
+// Email Validation done.
+// Password Validation done.
 // Password icon visibility on and off done.
-
-// Now Firebase Authentiaction.
+// Now Firebase Authentiaction done.
+// Firebase Auth done.
+// Navigating to home screen on successful registration done.

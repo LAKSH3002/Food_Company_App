@@ -96,7 +96,7 @@ List<CardItem> items =  [
 
               const SizedBox(height: 10,),
 
-              const Text(" Hi, Laksh!",
+              Text('Hello Laksh',
               style: TextStyle(fontSize: 40,color:Colors.deepPurple,
               fontFamily: AutofillHints.addressCity,
               fontWeight: FontWeight.w400),) ,
@@ -359,16 +359,16 @@ List<CardItem> items =  [
           children: [
             const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.red, 
+              color: Colors.blue, 
             ),
 
             child: UserAccountsDrawerHeader(
-            decoration: BoxDecoration(color: Colors.orange),
+            decoration: BoxDecoration(color: Colors.blue),
             accountName: Text(
               "Laksh Doshi",
-              style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),
+              style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic,color: Colors.yellowAccent),
             ),
-            accountEmail: Text("lakshd1999@gmail.com",style: TextStyle(fontSize: 22),),
+            accountEmail: Text("lakshd1999@gmail.com",style: TextStyle(fontSize: 22,color: Colors.yellowAccent),),
             currentAccountPictureSize: Size.square(40),
             ),
             // child:Text('Select your Shows',style: TextStyle(color:Colors.greenAccent,fontSize: 22,),),
@@ -434,7 +434,11 @@ List<CardItem> items =  [
                 title: Text('Log Out'),
                 leading: Icon(Icons.logout_sharp),
                 onTap: () {
-                 
+                 setState(() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => 
+                    const Login_Screen()));
+                  });
                 },
               ),
           ],

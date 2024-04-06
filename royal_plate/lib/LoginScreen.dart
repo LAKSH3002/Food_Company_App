@@ -14,7 +14,7 @@ class Login_Screen extends StatefulWidget {
 }
 
 class _Login_ScreenState extends State<Login_Screen> {
-   bool passwordVisible = false;
+   bool passwordVisible = true;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller =  TextEditingController();
   @override
@@ -67,7 +67,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Create Your Own Password*",
+                              hintText: "Enter Your Password*",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25.0)
                               ),
@@ -75,8 +75,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                               // helperText:"Password must contain special character",
                     suffixIcon: IconButton(
                     icon: Icon(passwordVisible
-                         ? Icons.visibility_off
-                         : Icons.visibility),
+                         ? Icons.visibility
+                         : Icons.visibility_off),
                      onPressed: () {
                        setState(
                          () {
@@ -95,7 +95,7 @@ class _Login_ScreenState extends State<Login_Screen> {
       
            Row(
              children: [
-              const SizedBox(width: 65,),
+              const SizedBox(width: 90,),
                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -106,24 +106,34 @@ class _Login_ScreenState extends State<Login_Screen> {
                         backgroundColor: Colors.deepPurple,
                         onPrimary: Colors.yellowAccent
                       ),
-                    onPressed: ()
+                    onPressed: () async
                     {
-                      Validate(emailcontroller.text);
-                      Navigator.of(context).push(MaterialPageRoute
-                            (builder: (BuildContext context) =>
-                            const HomeScreen() ));
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailcontroller.text, 
+                      password: passwordcontroller.text).
+                      then((value){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=> HomeScreen()));
+                      }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                      });
                     },
                     child:const Text("Login",
                     style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
                   ),
                 ),
 
-                ElevatedButton(onPressed: (){
+                ElevatedButton(
+                   style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        onPrimary: Colors.yellowAccent
+                      ),
+                  onPressed: (){
                   Navigator.of(context).push(MaterialPageRoute
                             (builder: (BuildContext context) =>
                             const OnBoarding4() ));
-                }, child: Text('SIGN UP',
-                style: TextStyle(fontSize: 22,color: Colors.green),),
+                }, child: Text('Sign up',
+                style: TextStyle(fontSize: 22),),
                 )
              ],
            ),
@@ -134,3 +144,7 @@ class _Login_ScreenState extends State<Login_Screen> {
     );
   }
 }
+
+// Email Validation is done
+// Password validation is done
+// Email and Password Credentials checking is left bas.

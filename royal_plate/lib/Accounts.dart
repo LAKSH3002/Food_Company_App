@@ -48,7 +48,7 @@ class _AccountScreenState extends State<AccountScreen> {
               Padding(
               padding: EdgeInsets.all(0),
               child: Container(
-                color: Color.fromARGB(255, 225, 230, 232),
+                color: Color.fromARGB(255, 194, 197, 199),
                 height: 180,
                 width: 400,
                 child: Column(
@@ -65,9 +65,9 @@ class _AccountScreenState extends State<AccountScreen> {
                     Text("Laksh Doshi",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
                     ],),
                     SizedBox(height: 10,),
-                    Text("  Email: lakshd1999@gmail.com",style: TextStyle(fontSize: 18,fontStyle: FontStyle.italic),),
+                    Text("  Email: lakshd1999@gmail.com",style: TextStyle(fontSize: 18),),
                     SizedBox(height: 10,),
-                    Text("  Contact: 9867900994",style: TextStyle(fontSize: 18,fontStyle: FontStyle.italic),),
+                    Text("  Contact: 9867900994",style: TextStyle(fontSize: 18),),
                   ],
                 ),
               ),),
