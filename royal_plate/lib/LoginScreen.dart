@@ -75,8 +75,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                               // helperText:"Password must contain special character",
                     suffixIcon: IconButton(
                     icon: Icon(passwordVisible
-                         ? Icons.visibility
-                         : Icons.visibility_off),
+                         ? Icons.visibility_off
+                         : Icons.visibility),
                      onPressed: () {
                        setState(
                          () {
@@ -91,53 +91,63 @@ class _Login_ScreenState extends State<Login_Screen> {
               ),
             ),
       
-            const SizedBox(height: 40),
-      
-           Row(
-             children: [
-              const SizedBox(width: 90,),
-               Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: 100,
-                    height: 45,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
-                        onPrimary: Colors.yellowAccent
-                      ),
-                    onPressed: () async
-                    {
-                       Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=> HomeScreen()));
-                      // await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      // email: emailcontroller.text, 
-                      // password: passwordcontroller.text).
-                      // then((value){
-                     
-                      // }).onError((error, stackTrace) {
-                      // print("Error ${error.toString()}");
-                      // });
-                    },
-                    child:const Text("Login",
-                    style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
+            const SizedBox(height: 20),
+            Center(
+              child: SizedBox(
+                width: 100,
+                height: 45,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    onPrimary: Colors.yellowAccent
                   ),
-                ),
-
-                ElevatedButton(
-                   style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
-                        onPrimary: Colors.yellowAccent
-                      ),
-                  onPressed: (){
+                onPressed: () async
+                {
+                   showDialog(
+                       context: context,
+                       builder: (ctx) => AlertDialog(
+               title: const Text("Successful Logging In!!"),
+               content: const Text("You Are being Logged in!"),
+               actions: <Widget>[
+              TextButton(
+                onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute
-                            (builder: (BuildContext context) =>
-                            const OnBoarding4() ));
-                }, child: Text('Sign up',
-                style: TextStyle(fontSize: 22),),
-                )
-             ],
-           ),
+                  (builder: (BuildContext context) =>
+                  const HomeScreen() )).onError((error, stackTrace){
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  child: const Text("Proceed"),
+                ),
+              ),
+               ],
+                       ),
+              );
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: emailcontroller.text, 
+                  password: passwordcontroller.text).
+                  then((value){
+                    
+                  }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                  });
+                },
+                child:const Text("Login",
+                style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            Center(
+              child: TextButton(onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute
+                        (builder: (BuildContext context) =>
+                        const OnBoarding4() ));
+              }, child: Text('Dont have an Account?? Sign_Up',
+              style: TextStyle(fontSize: 16),)),
+            ),
             
           ],
         ),

@@ -34,8 +34,8 @@ class _Menu_pageState extends State<Menu_page> {
         title: Row(
           children: 
           [
-            const Text("DANOWAYs Menu",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold,fontSize: 26),),
-            SizedBox(width: 40,),
+            const Text("DANOWAYs Menu",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold,fontSize: 20),),
+            SizedBox(width: 48,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,

@@ -22,7 +22,7 @@ class _AccountScreenState extends State<AccountScreen> {
           children: 
           [
             const Text("DANOWAYs",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 126,),
+            SizedBox(width: 94,),
             
             CupertinoButton(
               child: Icon(Icons.home,

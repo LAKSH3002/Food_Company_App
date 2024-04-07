@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:royal_plate/LoginScreen.dart';
 
 class OnBoarding4 extends StatefulWidget {
   const OnBoarding4({super.key});
@@ -37,6 +38,7 @@ class _OnBoarding4State extends State<OnBoarding4>
       (
         backgroundColor: Colors.deepPurple,
         elevation: 5,
+        title: Text('DANOWAYs',style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -46,7 +48,7 @@ class _OnBoarding4State extends State<OnBoarding4>
             const SizedBox(height:25),
       
             const Text(
-              "   Just a step away",
+              "   Register For The App!!",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold
@@ -146,7 +148,16 @@ class _OnBoarding4State extends State<OnBoarding4>
               ),
             ),
       
-            const SizedBox(height: 130),
+            const SizedBox(height: 20),
+
+            TextButton(onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute
+                      (builder: (BuildContext context) =>
+                      const Login_Screen() ));
+            }, child: Text('          Already Have an Account?? Log_In',
+            style: TextStyle(fontSize: 16),)),
+
+            const SizedBox(height: 50,),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
@@ -167,10 +178,28 @@ class _OnBoarding4State extends State<OnBoarding4>
                   .then((value)
                   {
                     print("New Account Created");
-                    Navigator.of(context).push(MaterialPageRoute
-                        (builder: (BuildContext context) =>
-                        const HomeScreen() )).onError((error, stackTrace){
-                        });
+                    showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text("Successful registration!!"),
+                content: const Text("You have Created A New Account!!"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute
+                      (builder: (BuildContext context) =>
+                      const HomeScreen() )).onError((error, stackTrace){
+                      });
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(14),
+                      child: const Text("okay"),
+                    ),
+                  ),
+                ],
+              ),
+            );
+                    
                   });
                 },
                 child:const Text("Proceed to App",
@@ -182,6 +211,37 @@ class _OnBoarding4State extends State<OnBoarding4>
         ),
       ),
     );
+  }
+  Widget dialogbox()
+  {
+    return Container(
+        child: ElevatedButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text("Successful registration!!"),
+                content: const Text("You have Created A New Account!!"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute
+                      (builder: (BuildContext context) =>
+                      const HomeScreen() )).onError((error, stackTrace){
+                      });
+                    },
+                    child: Container(
+                      color: Colors.green,
+                      padding: const EdgeInsets.all(14),
+                      child: const Text("okay"),
+                    ),
+                  ),
+                ],
+              ),
+            );
+  }, 
+  child: null,)
+  );
   }
 }
 

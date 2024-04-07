@@ -34,7 +34,7 @@ class HomeScreen extends StatefulWidget
 
 class _HomeScreenState extends State<HomeScreen> 
 {
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
@@ -80,7 +80,7 @@ List<CardItem> items =  [
           children: 
           [
             const Text("DANOWAYs",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 126,),
+            SizedBox(width: 93,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
