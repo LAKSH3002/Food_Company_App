@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/HomeScreen.dart';
@@ -7,16 +8,23 @@ import 'package:royal_plate/HomeScreen.dart';
 import '../Accounts.dart';
 
 class Menu_page extends StatefulWidget {
-  const Menu_page({super.key, required image});
-
+  const Menu_page({super.key, required image,});
+   
   @override
-  State<Menu_page> createState() => _Menu_pageState();
+  State<Menu_page> createState() 
+  => _Menu_pageState();
 }
 
 class _Menu_pageState extends State<Menu_page> {
 
-  int food_count = 0;
-  String foodcount = '0';
+   TextEditingController foodcount = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    foodcount.text = "0"; // Setting the initial value for the field.
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -175,17 +183,68 @@ class _Menu_pageState extends State<Menu_page> {
               ),
              ),
 
-             const SizedBox(height: 30,),
-             
+             const SizedBox(height: 30,),  
+
+              Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: TextFormField(
+                controller: foodcount,
+                keyboardType: TextInputType.numberWithOptions(
+                    decimal: false, signed: false),
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                MaterialButton(
+                  minWidth: 1.0,
+                  height: 1,
+                  color: Colors.red,
+                  child: Icon(Icons.arrow_drop_up),
+                  onPressed: () {
+                    int currentValue = int.parse(foodcount.text);
+                    setState(() {
+                      currentValue++;
+                      foodcount.text =
+                          (currentValue).toString(); // incrementing value
+                    });
+                  },
+                ),
+                MaterialButton(
+                  minWidth: 1.0,
+                  height: 1,
+                  color: Colors.red,
+                  child: Icon(Icons.arrow_drop_down),
+                  onPressed: () {
+                    int currentValue = int.parse(foodcount.text);
+                    setState(() {
+                      print("Setting state");
+                      currentValue--;
+                      foodcount.text =
+                          (currentValue).toString(); // decrementing value
+                    });
+                  },
+                ),
+              ],
+            ),
+            Spacer(
+              flex: 3,
+            )
+          ],
+        ),
             ],
             
           ),
         ),)
     );
   }
-}
-
-Widget BuildItem(image, title)
+  Widget BuildItem(image, title)
 {
   return Container(
     child: Column(
@@ -216,38 +275,75 @@ Widget ImageBuilder(image)
 
 Widget OrderCount()
 {
-  int food_count = 0;
-  String foodcount = '0';
+  TextEditingController foodcount2 = TextEditingController();
+  foodcount2.text = '0';
+
+  @override
+  void initState() {
+    super.initState();
+    foodcount2.text = "0"; // Setting the initial value for the field.
+  }
 
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(4),
       color: Color.fromARGB(255, 234, 237, 239)
     ),
-              width: 170,
+              width: 180,
               height: 20,
               child: Row(
               // child 1
               children: [
                 // Button to subract items.
-                FloatingActionButton.small(child: Icon(Icons.exposure_minus_1,size: 15,),
-                onPressed: (){
-                  // String to integer conversion
-                  var c = int.parse(foodcount);
-                  // subraction of item from food list
-                  c = c-1;
-                  // Integer to String Conversion
-                  String newvalue = c.toString();
-                },),
-                SizedBox(width: 30),
-                Text(foodcount),
-                SizedBox(width: 35,),
-                // SizedBox(width: 48,),
+                MaterialButton(
+                        color: Colors.blueAccent,
+                        minWidth: 1,
+                        height: 1,
+                        shape: Border.all(width: 0.0,color: Colors.white),
+                         child: Icon(Icons.remove, size: 18,),
+                         onPressed: () {
+                           setState(() {
+                            int currentValue = int.parse(foodcount2.text);
+                            //  print("Setting state");
+                             currentValue--;
+                             foodcount2.text =
+                                 (currentValue).toString(); // decrementing value
+                           });
+                         },
+                       ),
+                SizedBox(width: 24,),
+                Expanded(
+                     child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(10),
+                      ),
+                       controller: foodcount2,
+                       keyboardType: TextInputType.numberWithOptions(
+                           decimal: false, signed: false),
+                           inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                     ),
+                   ),               
                 // Button to add items.
-                FloatingActionButton.small(
-                child: Icon(Icons.plus_one,size: 15,),
-                onPressed: (){},)
+                MaterialButton(
+                        color: Colors.blueAccent,
+                        minWidth: 1,
+                        height: 1,
+                        shape: Border.all(width: 0.0,color: Colors.white),
+                         child: Icon(Icons.add, size: 18,),
+                         onPressed: () {
+                           setState(() {
+                             int currentValue = int.parse(foodcount2.text);   
+                             currentValue++;
+                             foodcount2.text =
+                                 (currentValue).toString(); // decrementing value
+                           });
+                         },
+                       ),
               ],
              ),
   );
+}
 }
