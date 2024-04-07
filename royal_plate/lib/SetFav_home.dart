@@ -173,7 +173,8 @@ class _SetFavouritehomeState extends State<SetFavouritehome>
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(width: 200,),
+          Text('DANOWAYs',style: TextStyle(fontSize: 20,color: Colors.greenAccent,fontWeight: FontWeight.bold)),
+          const SizedBox(width: 100,),
           
           Container(
             height: 50,

@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/services.dart';
+import 'package:royal_plate/review.dart';
 
 
 class CardItem{
@@ -33,6 +34,15 @@ class HomeScreen extends StatefulWidget
 
 class _HomeScreenState extends State<HomeScreen> 
 {
+  int _selectedIndex = 2;
+
+  final List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    HomeScreen(),
+    review(),
+  ];
+
+
 List<CardItem> items =  [
   CardItem(
     urlImage: "images/Paneer_chilli.jpeg",
@@ -69,8 +79,8 @@ List<CardItem> items =  [
         title: Row(
           children: 
           [
-            const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 81,),
+            const Text("DANOWAYs",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+            SizedBox(width: 126,),
             
             CupertinoButton(
               child: Icon(Icons.account_circle,
@@ -96,7 +106,7 @@ List<CardItem> items =  [
 
               const SizedBox(height: 10,),
 
-              Text('Hello Laksh',
+              Text('Hello Laksh!!',
               style: TextStyle(fontSize: 40,color:Colors.deepPurple,
               fontFamily: AutofillHints.addressCity,
               fontWeight: FontWeight.w400),) ,
@@ -446,6 +456,7 @@ List<CardItem> items =  [
       ),
 
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,color: Colors.blue,),
@@ -459,11 +470,15 @@ List<CardItem> items =  [
             icon: Icon(Icons.reviews,color:Colors.blue,),
             label: 'Review/Complain',
           ),
-          
         ],
-        // currentIndex: _selectedIndex,
-        // selectedItemColor: Colors.amber[800],
-        // onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: (int index)
+        {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   } 
@@ -554,4 +569,8 @@ return Card(
 // Menu Page 80 percent done
 
 // chatbot page UI left.
-// SMS provider to be implemented.
+// Review page to be added
+
+// things not working
+// Addition and subraction of food item on home page
+// user login details check(authentication).

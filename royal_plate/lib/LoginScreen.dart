@@ -32,7 +32,7 @@ class _Login_ScreenState extends State<Login_Screen> {
       (
         backgroundColor: Colors.deepPurple,
         elevation: 5,
-        title: Text('Danodaldss..',
+        title: Text('DANOWAYs',
         style: TextStyle(fontSize: 20,color: Colors.greenAccent,fontWeight: FontWeight.bold),),
       ),
       body: SingleChildScrollView(
@@ -108,15 +108,16 @@ class _Login_ScreenState extends State<Login_Screen> {
                       ),
                     onPressed: () async
                     {
-                      await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: emailcontroller.text, 
-                      password: passwordcontroller.text).
-                      then((value){
-                      Navigator.push(context,
+                       Navigator.push(context,
                       MaterialPageRoute(builder: (context)=> HomeScreen()));
-                      }).onError((error, stackTrace) {
-                      print("Error ${error.toString()}");
-                      });
+                      // await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      // email: emailcontroller.text, 
+                      // password: passwordcontroller.text).
+                      // then((value){
+                     
+                      // }).onError((error, stackTrace) {
+                      // print("Error ${error.toString()}");
+                      // });
                     },
                     child:const Text("Login",
                     style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
@@ -147,4 +148,4 @@ class _Login_ScreenState extends State<Login_Screen> {
 
 // Email Validation is done
 // Password validation is done
-// Email and Password Credentials checking is left bas.
+// Email and Password Credentials checking is left - The Major Part.

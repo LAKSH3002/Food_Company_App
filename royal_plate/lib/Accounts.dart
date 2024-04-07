@@ -21,8 +21,8 @@ class _AccountScreenState extends State<AccountScreen> {
         title: Row(
           children: 
           [
-            const Text("Danodaldss..",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
-            SizedBox(width: 81,),
+            const Text("DANOWAYs",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+            SizedBox(width: 126,),
             
             CupertinoButton(
               child: Icon(Icons.home,

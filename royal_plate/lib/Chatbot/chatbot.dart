@@ -45,28 +45,28 @@ class _HomeState extends State<Home>
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('Danodaldss.. Chat Bot',style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+        title: Text('DANOWAYs Chat Bot',style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
         backgroundColor: Colors.deepPurple,
       ),
 
       body: Container(
-        color: Colors.white,
+        color: Color.fromARGB(255, 210, 206, 206),
         child: Column(
           children: [
             Expanded(child: MessagesScreen(messages: messaged)),
 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 14,vertical: 8),
-              color: Color.fromARGB(255, 188, 150, 12),
+              color: Color.fromARGB(255, 231, 201, 119),
               child: Row(children: [
                 Expanded(
                 child: TextField(controller: _controller,
-                style: TextStyle(color: Colors.white,fontSize: 24),)),
+                style: TextStyle(color: Colors.black,fontSize: 24),)),
 
                 IconButton(onPressed: (){
                   sendMessages(_controller.text);
                   _controller.clear();
-                }, icon: Icon(Icons.send,color: Colors.red,)),
+                }, icon: Icon(Icons.send,color: Color.fromARGB(255, 47, 47, 42),)),
               ]),
             )
           ],

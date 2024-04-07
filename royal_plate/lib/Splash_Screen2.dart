@@ -40,7 +40,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
         // splash - is the animation.
         splash: Column(
           children: [
-            const Text("DANODALDSS....",style: TextStyle(
+            const Text("//DANOWAYs//",style: TextStyle(
             fontSize: 30,
             color: Colors.greenAccent,
             letterSpacing: 4,
