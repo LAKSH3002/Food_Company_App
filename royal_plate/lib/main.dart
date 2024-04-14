@@ -1,7 +1,6 @@
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/HomeScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:royal_plate/Book.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:royal_plate/Splash_Screen1.dart';
 import 'Splash_Screen2.dart';
