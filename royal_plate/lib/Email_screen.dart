@@ -33,6 +33,7 @@ class _OnBoarding4State extends State<OnBoarding4>
  
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar
       (
@@ -44,7 +45,6 @@ class _OnBoarding4State extends State<OnBoarding4>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-      
             const SizedBox(height:25),
       
             const Text(

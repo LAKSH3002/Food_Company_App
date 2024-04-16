@@ -40,6 +40,7 @@ dependencies:
   firebase_core_platform_interface: ^5.0.0
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
+  pinput: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - images/img1.png
     - images/dinner_set.jpeg
     - images/Thoughts.png
     - images/Calling.jpeg

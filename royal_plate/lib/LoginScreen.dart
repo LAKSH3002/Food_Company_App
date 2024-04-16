@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/HomeScreen.dart';
-import 'package:royal_plate/OnBoarding4.dart';
+import 'package:royal_plate/Email_screen.dart';
 
 class Login_Screen extends StatefulWidget {
   const Login_Screen({super.key});
@@ -106,32 +106,24 @@ class _Login_ScreenState extends State<Login_Screen> {
                    showDialog(
                        context: context,
                        builder: (ctx) => AlertDialog(
-               title: const Text("Successful Logging In!!"),
-               content: const Text("You Are being Logged in!"),
-               actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute
-                  (builder: (BuildContext context) =>
-                  const HomeScreen() )).onError((error, stackTrace){
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(14),
-                  child: const Text("Proceed"),
-                ),
-              ),
-               ],
-                       ),
-              );
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(
-                  email: emailcontroller.text, 
-                  password: passwordcontroller.text).
-                  then((value){
-                    
-                  }).onError((error, stackTrace) {
-                  print("Error ${error.toString()}");
-                  });
+                       title: const Text("Successful Logging In!!"),
+                       content: const Text("You Are being Logged in!"),
+                       actions: <Widget>[
+                       TextButton(
+                       onPressed: () {
+                       Navigator.of(context).push(MaterialPageRoute
+                       (builder: (BuildContext context) =>
+                       const HomeScreen() )).onError((error, stackTrace){
+                      });
+                      },
+                      child: Container(
+                      padding: const EdgeInsets.all(14),
+                      child: const Text("Proceed"),
+                    ),
+                    ),
+                    ],
+                    ),
+                    );                 
                 },
                 child:const Text("Login",
                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
@@ -147,8 +139,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         const OnBoarding4() ));
               }, child: Text('Dont have an Account?? Sign_Up',
               style: TextStyle(fontSize: 16),)),
-            ),
-            
+            ), 
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:royal_plate/OnBoarding15.dart';
+import 'package:royal_plate/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/src/widgets/framework.dart';

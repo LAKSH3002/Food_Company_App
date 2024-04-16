@@ -178,3 +178,47 @@ Widget Buildcard(
 //   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/royalplatechatbot%40royalplatechatbot-drpr.iam.gserviceaccount.com",
 //   "universe_domain": "googleapis.com"
 // }
+
+
+Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                  height: 55,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      SizedBox(
+                        width: 40,
+                        child: TextField(
+                          controller: _contactcontroller,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "|",
+                        style: TextStyle(fontSize: 33, color: Colors.grey),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                          child: TextField(
+                        keyboardType: TextInputType.phone,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Phone",
+                        ),
+                      ))
+                    ],
+                  ),
+                              ),
+                ),
