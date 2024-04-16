@@ -20,6 +20,7 @@ class _OnBoarding4State extends State<OnBoarding4>
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
   @override
 
   // Method to validate the email the take
@@ -59,6 +60,7 @@ class _OnBoarding4State extends State<OnBoarding4>
             Padding(
               padding: EdgeInsets.all(12.0),
               child: TextField(
+                controller: namecontroller,
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.person),
                               hintText: "Enter Your Full name*",
@@ -172,35 +174,113 @@ class _OnBoarding4State extends State<OnBoarding4>
                 // User entry with email and password.  
                 onPressed: () async
                 {
+                try
+                  {
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
                   email: emailcontroller.text,
-                  password: passwordcontroller.text)
-                  .then((value)
+                  password: passwordcontroller.text).then((value) 
                   {
                     print("New Account Created");
                     showDialog(
-              context: context,
-              builder: (ctx) => AlertDialog(
-                title: const Text("Successful registration!!"),
-                content: const Text("You have Created A New Account!!"),
-                actions: <Widget>[
-                  TextButton(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                    title: const Text("Successful registration!!"),
+                    content: const Text("You have Created A New Account!!"),
+                    actions: <Widget>[
+                    TextButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute
                       (builder: (BuildContext context) =>
-                      const HomeScreen() )).onError((error, stackTrace){
-                      });
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(14),
-                      child: const Text("okay"),
-                    ),
-                  ),
-                ],
-              ),
-            );
-                    
+                      const HomeScreen())
+                    );
+                    }, child: const Text('Proceed'),)
+                    ],
+                    ));
                   });
+                  }
+                  catch(e)
+                  {
+                    print(e);
+                    print("No entries yet");
+                  }
+                
+                  
+            //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            //       email: emailcontroller.text,
+            //       password: passwordcontroller.text)
+            //       .then((value)
+            //       {
+            //         print("New Account Created");
+            //         showDialog(
+            //         context: context,
+            //         builder: (ctx) => AlertDialog(
+            //         title: const Text("Successful registration!!"),
+            //         content: const Text("You have Created A New Account!!"),
+            //         actions: <Widget>[
+            //         TextButton(
+            //         onPressed: () {
+            //           Navigator.of(context).push(MaterialPageRoute
+            //           (builder: (BuildContext context) =>
+            //           const HomeScreen() )).onError((error, stackTrace)
+            //           {
+            //             print(error);
+            //             if(emailcontroller.text==" ")
+            //             {
+            //               showDialog(
+            //               context: context,
+            //               builder: (context) => AlertDialog(
+            //                 title: const Text('Missing Email'),
+            //                 content: const Text('Please Enter a Valid Email Id')
+            //               ),);
+            //             }
+            //             else if(passwordcontroller.text==" ")
+            //             {
+            //               showDialog(
+            //               context: context,
+            //               builder: (context) => AlertDialog(
+            //                 title: const Text('Incomplete Password'),
+            //                 content: const Text('Please Enter a Minimum 6 letter password')
+            //               ),);
+            //             }
+            //             else if(passwordcontroller.text!=confirmpasswordcontroller.text)
+            //             {
+            //               showDialog(
+            //               context: context,
+            //               builder: (context) => AlertDialog(
+            //                 title: const Text('Incomplete Match of Passwords'),
+            //                 content: const Text('Match Correct Passwords')
+            //               ),);
+            //             }
+            //             else if(namecontroller.text==" ")
+            //             {
+            //               showDialog(
+            //               context: context,
+            //               builder: (context) => AlertDialog(
+            //                 title: const Text('Missing Name!!'),
+            //                 content: const Text('Please Enter Your Full Name!!')
+            //               ),);
+            //             }
+            //             else if(namecontroller.text==" " && passwordcontroller.text==" " && emailcontroller.text==" ")
+            //             {
+            //               showDialog(
+            //               context: context,
+            //               builder: (context) => AlertDialog(
+            //                 title: const Text('Missing Details!!'),
+            //                 content: const Text('Enter All your Details to sign up.')
+            //               ),);
+            //             }
+            //           });
+            //         },
+            //         child: Container(
+            //           padding: const EdgeInsets.all(14),
+            //           child: const Text("okay"),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // );
+                    
+              //     });
                 },
                 child:const Text("Proceed to App",
                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),

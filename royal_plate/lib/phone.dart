@@ -12,6 +12,8 @@ import 'Color.dart';
 class OnBoarding15 extends StatefulWidget {
   const OnBoarding15({super.key});
 
+  static String verify="";
+
   @override
   State<OnBoarding15> createState() => _OnBoarding15State();
 }
@@ -97,13 +99,18 @@ class _OnBoarding15State extends State<OnBoarding15> {
                       onPrimary: Colors.yellowAccent,
                     ),
                   onPressed: () async{
-                  // await FirebaseAuth.instance.verifyPhoneNumber(
-                  // phoneNumber: '',
-                  // verificationCompleted: (PhoneAuthCredential credential){}, 
-                  // verificationFailed: (FirebaseAuthException e){}, 
-                  // codeSent: (String verificationId, int? forceResendingToken) {}, 
-                  // codeAutoRetrievalTimeout: (String verificationId) {});
-                  //   // Navigator.pushNamed(context, 'otp');
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                  phoneNumber: '${phone}',
+                  verificationCompleted: (PhoneAuthCredential credential){}, 
+                  verificationFailed: (FirebaseAuthException e){}, 
+                  codeSent: (String verificationId, int? forceResendingToken) {
+                    OnBoarding15.verify=verificationId;
+                    Navigator.of(context).pop(
+                  MaterialPageRoute(builder: (BuildContext context)=>
+                  const MyOtp()));
+                  }, 
+                  codeAutoRetrievalTimeout: (String verificationId) {});
+                    // Navigator.pushNamed(context, 'otp');
                   },
                   child:const Text("Send The Code",
                   style: TextStyle(fontSize: 17),) ),

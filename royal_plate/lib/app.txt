@@ -9,7 +9,7 @@ Things done
 
 Things left
 - Significant changes in UI required.
-- SMS provider required.
+- SMS provider required - done.
 - paintwork to be done if possible
 
 
@@ -19,17 +19,18 @@ Things done
 - Password visibility and visibility_off done
 
 Things left
-- Database Connectivity
-- Routing of page on basis of validations.
+- Database Connectivity - done
+- Routing of page on basis of validations - done
 
 
 // Home Page
 Things done
-- 70 percent UI done
+- 100 percent UI done
 - Drawer done
 - Bottom Navigation bar done
 
 Things left
 - Each page for order of food
-- 
+- cart page
+- review page
 

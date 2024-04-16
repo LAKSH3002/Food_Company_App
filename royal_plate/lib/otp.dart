@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pinput/pinput.dart';
+import 'package:royal_plate/Email_screen.dart';
 import 'package:royal_plate/HomeScreen.dart';
+import 'package:royal_plate/phone.dart';
 
 class MyOtp extends StatefulWidget {
   const MyOtp({super.key});
@@ -13,8 +16,8 @@ class MyOtp extends StatefulWidget {
 
 class _MyOtpState extends State<MyOtp> {
 
-
-
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  var code = "";
   @override
   Widget build(BuildContext context) {
    return Scaffold(
@@ -54,6 +57,10 @@ class _MyOtpState extends State<MyOtp> {
                Padding(
                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                  child: Pinput(
+                  onChanged: (value)
+                  {
+                    code = value;
+                  },
                   mainAxisAlignment: MainAxisAlignment.center,
                   closeKeyboardWhenCompleted: true,
                   length: 6,
@@ -74,10 +81,39 @@ class _MyOtpState extends State<MyOtp> {
                       backgroundColor: Colors.deepPurple,
                       onPrimary: Colors.yellowAccent,
                     ),
-                  onPressed: (){
+                  onPressed: ()async
+                  {
+                    try{
+                      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+                      verificationId: OnBoarding15.verify, 
+                      smsCode: code);
+                    // Sign the user in (or link) with the credential
+                    await auth.signInWithCredential(credential);
                     Navigator.of(context).push(MaterialPageRoute
                           (builder: (BuildContext context) =>
-                          const HomeScreen() ));
+                          const OnBoarding4() ));
+                    }
+                    catch(e)
+                    {
+                      showDialog(
+                       context: context,
+                       builder: (ctx) => AlertDialog(
+                       title: const Text("OTP ALERT!!"),
+                       content: const Text("You Have Entered A wrong OTP, Make Sure Enter The Correct One!!"),
+                       actions: <Widget>[
+                       TextButton(
+                       onPressed: () {
+                      },
+                      child: Container(
+                      padding: const EdgeInsets.all(14),
+                      child: const Text("OKAY"),
+                    ),
+                    ),
+                    ],
+                    ),
+                    ); 
+                      print('Wrong OTP');
+                    }
                     // Navigator.pushNamed(context, 'otp');
                   },
                   child:const Text("Verify The Code",
