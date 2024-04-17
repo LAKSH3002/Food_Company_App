@@ -8,7 +8,7 @@ import 'package:royal_plate/HomeScreen.dart';
 import '../Accounts.dart';
 
 class Menu_page extends StatefulWidget {
-  const Menu_page({super.key, required image,});
+  const Menu_page({super.key,});
    
   @override
   State<Menu_page> createState() 
@@ -34,7 +34,7 @@ class _Menu_pageState extends State<Menu_page> {
         title: Row(
           children: 
           [
-            const Text("DANOWAYs Menu",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold,fontSize: 20),),
+            const Text("DANODALDS Menu",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold,fontSize: 20),),
             SizedBox(width: 48,),
             
             CupertinoButton(
@@ -86,11 +86,11 @@ class _Menu_pageState extends State<Menu_page> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   
-                  BuildItem('images/idly_chilli.jpeg', 'Idli Chilly                              '),
-                  BuildItem('images/Veggies_fry.jpeg', 'Veggies Fry                    '),
-                  BuildItem('images/veg_crispy.jpeg', 'Paneer Crispy                   '),
-                  BuildItem('images/Veggies_fry.jpeg', 'Veg Crispy                        '),
-                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Chilli         '),
+                  BuildItem('images/idly_chilli.jpeg', 'Idli Chilly                              ','280 Rs'),
+                  BuildItem('images/Veggies_fry.jpeg', 'Veggies Fry                    ','260 Rs'),
+                  BuildItem('images/veg_crispy.jpeg', 'Paneer Crispy                   ','300 Rs'),
+                  BuildItem('images/Veggies_fry.jpeg', 'Veg Crispy                        ','320 Rs'),
+                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Chilli         ','330 Rs'),
                 ],
               ),
              ),
@@ -116,11 +116,11 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/pizzas/cheesepizza.jpg', 'Margherita                            '),
-                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Farmhouse Pizza                 '),
-                  BuildItem('images/pizzas/VeggiParadise_B_260216.jpg', 'Veggie Paradise   '),
-                  BuildItem('images/pizzas/Peppypaneer.jpg', 'Peppy Paneer Pizza   '),
-                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Pasta Pizza                          '),
+                  BuildItem('images/pizzas/cheesepizza.jpg', 'Margherita                            ','260 Rs'),
+                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Farmhouse Pizza                 ','300 Rs'),
+                  BuildItem('images/pizzas/VeggiParadise_B_260216.jpg', 'Veggie Paradise   ','320 Rs'),
+                  BuildItem('images/pizzas/Peppypaneer.jpg', 'Peppy Paneer Pizza   ','400 Rs'),
+                  BuildItem('images/pizzas/veg-farmhouse-pizza.jpg', 'Pasta Pizza                          ','420 Rs'),
                 ], 
               ),
              ),
@@ -145,11 +145,11 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich                      '),
-                  BuildItem('images/sandwich/sandwich 2.jpeg', 'Subway Special      '),
-                  BuildItem('images/sandwich/cct.jpeg', 'Cheese chilly toast   '),
-                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich          '),
-                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich            '),
+                  BuildItem('images/sandwich/Sandwich 1.jpeg', 'Veg Sandwich                      ','100 Rs'),
+                  BuildItem('images/sandwich/sandwich 2.jpeg', 'Subway Special      ','300 Rs'),
+                  BuildItem('images/sandwich/cct.jpeg', 'Cheese chilly toast   ','200 Rs'),
+                  BuildItem('images/sandwich/ps.jpeg', 'Paneer Sandwich          ','300 Rs'),
+                  BuildItem('images/sandwich/p_c_s.jpeg', 'Paneer Corn Sandwich            ','350 Rs'),
                 ],
               ),
              ),
@@ -174,11 +174,11 @@ class _Menu_pageState extends State<Menu_page> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BuildItem('images/hakka_noodles.jpeg', 'Hakka Noodles                    '),
-                  BuildItem('images/Fried_rice.jpeg', 'Fried Rice                            '),
-                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Manchurian   '),
-                  BuildItem('images/Noodles.jpg', 'Schezwan Noodles         '),
-                  BuildItem('images/sandwich/p_c_s.jpeg', 'Schezwan Sandwich               '),
+                  BuildItem('images/hakka_noodles.jpeg', 'Hakka Noodles                    ','300 Rs'),
+                  BuildItem('images/Fried_rice.jpeg', 'Fried Rice                            ','320 Rs'),
+                  BuildItem('images/Paneer_chilli.jpeg', 'Paneer Manchurian   ','330 Rs'),
+                  BuildItem('images/Noodles.jpg', 'Schezwan Noodles         ','400 Rs'),
+                  BuildItem('images/sandwich/p_c_s.jpeg', 'Schezwan Sandwich               ','430 Rs'),
                 ],
               ),
              ),
@@ -244,7 +244,7 @@ class _Menu_pageState extends State<Menu_page> {
         ),)
     );
   }
-  Widget BuildItem(image, title)
+  Widget BuildItem(image, title, rate)
 {
   return Container(
     child: Column(
@@ -262,29 +262,7 @@ class _Menu_pageState extends State<Menu_page> {
         ),
         
         SizedBox(height: 2,),
-        OrderCount(),
-      ],
-    ),
-                  );
-}
-
-Widget ImageBuilder(image)
-{
-  return Image.asset(image);
-}
-
-Widget OrderCount()
-{
-  TextEditingController foodcount2 = TextEditingController();
-  foodcount2.text = '0';
-
-  @override
-  void initState() {
-    super.initState();
-    foodcount2.text = "0"; // Setting the initial value for the field.
-  }
-
-  return Container(
+        Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(4),
       color: Color.fromARGB(255, 234, 237, 239)
@@ -302,29 +280,12 @@ Widget OrderCount()
                         shape: Border.all(width: 0.0,color: Colors.white),
                          child: Icon(Icons.remove, size: 18,),
                          onPressed: () {
-                           setState(() {
-                            int currentValue = int.parse(foodcount2.text);
-                            //  print("Setting state");
-                             currentValue--;
-                             foodcount2.text =
-                                 (currentValue).toString(); // decrementing value
-                           });
+                           
                          },
                        ),
-                SizedBox(width: 24,),
+                SizedBox(width: 16,),
                 Expanded(
-                     child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(10),
-                      ),
-                       controller: foodcount2,
-                       keyboardType: TextInputType.numberWithOptions(
-                           decimal: false, signed: false),
-                           inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                     ),
+                     child: Text(rate)
                    ),               
                 // Button to add items.
                 MaterialButton(
@@ -334,16 +295,32 @@ Widget OrderCount()
                         shape: Border.all(width: 0.0,color: Colors.white),
                          child: Icon(Icons.add, size: 18,),
                          onPressed: () {
-                           setState(() {
-                             int currentValue = int.parse(foodcount2.text);   
-                             currentValue++;
-                             foodcount2.text =
-                                 (currentValue).toString(); // decrementing value
-                           });
+                           
                          },
                        ),
               ],
              ),
-  );
+  )
+      ],
+    ),
+                  );
 }
+
+Widget ImageBuilder(image)
+{
+  return Image.asset(image);
+}
+
+// Widget Foodrates()
+// {
+//   // TextEditingController food = TextEditingController();
+//   // foodrate.text = '0';
+
+//   // @override
+//   // void initState() {
+//   //   super.initState();
+//   //   foodcount2.text = "0"; // Setting the initial value for the field.
+//   // }
+
+//   return 
 }

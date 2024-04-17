@@ -135,6 +135,8 @@ Text("  How Does It Work?",style: TextStyle(fontSize: 20,fontWeight: FontWeight.
               // separatorBuilder: (context, _) => SizedBox(width: 10,),
               // itemCount: 5)),
 
+
+
 // ignore: non_constant_identifier_names
 Widget Buildcard(
   {
@@ -165,6 +167,8 @@ Widget Buildcard(
                   ),
 );
 
+
+
 // {
 //   "type": "service_account",
 //   "project_id": "royalplatechatbot-drpr",
@@ -178,6 +182,8 @@ Widget Buildcard(
 //   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/royalplatechatbot%40royalplatechatbot-drpr.iam.gserviceaccount.com",
 //   "universe_domain": "googleapis.com"
 // }
+
+
 
 
 Padding(
@@ -222,3 +228,21 @@ Padding(
                   ),
                               ),
                 ),
+
+
+
+
+
+
+TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(10),
+                      ),
+                       
+                       keyboardType: TextInputType.numberWithOptions(
+                           decimal: false, signed: false),
+                           inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                     ),

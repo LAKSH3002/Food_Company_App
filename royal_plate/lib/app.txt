@@ -8,7 +8,7 @@ Things done
 - UI part done
 
 Things left
-- Significant changes in UI required.
+- Significant changes in UI required - need too many changes.
 - SMS provider required - done.
 - paintwork to be done if possible
 
@@ -31,6 +31,11 @@ Things done
 
 Things left
 - Each page for order of food
-- cart page
-- review page
+
+18th april 2024
+// Cart page
+- addition of food items when plus is tapped and subraction of food items when minus is tapped
+- Place order button
+- bill button
+
 

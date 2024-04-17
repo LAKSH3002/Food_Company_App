@@ -298,7 +298,7 @@ List<CardItem> items =  [
                 setState(() {
                   Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context)=>
-                  const Menu_page(image: 'images/entry.jpeg',)));
+                  const Menu_page()));
                 });
               },
                child: BuildOutletCard(
@@ -316,7 +316,7 @@ List<CardItem> items =  [
                 setState(() {
                   Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context)=>
-                  const Menu_page(image: 'images/outlets/outlet.jpeg',)));
+                  const Menu_page()));
                 });
               },
                child: BuildOutletCard(
@@ -334,7 +334,7 @@ List<CardItem> items =  [
                 setState(() {
                   Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context)=>
-                  const Menu_page(image:'images/outlets/outlet2.jpeg')));
+                  const Menu_page()));
                 });
               },
                child: BuildOutletCard(
@@ -352,7 +352,7 @@ List<CardItem> items =  [
                 setState(() {
                   Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context)=>
-                  const Menu_page(image:'images/outlets/outlet3.jpeg')));
+                  const Menu_page()));
                 });
               },
                child: BuildOutletCard(
