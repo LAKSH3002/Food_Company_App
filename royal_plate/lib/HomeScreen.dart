@@ -4,6 +4,7 @@ import 'package:royal_plate/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/LoginScreen.dart';
 import 'package:royal_plate/Menu_page/Menu.dart';
+import 'package:royal_plate/cart.dart';
 import 'package:royal_plate/phone.dart';
 import 'package:royal_plate/Email_screen.dart';
 import 'package:royal_plate/SetFav_home.dart';
@@ -41,11 +42,10 @@ class _HomeScreenState extends State<HomeScreen>
   TextEditingController namecontroller = TextEditingController();
   TextEditingController contactcontroller = TextEditingController();
 
-  // final List<Widget> _widgetOptions = <Widget>[
-  //   HomeScreen(),
-  //   HomeScreen(),
-  //   review(),
-  // ];
+  final List<Widget> _widgetOptions = <Widget>[
+    CartScreen(),
+    review(),
+  ];
 
 
 List<CardItem> items =  [
@@ -394,15 +394,15 @@ List<CardItem> items =  [
               ),
 
               ListTile(
-                title: const Text('Home page'),
-                leading: const Icon(Icons.home),
+                title: const Text('Your Cart'),
+                leading: const Icon(Icons.shopping_cart),
                 onTap: () {
-                  // setState(() {
-                  //   Navigator.of(context).push(MaterialPageRoute
-                  // (builder: (BuildContext context) =>
-                  // HomeScreen(name: name) 
-                  // ));
-                  // });
+                  setState(() {
+                    Navigator.of(context).push(MaterialPageRoute
+                  (builder: (BuildContext context) =>
+                  const CartScreen() 
+                  ));
+                  });
                 },
               ),
               ListTile(
@@ -444,6 +444,7 @@ List<CardItem> items =  [
                   });
                 },
               ),
+              
               ListTile(
                 title: Text('Contact Us'),
                 leading: Icon(Icons.contact_emergency),
@@ -468,31 +469,36 @@ List<CardItem> items =  [
         ),
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home,color: Colors.blue,),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart,color: Colors.blue),
-            label: 'Your Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.reviews,color:Colors.blue,),
-            label: 'Review/Complain',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: (int index)
-        {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   items: const <BottomNavigationBarItem>[
+
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.shopping_cart,color: Colors.blue),
+      //       label: 'Your Cart',
+      //     ),
+
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.shopping_cart,color: Colors.blue),
+      //       label: 'Your Cart',
+      //     ),
+
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.reviews,color:Colors.blue,),
+      //       label: 'Review/Complain',
+      //     ),
+
+      //   ],
+        
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: Colors.amber[800],
+      //   onTap: (int index)
+      //   {
+      //     setState(() {
+      //       _selectedIndex = index;
+      //     });
+      //   },
+      // ),
     );
   } 
 }

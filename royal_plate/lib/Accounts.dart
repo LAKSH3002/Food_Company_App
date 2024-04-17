@@ -81,7 +81,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     SizedBox(height: 10,),
                     Text('  Email: ${widget.email.text}',style: TextStyle(fontSize: 18),),
                     SizedBox(height: 10,),
-                    Text("  Contact: 9867900994",style: TextStyle(fontSize: 18),),
+                    Text("  Contact: ",style: TextStyle(fontSize: 18),),
                   ],
                 ),
               ),),

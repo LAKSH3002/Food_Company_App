@@ -105,7 +105,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                   verificationFailed: (FirebaseAuthException e){}, 
                   codeSent: (String verificationId, int? forceResendingToken) {
                     OnBoarding15.verify=verificationId;
-                    Navigator.of(context).pop(
+                    Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context)=>
                   const MyOtp()));
                   }, 

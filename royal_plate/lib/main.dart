@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:royal_plate/phone.dart';
 import 'package:royal_plate/Splash_Screen1.dart';
+import 'package:royal_plate/review.dart';
 import 'LoginScreen.dart';
 import 'Email_screen.dart';
 import 'Splash_Screen2.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget
     return MaterialApp(
     debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: OnBoarding4(),
+      home: SplashScreen1(),
     );
   }
 }

@@ -186,31 +186,31 @@ class _OnBoarding4State extends State<OnBoarding4>
 
             const SizedBox(height: 65,),
 
-             ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => 
-                    HomeScreen(
-                    name: namecontroller,
-                    email: emailcontroller,),
-                  ),
-                );
-                setState(() {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => 
-                    AccountScreen(
-                    name: namecontroller,
-                    email: emailcontroller,),
-                  ),
-                );
-                });
-              },
-              child: Text('Go to Second Page'),
-            ),
+            //  ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => 
+            //         HomeScreen(
+            //         name: namecontroller,
+            //         email: emailcontroller,),
+            //       ),
+            //     );
+            //     // setState(() {
+            //     //   Navigator.push(
+            //     //   context,
+            //     //   MaterialPageRoute(
+            //     //     builder: (context) => 
+            //     //     AccountScreen(
+            //     //     name: namecontroller,
+            //     //     email: emailcontroller,),
+            //     //   ),
+            //     // );
+            //     // });
+            //   },
+            //   child: Text('Go to Second Page'),
+            // ),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
@@ -240,7 +240,30 @@ class _OnBoarding4State extends State<OnBoarding4>
                   password: passwordcontroller.text).then((value) 
                   {
                     print("New Account Created");
-                    dialogbox();
+                    showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const Text("Successful registration!!"),
+                content: const Text("You have Created A New Account!!"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute
+                      (builder: (BuildContext context) =>
+                      HomeScreen(
+                      name: namecontroller,
+                      email: emailcontroller,) )).onError((error, stackTrace){
+                      });
+                    },
+                    child: Container(
+                      color: Colors.green,
+                      padding: const EdgeInsets.all(14),
+                      child: const Text("okay"),
+                    ),
+                  ),
+                ],
+              ),
+            );
                   });
                   }
                   catch(e)
