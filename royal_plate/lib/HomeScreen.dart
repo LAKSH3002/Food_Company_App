@@ -26,7 +26,9 @@ class CardItem{
 
 class HomeScreen extends StatefulWidget 
 {
-  const HomeScreen({super.key});
+  final TextEditingController name;
+  final TextEditingController email;
+  HomeScreen({super.key, required this.name, required this.email});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -35,12 +37,15 @@ class HomeScreen extends StatefulWidget
 class _HomeScreenState extends State<HomeScreen> 
 {
   int _selectedIndex = 0;
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController contactcontroller = TextEditingController();
 
-  final List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    HomeScreen(),
-    review(),
-  ];
+  // final List<Widget> _widgetOptions = <Widget>[
+  //   HomeScreen(),
+  //   HomeScreen(),
+  //   review(),
+  // ];
 
 
 List<CardItem> items =  [
@@ -79,7 +84,7 @@ List<CardItem> items =  [
         title: Row(
           children: 
           [
-            const Text("DANOWAYs",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+            const Text("DANODALDS",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
             SizedBox(width: 93,),
             
             CupertinoButton(
@@ -90,7 +95,11 @@ List<CardItem> items =  [
                 setState(() {
                   Navigator.of(context).push(
                   MaterialPageRoute(builder: (BuildContext context)=>
-                  const AccountScreen()));
+                  AccountScreen(
+                    name: namecontroller,
+                    email: emailcontroller,
+                    // phone: contactcontroller,
+                  )));
                 });
               }),
           ]
@@ -106,8 +115,8 @@ List<CardItem> items =  [
 
               const SizedBox(height: 10,),
 
-              Text('Hello Laksh!!',
-              style: TextStyle(fontSize: 40,color:Colors.deepPurple,
+              Text(' Hello ${widget.name.text}',
+              style: TextStyle(fontSize: 30,color:Colors.deepPurple,
               fontFamily: AutofillHints.addressCity,
               fontWeight: FontWeight.w400),) ,
 
@@ -367,7 +376,7 @@ List<CardItem> items =  [
         child: ListView(
           padding: const EdgeInsets.all(0),
           children: [
-            const DrawerHeader(
+            DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.blue, 
             ),
@@ -375,10 +384,10 @@ List<CardItem> items =  [
             child: UserAccountsDrawerHeader(
             decoration: BoxDecoration(color: Colors.blue),
             accountName: Text(
-              "Laksh Doshi",
+              '${widget.name.text}',
               style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic,color: Colors.yellowAccent),
             ),
-            accountEmail: Text("lakshd1999@gmail.com",style: TextStyle(fontSize: 22,color: Colors.yellowAccent),),
+            accountEmail: Text("${widget.email.text}",style: TextStyle(fontSize: 22,color: Colors.yellowAccent),),
             currentAccountPictureSize: Size.square(40),
             ),
             // child:Text('Select your Shows',style: TextStyle(color:Colors.greenAccent,fontSize: 22,),),
@@ -388,12 +397,12 @@ List<CardItem> items =  [
                 title: const Text('Home page'),
                 leading: const Icon(Icons.home),
                 onTap: () {
-                  setState(() {
-                    Navigator.of(context).push(MaterialPageRoute
-                  (builder: (BuildContext context) =>
-                  const HomeScreen() 
-                  ));
-                  });
+                  // setState(() {
+                  //   Navigator.of(context).push(MaterialPageRoute
+                  // (builder: (BuildContext context) =>
+                  // HomeScreen(name: name) 
+                  // ));
+                  // });
                 },
               ),
               ListTile(
@@ -427,7 +436,11 @@ List<CardItem> items =  [
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => 
-                    const AccountScreen()));
+                    AccountScreen(
+                    email: emailcontroller,
+                    name: namecontroller,
+                    // phone: contactcontroller,  
+                    )));
                   });
                 },
               ),
@@ -436,7 +449,7 @@ List<CardItem> items =  [
                 leading: Icon(Icons.contact_emergency),
                 onTap: () {
                   setState(() {
-                    const HomeScreen();
+                    
                   });
                 },
               ),

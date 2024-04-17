@@ -103,27 +103,28 @@ class _Login_ScreenState extends State<Login_Screen> {
                   ),
                 onPressed: () async
                 {
-                   showDialog(
-                       context: context,
-                       builder: (ctx) => AlertDialog(
-                       title: const Text("Successful Logging In!!"),
-                       content: const Text("You Are being Logged in!"),
-                       actions: <Widget>[
-                       TextButton(
-                       onPressed: () {
-                       Navigator.of(context).push(MaterialPageRoute
-                       (builder: (BuildContext context) =>
-                       const HomeScreen() )).onError((error, stackTrace){
-                      });
-                      },
-                      child: Container(
-                      padding: const EdgeInsets.all(14),
-                      child: const Text("Proceed"),
-                    ),
-                    ),
-                    ],
-                    ),
-                    );                 
+                  //  showDialog(
+                  //      context: context,
+                  //      builder: (ctx) => AlertDialog(
+                  //      title: const Text("Successful Logging In!!"),
+                  //      content: const Text("You Are being Logged in!"),
+                  //      actions: <Widget>[
+                  //      TextButton(
+                  //      onPressed: () {
+                  //      var name;
+                  //      Navigator.of(context).push(MaterialPageRoute
+                  //      (builder: (BuildContext context) =>
+                  //      HomeScreen(name: name,) )).onError((error, stackTrace){
+                  //     });
+                  //     },
+                  //     child: Container(
+                  //     padding: const EdgeInsets.all(14),
+                  //     child: const Text("Proceed"),
+                  //   ),
+                  //   ),
+                  //   ],
+                  //   ),
+                  //   );                 
                 },
                 child:const Text("Login",
                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),

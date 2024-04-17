@@ -42,11 +42,11 @@ class _Menu_pageState extends State<Menu_page> {
               color: Colors.white,
               size:30.0),
               onPressed: (){
-                setState(() {
-                  Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context)=>
-                  const AccountScreen()));
-                });
+                // setState(() {
+                //   Navigator.of(context).push(
+                //   MaterialPageRoute(builder: (BuildContext context)=>
+                //   const AccountScreen()));
+                // });
               }),
           ]
             )

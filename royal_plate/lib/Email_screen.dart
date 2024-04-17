@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:royal_plate/Accounts.dart';
+import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,9 +20,17 @@ class _OnBoarding4State extends State<OnBoarding4>
   // text editing controller
   bool passwordVisible = true;
   TextEditingController emailcontroller = TextEditingController();
-  TextEditingController confirmpasswordcontroller = TextEditingController();
+  // TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController namecontroller = TextEditingController();
+  bool _validate = false;
+
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    super.dispose();
+  }
+
   @override
 
   // Method to validate the email the take
@@ -31,6 +41,11 @@ class _OnBoarding4State extends State<OnBoarding4>
     bool isvalid = EmailValidator.validate(email);
     print(isvalid);
   }
+
+   @override
+  void initState() {
+    super.initState();
+  }
  
   @override
   Widget build(BuildContext context) {
@@ -40,7 +55,10 @@ class _OnBoarding4State extends State<OnBoarding4>
       (
         backgroundColor: Colors.deepPurple,
         elevation: 5,
-        title: Text('DANOWAYs',style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+        title: Text('DANODALDS',style: TextStyle(
+        color: Colors.greenAccent,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -48,12 +66,15 @@ class _OnBoarding4State extends State<OnBoarding4>
           children: [
             const SizedBox(height:25),
       
-            const Text(
-              "   Register For The App!!",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+              child: const Text(
+                "Enter The Following Details to get Started with the App",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),),
+            ),
       
               SizedBox(height: 25),
       
@@ -64,6 +85,7 @@ class _OnBoarding4State extends State<OnBoarding4>
                 decoration: InputDecoration(
                               prefixIcon: Icon(Icons.person),
                               hintText: "Enter Your Full name*",
+                              errorText: _validate ? 'Name filed is required' : null,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25.0)
                               ),
@@ -78,6 +100,7 @@ class _OnBoarding4State extends State<OnBoarding4>
                 controller: emailcontroller,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
+                  errorText: _validate ? 'Email id is required' : null,
                               prefixIcon: Icon(Icons.email),
                               hintText: "Enter Your Email id*",
                               border: OutlineInputBorder(
@@ -94,13 +117,14 @@ class _OnBoarding4State extends State<OnBoarding4>
                 controller: passwordcontroller,
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
+                  errorText: _validate ? 'Password is Required' : null,
                               prefixIcon: Icon(Icons.password_rounded),
                               hintText: "Create Your Own Password*",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(25.0)
                               ),
                               errorBorder: OutlineInputBorder(),
-                              helperText:"Password must contain special character",
+                              helperText:"Password must be 6 characters long",
                     suffixIcon: IconButton(
                     icon: Icon(passwordVisible
                          ? Icons.visibility_off
@@ -119,47 +143,74 @@ class _OnBoarding4State extends State<OnBoarding4>
               ),
             ),
 
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                controller: confirmpasswordcontroller,
-                obscureText: passwordVisible,
-                decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Confirm Password*",
-                              // helperText: 'Confirm password must match Create Password',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0)
-                              ),
-                              errorBorder: OutlineInputBorder(),
-                              suffixIcon: IconButton(
-                    icon: Icon(passwordVisible
-                         ? Icons.visibility_off
-                         : Icons.visibility),
-                     onPressed: () {
-                       setState(
-                         () {
-                           passwordVisible = !passwordVisible;
-                         },
-                       );
-                     },
-                   ),
-                            ),
-                  keyboardType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.done
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.all(12.0),
+            //   child: TextField(
+            //     controller: confirmpasswordcontroller,
+            //     obscureText: passwordVisible,
+            //     decoration: InputDecoration(
+            //                   errorText: _validate ? 'Please confirm your password' : null,
+            //                   prefixIcon: Icon(Icons.password_rounded),
+            //                   hintText: "Confirm Password*",
+            //                   // helperText: 'Confirm password must match Create Password',
+            //                   border: OutlineInputBorder(
+            //                     borderRadius: BorderRadius.circular(25.0)
+            //                   ),
+            //                   errorBorder: OutlineInputBorder(),
+            //                   suffixIcon: IconButton(
+            //         icon: Icon(passwordVisible
+            //              ? Icons.visibility_off
+            //              : Icons.visibility),
+            //          onPressed: () {
+            //            setState(
+            //              () {
+            //                passwordVisible = !passwordVisible;
+            //              },
+            //            );
+            //          },
+            //        ),
+            //                 ),
+            //       keyboardType: TextInputType.visiblePassword,
+            //       textInputAction: TextInputAction.done
+            //   ),
+            // ),
       
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
 
             TextButton(onPressed: (){
               Navigator.of(context).push(MaterialPageRoute
                       (builder: (BuildContext context) =>
                       const Login_Screen() ));
-            }, child: Text('          Already Have an Account?? Log_In',
-            style: TextStyle(fontSize: 16),)),
+            }, child: Text('      Already Have an Account?? Log_In',
+            style: TextStyle(fontSize: 19),)),
 
-            const SizedBox(height: 50,),
+            const SizedBox(height: 65,),
+
+             ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => 
+                    HomeScreen(
+                    name: namecontroller,
+                    email: emailcontroller,),
+                  ),
+                );
+                setState(() {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => 
+                    AccountScreen(
+                    name: namecontroller,
+                    email: emailcontroller,),
+                  ),
+                );
+                });
+              },
+              child: Text('Go to Second Page'),
+            ),
       
            Padding(
               padding: const EdgeInsets.all(8.0),
@@ -176,111 +227,27 @@ class _OnBoarding4State extends State<OnBoarding4>
                 {
                 try
                   {
+                    setState(() {
+                     
+                      namecontroller.text.isEmpty ? _validate = true : _validate = false;
+                      emailcontroller.text.isEmpty ? _validate = true : _validate = false;
+                      passwordcontroller.text.isEmpty ? _validate = true : _validate = false;
+                      // confirmpasswordcontroller.text.isEmpty ? _validate = true : _validate = false;
+                    });
+                    
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
                   email: emailcontroller.text,
                   password: passwordcontroller.text).then((value) 
                   {
                     print("New Account Created");
-                    showDialog(
-                    context: context,
-                    builder: (ctx) => AlertDialog(
-                    title: const Text("Successful registration!!"),
-                    content: const Text("You have Created A New Account!!"),
-                    actions: <Widget>[
-                    TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute
-                      (builder: (BuildContext context) =>
-                      const HomeScreen())
-                    );
-                    }, child: const Text('Proceed'),)
-                    ],
-                    ));
+                    dialogbox();
                   });
                   }
                   catch(e)
                   {
                     print(e);
-                    print("No entries yet");
+                    print("Incomplete Entries");
                   }
-                
-                  
-            //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            //       email: emailcontroller.text,
-            //       password: passwordcontroller.text)
-            //       .then((value)
-            //       {
-            //         print("New Account Created");
-            //         showDialog(
-            //         context: context,
-            //         builder: (ctx) => AlertDialog(
-            //         title: const Text("Successful registration!!"),
-            //         content: const Text("You have Created A New Account!!"),
-            //         actions: <Widget>[
-            //         TextButton(
-            //         onPressed: () {
-            //           Navigator.of(context).push(MaterialPageRoute
-            //           (builder: (BuildContext context) =>
-            //           const HomeScreen() )).onError((error, stackTrace)
-            //           {
-            //             print(error);
-            //             if(emailcontroller.text==" ")
-            //             {
-            //               showDialog(
-            //               context: context,
-            //               builder: (context) => AlertDialog(
-            //                 title: const Text('Missing Email'),
-            //                 content: const Text('Please Enter a Valid Email Id')
-            //               ),);
-            //             }
-            //             else if(passwordcontroller.text==" ")
-            //             {
-            //               showDialog(
-            //               context: context,
-            //               builder: (context) => AlertDialog(
-            //                 title: const Text('Incomplete Password'),
-            //                 content: const Text('Please Enter a Minimum 6 letter password')
-            //               ),);
-            //             }
-            //             else if(passwordcontroller.text!=confirmpasswordcontroller.text)
-            //             {
-            //               showDialog(
-            //               context: context,
-            //               builder: (context) => AlertDialog(
-            //                 title: const Text('Incomplete Match of Passwords'),
-            //                 content: const Text('Match Correct Passwords')
-            //               ),);
-            //             }
-            //             else if(namecontroller.text==" ")
-            //             {
-            //               showDialog(
-            //               context: context,
-            //               builder: (context) => AlertDialog(
-            //                 title: const Text('Missing Name!!'),
-            //                 content: const Text('Please Enter Your Full Name!!')
-            //               ),);
-            //             }
-            //             else if(namecontroller.text==" " && passwordcontroller.text==" " && emailcontroller.text==" ")
-            //             {
-            //               showDialog(
-            //               context: context,
-            //               builder: (context) => AlertDialog(
-            //                 title: const Text('Missing Details!!'),
-            //                 content: const Text('Enter All your Details to sign up.')
-            //               ),);
-            //             }
-            //           });
-            //         },
-            //         child: Container(
-            //           padding: const EdgeInsets.all(14),
-            //           child: const Text("okay"),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // );
-                    
-              //     });
                 },
                 child:const Text("Proceed to App",
                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
@@ -307,7 +274,9 @@ class _OnBoarding4State extends State<OnBoarding4>
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute
                       (builder: (BuildContext context) =>
-                      const HomeScreen() )).onError((error, stackTrace){
+                      HomeScreen(
+                      name: namecontroller,
+                      email: emailcontroller,) )).onError((error, stackTrace){
                       });
                     },
                     child: Container(

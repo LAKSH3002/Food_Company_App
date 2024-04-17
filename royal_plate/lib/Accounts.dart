@@ -6,13 +6,23 @@ import 'package:royal_plate/HomeScreen.dart';
 // This is the Accounts Screen
 
 class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+  final TextEditingController name;
+  final TextEditingController email;
+  // final TextEditingController phone;
+  const AccountScreen({super.key, 
+  required this.name, 
+  required this.email, 
+  });
 
   @override
   State<AccountScreen> createState() => _AccountScreenState();
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController contactcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -23,7 +33,7 @@ class _AccountScreenState extends State<AccountScreen> {
         title: Row(
           children: 
           [
-            const Text("DANOWAYs",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+            const Text("DANODALDS",style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
             SizedBox(width: 94,),
             
             CupertinoButton(
@@ -34,7 +44,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 setState(() {
                   Navigator.of(context).pop(
                   MaterialPageRoute(builder: (BuildContext context)=>
-                  const HomeScreen()));
+                  HomeScreen(
+                  name: namecontroller,
+                  email: emailcontroller,)));
                 });
               }),
           ]
@@ -64,10 +76,10 @@ class _AccountScreenState extends State<AccountScreen> {
                       size: 80.0,
                       color: Colors.black54,),
                     SizedBox(width: 15,),
-                    Text("Laksh Doshi",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                    Text('Name: ${widget.name.text}',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
                     ],),
                     SizedBox(height: 10,),
-                    Text("  Email: lakshd1999@gmail.com",style: TextStyle(fontSize: 18),),
+                    Text('  Email: ${widget.email.text}',style: TextStyle(fontSize: 18),),
                     SizedBox(height: 10,),
                     Text("  Contact: 9867900994",style: TextStyle(fontSize: 18),),
                   ],
