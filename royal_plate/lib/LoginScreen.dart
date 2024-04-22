@@ -27,12 +27,16 @@ class _Login_ScreenState extends State<Login_Screen> {
   
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar
       (
         backgroundColor: Colors.deepPurple,
         elevation: 5,
-        title: Text('DANOWAYs',
+        centerTitle: true,
+        title: Text('DANODALDS',
         style: TextStyle(fontSize: 20,color: Colors.greenAccent,fontWeight: FontWeight.bold),),
       ),
       body: SingleChildScrollView(
@@ -40,61 +44,65 @@ class _Login_ScreenState extends State<Login_Screen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
       
-            const SizedBox(height:50),
-            Center(child: Image.asset('images/trace.jpeg')),
+            // const SizedBox(height:50),
+            Center(
+            child: Image.asset('images/trace.jpeg')),
+            const SizedBox(height: 10,),
       
-              SizedBox(height: 20),
-      
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                controller: emailcontroller,
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.email),
-                              hintText: "Enter Your Email id*",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10,10,10,10),
+                child: TextField(
+                  controller: emailcontroller,
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.email),
+                                hintText: "Enter Your Email id*",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(25.0)
+                                ),
+                                errorBorder: OutlineInputBorder(),
                               ),
-                              errorBorder: OutlineInputBorder(),
-                            ),
+                ),
               ),
             ),
 
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                obscureText: passwordVisible,
-                decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Enter Your Password*",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10,10,10,10),
+                child: TextField(
+                  obscureText: passwordVisible,
+                  decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.password_rounded),
+                                hintText: "Enter Your Password*",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(25.0)
+                                ),
+                                errorBorder: OutlineInputBorder(),
+                                // helperText:"Password must contain special character",
+                      suffixIcon: IconButton(
+                      icon: Icon(passwordVisible
+                           ? Icons.visibility_off
+                           : Icons.visibility),
+                       onPressed: () {
+                         setState(
+                           () {
+                             passwordVisible = !passwordVisible;
+                           },
+                         );
+                       },
+                     ),
                               ),
-                              errorBorder: OutlineInputBorder(),
-                              // helperText:"Password must contain special character",
-                    suffixIcon: IconButton(
-                    icon: Icon(passwordVisible
-                         ? Icons.visibility_off
-                         : Icons.visibility),
-                     onPressed: () {
-                       setState(
-                         () {
-                           passwordVisible = !passwordVisible;
-                         },
-                       );
-                     },
-                   ),
-                            ),
-                 keyboardType: TextInputType.visiblePassword,
-                 textInputAction: TextInputAction.done
+                   keyboardType: TextInputType.visiblePassword,
+                   textInputAction: TextInputAction.done
+                ),
               ),
             ),
       
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
             Center(
               child: SizedBox(
-                width: 100,
+                width: screenwidth*0.6,
                 height: 45,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -139,7 +147,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         (builder: (BuildContext context) =>
                         const OnBoarding4() ));
               }, child: Text('Dont have an Account?? Sign_Up',
-              style: TextStyle(fontSize: 16),)),
+              style: TextStyle(fontSize: 19),)),
             ), 
           ],
         ),

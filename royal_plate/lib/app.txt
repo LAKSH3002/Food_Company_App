@@ -39,3 +39,12 @@ Things left
 - bill button
 
 
+resposive Pages for mobile screens
+- Splash Screen 1.
+- Splash Screen 2.
+- Email Screen.
+- Login Screen.
+
+responsive pages for desktop screens
+- splash screen 1
+- splash screen 2

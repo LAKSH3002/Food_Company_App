@@ -112,6 +112,7 @@ class _SetFavouritehomeState extends State<SetFavouritehome>
     );
   }
 
+// To delete Item
   void _deleteitem(String id)
   {
     setState(() {
@@ -119,6 +120,7 @@ class _SetFavouritehomeState extends State<SetFavouritehome>
     });
   }
 
+// To Add Item
   void _addItem(String setFavourite)
   {
     setState(() {
@@ -129,6 +131,7 @@ class _SetFavouritehomeState extends State<SetFavouritehome>
     _setController.clear();
   }
 
+// To Search Item
   void _runFliter(String enteredKeyword){
     List<SetFavourite> results = [];
     if(enteredKeyword.isEmpty){

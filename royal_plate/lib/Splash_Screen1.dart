@@ -43,7 +43,8 @@ class _SplashScreen1State extends State<SplashScreen1>
         child: AnimatedSplashScreen(   
         backgroundColor: Colors.deepPurple,
         // splash - is the animation.
-        splash: const Text("WELCOME",style: TextStyle(
+        splash: const Text("WELCOME",
+        style: TextStyle(
         fontSize: 35,
         color: Colors.greenAccent,
         letterSpacing: 4,

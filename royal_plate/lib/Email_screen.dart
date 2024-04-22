@@ -49,12 +49,15 @@ class _OnBoarding4State extends State<OnBoarding4>
  
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar
       (
         backgroundColor: Colors.deepPurple,
         elevation: 5,
+        centerTitle: true,
         title: Text('DANODALDS',style: TextStyle(
         color: Colors.greenAccent,
         fontWeight: FontWeight.bold,
@@ -64,85 +67,103 @@ class _OnBoarding4State extends State<OnBoarding4>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height:25),
+      
+            // const SizedBox(height:15),
+            // Text(screenwidth.toString()),
+            const SizedBox(height:35),
       
             Padding(
-              padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               child: const Text(
                 "Enter The Following Details to get Started with the App",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold
                 ),),
             ),
       
               SizedBox(height: 25),
       
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                controller: namecontroller,
-                decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.person),
-                              hintText: "Enter Your Full name*",
-                              errorText: _validate ? 'Name filed is required' : null,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0)
-                              ),
-                              errorBorder: OutlineInputBorder(),
-                            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0,10,0,15),
+                child: SizedBox(
+                  width: screenwidth*0.93,
+                  child: TextField(
+                    controller: namecontroller,
+                    decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.person),
+                                  hintText: "Enter Your Full name*",
+                                  errorText: _validate ? 'Name filed is required' : null,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(25.0)
+                                  ),
+                                  errorBorder: OutlineInputBorder(),
+                                ),
+                  ),
+                ),
               ),
             ),
       
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                controller: emailcontroller,
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                  errorText: _validate ? 'Email id is required' : null,
-                              prefixIcon: Icon(Icons.email),
-                              hintText: "Enter Your Email id*",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0)
-                              ),
-                              errorBorder: OutlineInputBorder(),
-                            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0,10,0,15),
+                child: SizedBox(
+                  width: screenwidth*0.93,
+                  child: TextField(
+                    controller: emailcontroller,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      errorText: _validate ? 'Email id is required' : null,
+                                  prefixIcon: Icon(Icons.email),
+                                  hintText: "Enter Your Email id*",
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(25.0)
+                                  ),
+                                  errorBorder: OutlineInputBorder(),
+                                ),
+                  ),
+                ),
               ),
             ),
-
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: TextField(
-                controller: passwordcontroller,
-                obscureText: passwordVisible,
-                decoration: InputDecoration(
-                  errorText: _validate ? 'Password is Required' : null,
-                              prefixIcon: Icon(Icons.password_rounded),
-                              hintText: "Create Your Own Password*",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25.0)
-                              ),
-                              errorBorder: OutlineInputBorder(),
-                              helperText:"Password must be 6 characters long",
-                    suffixIcon: IconButton(
-                    icon: Icon(passwordVisible
-                         ? Icons.visibility_off
-                         : Icons.visibility),
-                     onPressed: () {
-                       setState(
-                         () {
-                           passwordVisible = !passwordVisible;
+      
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0,10,0,15),
+                child: SizedBox(
+                  width: screenwidth*0.93,
+                  child: TextField(
+                    controller: passwordcontroller,
+                    obscureText: passwordVisible,
+                    decoration: InputDecoration(
+                      errorText: _validate ? 'Password is Required' : null,
+                                  prefixIcon: Icon(Icons.password_rounded),
+                                  hintText: "Create Your Own Password*",
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(25.0)
+                                  ),
+                                  errorBorder: OutlineInputBorder(),
+                                  helperText:"Password must be 6 characters long",
+                        suffixIcon: IconButton(
+                        icon: Icon(passwordVisible
+                             ? Icons.visibility_off
+                             : Icons.visibility),
+                         onPressed: () {
+                           setState(
+                             () {
+                               passwordVisible = !passwordVisible;
+                             },
+                           );
                          },
-                       );
-                     },
-                   ),
-                            ),
-                 keyboardType: TextInputType.visiblePassword,
-                 textInputAction: TextInputAction.done
+                       ),
+                                ),
+                     keyboardType: TextInputType.visiblePassword,
+                     textInputAction: TextInputAction.done
+                  ),
+                ),
               ),
             ),
-
+      
             // Padding(
             //   padding: EdgeInsets.all(12.0),
             //   child: TextField(
@@ -176,16 +197,19 @@ class _OnBoarding4State extends State<OnBoarding4>
             // ),
       
             const SizedBox(height: 50),
-
-            TextButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute
-                      (builder: (BuildContext context) =>
-                      const Login_Screen() ));
-            }, child: Text('      Already Have an Account?? Log_In',
-            style: TextStyle(fontSize: 19),)),
-
-            const SizedBox(height: 65,),
-
+      
+            Center(
+              child: TextButton(onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute
+                        (builder: (BuildContext context) =>
+                        const Login_Screen() ));
+              }, child: Text('Already Have an Account?? Log_In',
+              style: TextStyle(fontSize: 19),)),
+            ),
+      
+            const SizedBox(
+            height: 50,),
+      
             //  ElevatedButton(
             //   onPressed: () {
             //     Navigator.push(
@@ -212,70 +236,72 @@ class _OnBoarding4State extends State<OnBoarding4>
             //   child: Text('Go to Second Page'),
             // ),
       
-           Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 380,
-                height: 45,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    onPrimary: Colors.yellowAccent
-                  ),
-                // User entry with email and password.  
-                onPressed: () async
-                {
-                try
-                  {
-                    setState(() {
+           Center(
+             child: Padding(
+               padding: const EdgeInsets.fromLTRB(0,0,0,10),
+               child: SizedBox(
+                 width: screenwidth*0.65,
+                 height: 45,
+                 child: ElevatedButton(
+                   style: ElevatedButton.styleFrom(
+                     backgroundColor: Colors.deepPurple,
+                     onPrimary: Colors.yellowAccent
+                   ),
+                 // User entry with email and password.  
+                 onPressed: () async
+                 {
+                 try
+                   {
+                     setState(() {
+                      
+                       namecontroller.text.isEmpty ? _validate = true : _validate = false;
+                       emailcontroller.text.isEmpty ? _validate = true : _validate = false;
+                       passwordcontroller.text.isEmpty ? _validate = true : _validate = false;
+                       // confirmpasswordcontroller.text.isEmpty ? _validate = true : _validate = false;
+                     });
                      
-                      namecontroller.text.isEmpty ? _validate = true : _validate = false;
-                      emailcontroller.text.isEmpty ? _validate = true : _validate = false;
-                      passwordcontroller.text.isEmpty ? _validate = true : _validate = false;
-                      // confirmpasswordcontroller.text.isEmpty ? _validate = true : _validate = false;
-                    });
-                    
-                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                  email: emailcontroller.text,
-                  password: passwordcontroller.text).then((value) 
-                  {
-                    print("New Account Created");
-                    showDialog(
-              context: context,
-              builder: (ctx) => AlertDialog(
-                title: const Text("Successful registration!!"),
-                content: const Text("You have Created A New Account!!"),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute
-                      (builder: (BuildContext context) =>
-                      HomeScreen(
-                      name: namecontroller,
-                      email: emailcontroller,) )).onError((error, stackTrace){
-                      });
-                    },
-                    child: Container(
-                      color: Colors.green,
-                      padding: const EdgeInsets.all(14),
-                      child: const Text("okay"),
-                    ),
-                  ),
-                ],
-              ),
-            );
-                  });
-                  }
-                  catch(e)
-                  {
-                    print(e);
-                    print("Incomplete Entries");
-                  }
-                },
-                child:const Text("Proceed to App",
-                style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
-              ),
-            ),
+                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                   email: emailcontroller.text,
+                   password: passwordcontroller.text).then((value) 
+                   {
+                     print("New Account Created");
+                     showDialog(
+               context: context,
+               builder: (ctx) => AlertDialog(
+                 title: const Text("Successful registration!!"),
+                 content: const Text("You have Created A New Account!!"),
+                 actions: <Widget>[
+                   TextButton(
+                     onPressed: () {
+                       Navigator.of(context).push(MaterialPageRoute
+                       (builder: (BuildContext context) =>
+                       HomeScreen(
+                       name: namecontroller,
+                       email: emailcontroller,) )).onError((error, stackTrace){
+                       });
+                     },
+                     child: Container(
+                       color: Colors.green,
+                       padding: const EdgeInsets.all(14),
+                       child: const Text("okay"),
+                     ),
+                   ),
+                 ],
+               ),
+                );
+                   });
+                   }
+                   catch(e)
+                   {
+                     print(e);
+                     print("Incomplete Entries");
+                   }
+                 },
+                 child:const Text("Proceed to App",
+                 style: TextStyle(fontSize: 22,fontStyle: FontStyle.italic),) ),
+               ),
+             ),
+           ),
             
           ],
         ),

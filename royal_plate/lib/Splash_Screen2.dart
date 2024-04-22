@@ -29,6 +29,9 @@ class _SplashScreen2State extends State<SplashScreen2> {
 
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
+    
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -54,7 +57,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
           ],
         ),
         // The Navigation to the next Screen and then Transition to reach there. 
-        nextScreen: const OnBoarding15(),
+        nextScreen: const OnBoarding4(),
         splashTransition: SplashTransition.fadeTransition),
       )
     );    
