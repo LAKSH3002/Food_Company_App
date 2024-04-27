@@ -1,16 +1,15 @@
 import 'package:royal_plate/Chatbot/chatbot.dart';
-import 'package:royal_plate/HomeScreen.dart';
+import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:royal_plate/Menu_page/Menu.dart';
+import 'package:royal_plate/screens/Menu.dart';
 import 'package:royal_plate/phone.dart';
-import 'package:royal_plate/Splash_Screen1.dart';
-import 'package:royal_plate/review.dart';
-import 'LoginScreen.dart';
-import 'Email_screen.dart';
-import 'Splash_Screen2.dart';
+import 'package:royal_plate/screens/Splash_Screen1.dart';
+import 'screens/LoginScreen.dart';
+import 'screens/Email_screen.dart';
+import 'screens/Splash_Screen2.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'Firebase/firebase_options.dart';
 
 Future<void> main() async 
 {

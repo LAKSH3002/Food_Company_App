@@ -1,6 +1,6 @@
-import 'package:royal_plate/colors.dart';
+import 'package:royal_plate/constants/colors.dart';
 import 'package:royal_plate/model/set.dart';
-import 'package:royal_plate/set_items.dart';
+import 'package:royal_plate/model/set_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
