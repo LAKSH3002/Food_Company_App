@@ -1,0 +1,20 @@
+App has following pages
+
+1 - splash screen 1
+2 - splash screen 2
+
+3 - phone number screen
+4 - Enter OTP screen and verify code
+
+5 - Enter User details for signup with option of login if already have an account
+6 - Login Screen
+
+7 - Home Screen
+- Home screen navigates to chatbot, menu page, set favourite page, settings page through drawer.
+
+8 - Chatbot screen
+9 - set favourite food page
+
+10 - Menu page
+11 - Cart Screen
+12 - Settings page.

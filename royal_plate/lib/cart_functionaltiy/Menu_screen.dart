@@ -58,8 +58,8 @@ class _Menu_ScreenState extends State<Menu_Screen> {
             Text(
               'Danodalds Product List',
               style: TextStyle(
-                  fontSize: 24,
-                  color: Color.fromARGB(255, 47, 235, 54),
+                  fontSize: 20,
+                  color: Colors.greenAccent,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(

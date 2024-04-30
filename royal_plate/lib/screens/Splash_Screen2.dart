@@ -43,7 +43,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
         // splash - is the animation.
         splash: Column(
           children: [
-            const Text("//DANOWAYs//",style: TextStyle(
+            const Text("/DANODALDS/",style: TextStyle(
             fontSize: 30,
             color: Colors.greenAccent,
             letterSpacing: 4,
@@ -57,7 +57,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
           ],
         ),
         // The Navigation to the next Screen and then Transition to reach there. 
-        nextScreen: const OnBoarding4(),
+        nextScreen: const OnBoarding15(),
         splashTransition: SplashTransition.fadeTransition),
       )
     );    

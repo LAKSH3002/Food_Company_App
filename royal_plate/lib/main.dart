@@ -34,13 +34,14 @@ class MyApp extends StatelessWidget {
     TextEditingController email = TextEditingController();
     email.text = 'laksh123@gmail.com';
     return ChangeNotifierProvider(
-    create: (_) => CartProvider(),
-    child: Builder(builder: (BuildContext context){
-      return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-      home: HomeScreen(name: name, email: email,),
+      create: (_) => CartProvider(),
+      child: Builder(builder: (BuildContext context) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(useMaterial3: true),
+          home: HomeScreen(email: email, name: name,),
+        );
+      }),
     );
-    }), );
   }
 }

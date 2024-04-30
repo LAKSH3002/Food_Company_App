@@ -6,13 +6,10 @@ import 'package:royal_plate/screens/HomeScreen.dart';
 // This is the Accounts Screen
 
 class AccountScreen extends StatefulWidget {
-  final TextEditingController name;
-  final TextEditingController email;
   // final TextEditingController phone;
   const AccountScreen({
     super.key,
-    required this.name,
-    required this.email,
+    
   });
 
   @override
@@ -40,7 +37,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 104,
+              width: 93,
             ),
             CupertinoButton(
                 child: Icon(Icons.home, color: Colors.white, size: 30.0),
@@ -114,16 +111,16 @@ class _AccountScreenState extends State<AccountScreen> {
               // ),
 
               Box(Icons.restaurant, 'Outlets', Icons.keyboard_arrow_right,
-                  230.0),
+                  226.0),
               SizedBox(
                 height: 1,
               ),
-              Box(Icons.info, 'About Us', Icons.keyboard_arrow_right, 215.0),
+              Box(Icons.info, 'About Us', Icons.keyboard_arrow_right, 211.0),
               SizedBox(
                 height: 1,
               ),
               Box(Icons.amp_stories, 'Stories', Icons.keyboard_arrow_right,
-                  227.0),
+                  225.0),
               SizedBox(
                 height: 1,
               ),
@@ -133,26 +130,26 @@ class _AccountScreenState extends State<AccountScreen> {
                 height: 1,
               ),
               Box(Icons.text_format_sharp, 'Terms and Conditions',
-                  Icons.keyboard_arrow_right, 127.0),
+                  Icons.keyboard_arrow_right, 130.0),
               SizedBox(
                 height: 1,
               ),
               Box(Icons.policy, 'Privacy Policy', Icons.keyboard_arrow_right,
-                  177.0),
+                  182.0),
               SizedBox(
                 height: 1,
               ),
               Box(Icons.question_answer, 'FAQs', Icons.keyboard_arrow_right,
-                  230.0),
+                  237.0),
               SizedBox(
                 height: 1,
               ),
               Box(Icons.help_center, 'Help & Support',
-                  Icons.keyboard_arrow_right, 165.0),
+                  Icons.keyboard_arrow_right, 174.0),
               Box(Icons.payment_outlined, 'Payment settings',
-                  Icons.keyboard_arrow_right, 165.0),
+                  Icons.keyboard_arrow_right, 159.0),
               Box(Icons.language_outlined, 'Choose language',
-                  Icons.keyboard_arrow_right, 165.0),
+                  Icons.keyboard_arrow_right, 159.0),
             ],
           ),
         ),

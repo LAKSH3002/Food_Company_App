@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 103,
+              width: 93,
             ),
             CupertinoButton(
                 child: Icon(Icons.settings, color: Colors.white, size: 30.0),
@@ -71,8 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => AccountScreen(
-                              name: namecontroller,
-                              email: emailcontroller,
+                              
                               // phone: contactcontroller,
                             )));
                   });
@@ -499,8 +498,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => AccountScreen(
-                            email: emailcontroller,
-                            name: namecontroller,
+                            
                             // phone: contactcontroller,
                           )));
                 });
@@ -635,7 +633,7 @@ Widget BuildOutletCard(
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(
-              width: 70,
+              width: 65,
             ),
             Icon(
               icon2,
