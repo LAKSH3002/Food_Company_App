@@ -2,7 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
+import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
 
 class Menu_Screen extends StatefulWidget {
   const Menu_Screen({super.key});
@@ -12,7 +16,8 @@ class Menu_Screen extends StatefulWidget {
 }
 
 class _Menu_ScreenState extends State<Menu_Screen> {
-  // Starters:
+  DBHelper dbHelper = DBHelper();
+
   List<String> foodname = [
     'Idli Chilly',
     'Veggies Fry',
@@ -26,18 +31,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
     'Subway Special',
     'fried Rice',
   ];
-  List<int> food_rate = [
-    280,
-    260,
-    300,
-    320,
-    330,
-    260,
-    300,
-    320,
-    400,
-    420,
-  ];
+  List<int> food_rate = [280, 260, 300, 320, 330, 260, 300, 320, 400, 420, 380];
   List<String> food_image = [
     'images/idly_chilli.jpeg',
     'images/Veggies_fry.jpeg',
@@ -54,25 +48,25 @@ class _Menu_ScreenState extends State<Menu_Screen> {
 
   @override
   Widget build(BuildContext context) {
+    final Cart = Provider.of<CartProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        centerTitle: true,
         titleSpacing: 2,
         title: Row(
           children: [
             SizedBox(
-              width: 100,
+              width: 50,
             ),
             Text(
-              'Danodalds Menu',
+              'Danodalds Product List',
               style: TextStyle(
                   fontSize: 24,
                   color: Color.fromARGB(255, 47, 235, 54),
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 40,
+              width: 20,
             ),
             CupertinoButton(
                 onPressed: () {
@@ -142,16 +136,48 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                     ),
                                     Align(
                                       alignment: Alignment.centerRight,
-                                      child: Container(
-                                        height: 35,
-                                        width: 100,
-                                        decoration:
-                                            BoxDecoration(color: Colors.green),
-                                        child: Center(
-                                          child: Text(
-                                            'Add to Cart',
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                      child: InkWell(
+                                        onTap: () {
+                                          print(index);
+                                          print(index.toString());
+                                          print(foodname[index].toString());
+                                          print(food_rate[index].toString());
+                                          print(food_rate[index]);
+                                          print('1');
+                                          print(food_image[index].toString());
+
+                                          dbHelper.insert(Provider.of(context,
+                                                      listen: false)(
+                                                  id: index,
+                                                  productId: index.toString(),
+                                                  productname: foodname[index]
+                                                      .toString(),
+                                                  initialprice:
+                                                      food_rate[index],
+                                                  productprice:
+                                                      food_rate[index],
+                                                  quantity: 1,
+                                                  image: food_image[index]
+                                                      .toString())
+                                              .then((value) {
+                                            print('product is added');
+                                            Cart.addTotalPrice(double.parse(
+                                                food_rate[index].toString()));
+                                          }).onError((error, StackTrace) {
+                                            print(error);
+                                          }));
+                                        },
+                                        child: Container(
+                                          height: 35,
+                                          width: 100,
+                                          decoration: BoxDecoration(
+                                              color: Colors.green),
+                                          child: Center(
+                                            child: Text(
+                                              'Add to Cart',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
                                           ),
                                         ),
                                       ),

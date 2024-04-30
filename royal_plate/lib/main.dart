@@ -1,6 +1,9 @@
+import 'package:provider/provider.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
+import 'package:royal_plate/screens/Accounts.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,10 +29,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+    create: (_) => CartProvider(),
+    child: Builder(builder: (BuildContext context){
+      return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       home: Menu_Screen(),
     );
+    }), );
   }
 }

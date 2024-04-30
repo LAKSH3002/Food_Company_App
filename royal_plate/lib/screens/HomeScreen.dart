@@ -1,3 +1,4 @@
+import 'dart:js';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
@@ -655,7 +656,12 @@ Widget BuildOutletCard(
             SizedBox(
               width: 90,
             ),
-            ElevatedButton(onPressed: () {}, child: Text(buttontext)),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context as BuildContext)
+                      .pushNamed('/Menu_Screen');
+                },
+                child: Text(buttontext)),
           ],
         ),
         SizedBox(

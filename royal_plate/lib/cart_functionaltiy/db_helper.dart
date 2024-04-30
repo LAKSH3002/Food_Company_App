@@ -1,3 +1,4 @@
+import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io' as io;
@@ -28,9 +29,16 @@ class DBHelper{
     await db.execute('CREATE TABLE cart (id INTEGER PRIMARY KEY , productId VARCHAR UNIQUE,productName TEXT,initialPrice INTEGER, productPrice INTEGER , quantity INTEGER, image TEXT )');
   }
 
-  Future<cart> insert(cart cart)async{
+  Future<Cart> insert(Cart cart)async{
+    print(cart.toMap());
     var dbClient = await db;
     await dbClient!.insert('cart', cart.toMap());
     return cart;
+  }
+  
+  Future<List<Cart>> getCartList()async{
+    var dbClient = await db;
+    final List<Map<String, Object?>> queryResult = await dbClient!.query('cart');
+    return queryResult.map((e) => Cart.fromMap(e)).toList();
   }
 }
