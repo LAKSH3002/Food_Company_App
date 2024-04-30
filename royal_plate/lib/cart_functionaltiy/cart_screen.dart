@@ -14,8 +14,15 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Danodalds - Cart Page'),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Danodalds - Cart Page',
+          style: TextStyle(
+              fontSize: 24,
+              color: Color.fromARGB(255, 47, 235, 54),
+              fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
       ),
     );
   }

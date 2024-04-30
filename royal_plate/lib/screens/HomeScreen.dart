@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
 import 'package:royal_plate/screens/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/screens/LoginScreen.dart';
-import 'package:royal_plate/screens/Menu.dart';
-import 'package:royal_plate/cart.dart';
+import 'package:royal_plate/Extra_files/Menu.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
 import 'package:royal_plate/phone.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
 import 'package:royal_plate/screens/SetFav_home.dart';
@@ -335,7 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_page()));
+                      builder: (BuildContext context) => const Menu_Screen()));
                 });
               },
               child: BuildOutletCard(
@@ -357,7 +358,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_page()));
+                      builder: (BuildContext context) => const Menu_Screen()));
                 });
               },
               child: BuildOutletCard(
@@ -379,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_page()));
+                      builder: (BuildContext context) => const Menu_Screen()));
                 });
               },
               child: BuildOutletCard(
@@ -401,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_page()));
+                      builder: (BuildContext context) => const Menu_Screen()));
                 });
               },
               child: BuildOutletCard(

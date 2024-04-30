@@ -2,7 +2,7 @@ name: royal_plate
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.5 <3.0.0'
+  sdk: ">=2.19.5 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -41,6 +41,11 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
   pinput: ^4.0.0
+  badges: ^3.1.1
+  provider: ^6.1.2
+  shared_preferences: ^2.2.2
+  path_provider: ^2.1.1
+  sqflite: ^2.2.8+4
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +63,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -106,7 +110,6 @@ flutter:
     - images/outlets/outlet2.jpeg
     - images/outlets/outlet3.jpeg
     - images/Noodles.jpg
-    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

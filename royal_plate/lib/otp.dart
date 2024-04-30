@@ -15,13 +15,11 @@ class MyOtp extends StatefulWidget {
 }
 
 class _MyOtpState extends State<MyOtp> {
-
   final FirebaseAuth auth = FirebaseAuth.instance;
   var code = "";
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         leading: IconButton(
@@ -35,14 +33,11 @@ class _MyOtpState extends State<MyOtp> {
         ),
         elevation: 0,
       ),
-
-      body: 
-      Container(
+      body: Container(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
               Padding(
                 padding: const EdgeInsets.fromLTRB(130, 50, 20, 20),
                 child: Image.asset(
@@ -50,15 +45,12 @@ class _MyOtpState extends State<MyOtp> {
                   width: 150,
                   height: 150,
                 ),
-              ),  
-              
-                const SizedBox(height: 10),
-        
-               Padding(
-                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                 child: Pinput(
-                  onChanged: (value)
-                  {
+              ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: Pinput(
+                  onChanged: (value) {
                     code = value;
                   },
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -67,68 +59,64 @@ class _MyOtpState extends State<MyOtp> {
                   // defaultPinTheme: defaultPinTheme,
                   showCursor: true,
                   onCompleted: (pin) => print(pin),
-                             ),
-               ),
-                  const SizedBox(height: 20),
-        
+                ),
+              ),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
                   width: 380,
                   height: 45,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      onPrimary: Colors.yellowAccent,
-                    ),
-                  onPressed: ()async
-                  {
-                    try{
-                      PhoneAuthCredential credential = PhoneAuthProvider.credential(
-                      verificationId: OnBoarding15.verify, 
-                      smsCode: code);
-                    // Sign the user in (or link) with the credential
-                    await auth.signInWithCredential(credential);
-                    Navigator.of(context).push(MaterialPageRoute
-                          (builder: (BuildContext context) =>
-                          const OnBoarding4() ));
-                    }
-                    catch(e)
-                    {
-                      showDialog(
-                       context: context,
-                       builder: (ctx) => AlertDialog(
-                       title: const Text("OTP ALERT!!"),
-                       content: const Text("You Have Entered A wrong OTP, Make Sure Enter The Correct One!!"),
-                       actions: <Widget>[
-                       TextButton(
-                       onPressed: () {
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        onPrimary: Colors.yellowAccent,
+                      ),
+                      onPressed: () async {
+                        try {
+                          PhoneAuthCredential credential =
+                              PhoneAuthProvider.credential(
+                                  verificationId: OnBoarding15.verify,
+                                  smsCode: code);
+                          // Sign the user in (or link) with the credential
+                          await auth.signInWithCredential(credential);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const OnBoarding4()));
+                        } catch (e) {
+                          showDialog(
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                              title: const Text("OTP ALERT!!"),
+                              content: const Text(
+                                  "You Have Entered A wrong OTP, Make Sure Enter The Correct One!!"),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Container(
+                                    padding: const EdgeInsets.all(14),
+                                    child: const Text("OKAY"),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                          print('Wrong OTP');
+                        }
+                        // Navigator.pushNamed(context, 'otp');
                       },
-                      child: Container(
-                      padding: const EdgeInsets.all(14),
-                      child: const Text("OKAY"),
-                    ),
-                    ),
-                    ],
-                    ),
-                    ); 
-                      print('Wrong OTP');
-                    }
-                    // Navigator.pushNamed(context, 'otp');
-                  },
-                  child:const Text("Verify The Code",
-                  style: TextStyle(fontSize: 17),) ),
+                      child: const Text(
+                        "Verify The Code",
+                        style: TextStyle(fontSize: 17),
+                      )),
                 ),
               ),
-                 const SizedBox(height: 10),
-        
+              const SizedBox(height: 10),
               const SizedBox(height: 175),
-      
             ],
           ),
         ),
       ),
-
     );
   }
 }

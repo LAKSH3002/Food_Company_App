@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
-
-import 'Accounts.dart';
 
 class Menu_page extends StatefulWidget {
   const Menu_page({
@@ -18,6 +17,21 @@ class Menu_page extends StatefulWidget {
 
 class _Menu_pageState extends State<Menu_page> {
   TextEditingController foodcount = TextEditingController();
+  List<String> startersname = [
+    'Idli Chilly',
+    'Veggies Fry',
+    'Paneer Crispy',
+    'Veg Crispy',
+    'Paneer Chilli'
+  ];
+  List<int> starters_rate = [280, 260, 300, 320, 330];
+  List<String> starters_image = [
+    'images/idly_chilli.jpeg',
+    'images/Veggies_fry.jpeg',
+    'images/veg_crispy.jpeg',
+    'images/Veggies_fry.jpeg',
+    'images/Paneer_chilli.jpeg'
+  ];
 
   @override
   void initState() {
@@ -29,35 +43,41 @@ class _Menu_pageState extends State<Menu_page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.deepPurple,
-            title: Row(children: [
-              const Text(
-                "DANODALDS Menu",
+          backgroundColor: Colors.deepPurple,
+          centerTitle: true,
+          titleSpacing: 2,
+          title: Row(
+            children: [
+              SizedBox(
+                width: 100,
+              ),
+              Text(
+                'Danodalds Menu',
                 style: TextStyle(
-                    color: Colors.greenAccent,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+                    fontSize: 24,
+                    color: Color.fromARGB(255, 47, 235, 54),
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                width: 48,
+                width: 40,
               ),
               CupertinoButton(
-                  child: Icon(Icons.account_circle,
-                      color: Colors.white, size: 30.0),
-                  onPressed: () {}),
-            ])),
+                  onPressed: () {
+                    Navigator.of(context).pop(MaterialPageRoute(
+                        builder: (BuildContext context) => CartScreen()));
+                  },
+                  child: Icon(
+                    Icons.shopping_bag_outlined,
+                    color: Colors.white,
+                  ))
+            ],
+          ),
+        ),
         body: Padding(
           padding: EdgeInsets.all(4.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Center(
-                  child: Image.asset(
-                    'images/menu.png',
-                    fit: BoxFit.fitWidth,
-                    width: 450,
-                  ),
-                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -73,13 +93,6 @@ class _Menu_pageState extends State<Menu_page> {
                     const SizedBox(
                       width: 125,
                     ),
-                    Text(
-                      'More Starters-->>',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red),
-                    )
                   ],
                 ),
                 const SizedBox(
@@ -121,13 +134,6 @@ class _Menu_pageState extends State<Menu_page> {
                     const SizedBox(
                       width: 125,
                     ),
-                    Text(
-                      'More Pizza"s--->>',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red),
-                    )
                   ],
                 ),
                 const SizedBox(
@@ -167,13 +173,6 @@ class _Menu_pageState extends State<Menu_page> {
                     const SizedBox(
                       width: 95,
                     ),
-                    Text(
-                      'More Sandwiches->',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red),
-                    )
                   ],
                 ),
                 const SizedBox(
@@ -213,13 +212,6 @@ class _Menu_pageState extends State<Menu_page> {
                     const SizedBox(
                       width: 120,
                     ),
-                    Text(
-                      'More chinese-->>',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red),
-                    )
                   ],
                 ),
                 const SizedBox(
@@ -263,37 +255,7 @@ class _Menu_pageState extends State<Menu_page> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        MaterialButton(
-                          minWidth: 1.0,
-                          height: 1,
-                          color: Colors.red,
-                          child: Icon(Icons.arrow_drop_up),
-                          onPressed: () {
-                            int currentValue = int.parse(foodcount.text);
-                            setState(() {
-                              currentValue++;
-                              foodcount.text = (currentValue)
-                                  .toString(); // incrementing value
-                            });
-                          },
-                        ),
-                        MaterialButton(
-                          minWidth: 1.0,
-                          height: 1,
-                          color: Colors.red,
-                          child: Icon(Icons.arrow_drop_down),
-                          onPressed: () {
-                            int currentValue = int.parse(foodcount.text);
-                            setState(() {
-                              print("Setting state");
-                              currentValue--;
-                              foodcount.text = (currentValue)
-                                  .toString(); // decrementing value
-                            });
-                          },
-                        ),
-                      ],
+                      children: <Widget>[],
                     ),
                     Spacer(
                       flex: 3,
@@ -341,33 +303,12 @@ class _Menu_pageState extends State<Menu_page> {
               // child 1
               children: [
                 // Button to subract items.
-                MaterialButton(
-                  color: Colors.blueAccent,
-                  minWidth: 1,
-                  height: 1,
-                  shape: Border.all(width: 0.0, color: Colors.white),
-                  child: Icon(
-                    Icons.remove,
-                    size: 18,
-                  ),
-                  onPressed: () {},
-                ),
+
                 SizedBox(
                   width: 16,
                 ),
                 Expanded(child: Text(rate)),
                 // Button to add items.
-                MaterialButton(
-                  color: Colors.blueAccent,
-                  minWidth: 1,
-                  height: 1,
-                  shape: Border.all(width: 0.0, color: Colors.white),
-                  child: Icon(
-                    Icons.add,
-                    size: 18,
-                  ),
-                  onPressed: () {},
-                ),
               ],
             ),
           )
@@ -382,14 +323,15 @@ class _Menu_pageState extends State<Menu_page> {
 
 // Widget Foodrates()
 // {
-//   // TextEditingController food = TextEditingController();
-//   // foodrate.text = '0';
+// TextEditingController food = TextEditingController();
+// foodrate.text = '0';
 
-//   // @override
-//   // void initState() {
-//   //   super.initState();
-//   //   foodcount2.text = "0"; // Setting the initial value for the field.
-//   // }
+// @override
+// void initState() {
+//   super.initState();
+//   foodcount2.text = "0"; // Setting the initial value for the field.
+// }
 
 //   return
+// }
 }
