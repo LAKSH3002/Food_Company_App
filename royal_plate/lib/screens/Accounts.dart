@@ -35,10 +35,12 @@ class _AccountScreenState extends State<AccountScreen> {
             const Text(
               "DANODALDS",
               style: TextStyle(
-                  color: Colors.greenAccent, fontWeight: FontWeight.bold),
+                  fontSize: 20,
+                  color: Colors.greenAccent,
+                  fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 94,
+              width: 104,
             ),
             CupertinoButton(
                 child: Icon(Icons.home, color: Colors.white, size: 30.0),
@@ -59,57 +61,57 @@ class _AccountScreenState extends State<AccountScreen> {
               // children 1
               // container with profile details.
 
-              Padding(
-                padding: EdgeInsets.all(0),
-                child: Container(
-                  color: Color.fromARGB(255, 194, 197, 199),
-                  height: 180,
-                  width: 400,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Icon(
-                            Icons.account_circle,
-                            size: 80.0,
-                            color: Colors.black54,
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Text(
-                            'Name: ${widget.name.text}',
-                            style: TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        '  Email: ${widget.email.text}',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "  Contact: ",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.all(0),
+              //   child: Container(
+              //     color: Color.fromARGB(255, 194, 197, 199),
+              //     height: 180,
+              //     width: 400,
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       crossAxisAlignment: CrossAxisAlignment.start,
+              //       children: [
+              //         SizedBox(
+              //           height: 15,
+              //         ),
+              //         Row(
+              //           children: [
+              //             SizedBox(
+              //               width: 10,
+              //             ),
+              //             Icon(
+              //               Icons.account_circle,
+              //               size: 80.0,
+              //               color: Colors.black54,
+              //             ),
+              //             SizedBox(
+              //               width: 15,
+              //             ),
+              //             Text(
+              //               'Name: ${widget.name.text}',
+              //               style: TextStyle(
+              //                   fontSize: 25, fontWeight: FontWeight.bold),
+              //             ),
+              //           ],
+              //         ),
+              //         SizedBox(
+              //           height: 10,
+              //         ),
+              //         Text(
+              //           '  Email: ${widget.email.text}',
+              //           style: TextStyle(fontSize: 18),
+              //         ),
+              //         SizedBox(
+              //           height: 10,
+              //         ),
+              //         Text(
+              //           "  Contact: ",
+              //           style: TextStyle(fontSize: 18),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
 
               Box(Icons.restaurant, 'Outlets', Icons.keyboard_arrow_right,
                   230.0),
@@ -146,6 +148,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 height: 1,
               ),
               Box(Icons.help_center, 'Help & Support',
+                  Icons.keyboard_arrow_right, 165.0),
+              Box(Icons.payment_outlined, 'Payment settings',
+                  Icons.keyboard_arrow_right, 165.0),
+              Box(Icons.language_outlined, 'Choose language',
                   Icons.keyboard_arrow_right, 165.0),
             ],
           ),

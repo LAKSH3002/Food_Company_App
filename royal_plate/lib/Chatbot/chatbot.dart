@@ -4,7 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/Chatbot/Messages.dart';
 
-
 class Royalplate_chatbot extends StatefulWidget {
   const Royalplate_chatbot({super.key});
 
@@ -26,16 +25,14 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> 
-{
+class _HomeState extends State<Home> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
 
-  List<Map<String,dynamic>> messaged = [];
+  List<Map<String, dynamic>> messaged = [];
 
   @override
-  void initState()
-  {
+  void initState() {
     DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
     super.initState();
   }
@@ -43,30 +40,39 @@ class _HomeState extends State<Home>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-        title: Text('DANOWAYs Chat Bot',style: TextStyle(color: Colors.greenAccent,fontWeight: FontWeight.bold),),
+        title: Text(
+          'DANODALDS Chat Bot',
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.greenAccent,
+              fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.deepPurple,
       ),
-
       body: Container(
         color: Color.fromARGB(255, 210, 206, 206),
         child: Column(
           children: [
             Expanded(child: MessagesScreen(messages: messaged)),
-
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 14,vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               color: Color.fromARGB(255, 231, 201, 119),
               child: Row(children: [
                 Expanded(
-                child: TextField(controller: _controller,
-                style: TextStyle(color: Colors.black,fontSize: 24),)),
-
-                IconButton(onPressed: (){
-                  sendMessages(_controller.text);
-                  _controller.clear();
-                }, icon: Icon(Icons.send,color: Color.fromARGB(255, 47, 47, 42),)),
+                    child: TextField(
+                  controller: _controller,
+                  style: TextStyle(color: Colors.black, fontSize: 24),
+                )),
+                IconButton(
+                    onPressed: () {
+                      sendMessages(_controller.text);
+                      _controller.clear();
+                    },
+                    icon: Icon(
+                      Icons.send,
+                      color: Color.fromARGB(255, 47, 47, 42),
+                    )),
               ]),
             )
           ],
@@ -74,35 +80,29 @@ class _HomeState extends State<Home>
       ),
     );
   }
-  sendMessages(String text)async
-  {
-    if(text.isEmpty)
-    {
+
+  sendMessages(String text) async {
+    if (text.isEmpty) {
       print('Please Enter Some Message');
-    }
-    else{
+    } else {
       // Handling user message
-      setState(() 
-      {
-        addMessage(Message(
-          text: DialogText(text: [text])
-        ),true);
+      setState(() {
+        addMessage(Message(text: DialogText(text: [text])), true);
       });
       DetectIntentResponse response = await dialogFlowtter.detectIntent(
-      queryInput: QueryInput(text: TextInput(text: text)));
-      
+          queryInput: QueryInput(text: TextInput(text: text)));
+
       // Handling dialog flutter message
-      if(response.message == null) return;
+      if (response.message == null) return;
       setState(() {
         addMessage(response.message!);
       });
     }
   }
 
-  addMessage(Message message,[bool isUserMessage = false])
-  {
+  addMessage(Message message, [bool isUserMessage = false]) {
     messaged.add({
-      'message':message,
+      'message': message,
       'isUserMessage': isUserMessage,
     });
   }

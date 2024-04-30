@@ -29,13 +29,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController name = TextEditingController();
+    name.text = 'laksh';
+    TextEditingController email = TextEditingController();
+    email.text = 'laksh123@gmail.com';
     return ChangeNotifierProvider(
     create: (_) => CartProvider(),
     child: Builder(builder: (BuildContext context){
       return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: Menu_Screen(),
+      home: HomeScreen(name: name, email: email,),
     );
     }), );
   }

@@ -22,11 +22,9 @@ class _CartScreenState extends State<CartScreen>
           title: Text(
             'Danodalds - Cart Page',
             style: TextStyle(
-                fontSize: 24,
-                color: Color.fromARGB(255, 47, 235, 54),
-                fontWeight: FontWeight.bold),
+              fontSize: 20,
+                color: Colors.greenAccent, fontWeight: FontWeight.bold),
           ),
-          centerTitle: true,
         ),
         body: Column(
           children: [

@@ -55,9 +55,6 @@ class _Menu_ScreenState extends State<Menu_Screen> {
         titleSpacing: 2,
         title: Row(
           children: [
-            SizedBox(
-              width: 50,
-            ),
             Text(
               'Danodalds Product List',
               style: TextStyle(

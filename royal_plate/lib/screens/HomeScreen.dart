@@ -1,4 +1,3 @@
-import 'dart:js';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
@@ -16,11 +15,9 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/services.dart';
 
 class CardItem {
-  final String urlImage;
   final String title;
 
   const CardItem({
-    required this.urlImage,
     required this.title,
   });
 }
@@ -44,13 +41,13 @@ class _HomeScreenState extends State<HomeScreen> {
     CartScreen(),
   ];
 
-  List<CardItem> items = [
-    CardItem(urlImage: "images/Paneer_chilli.jpeg", title: "Paneer chilli"),
-    CardItem(urlImage: "images/idly_chilli.jpeg", title: "Idly Chilli"),
-    CardItem(urlImage: "images/gobi.jpeg", title: "Gobi Manchurian"),
-    CardItem(urlImage: "images/veg_crispy.jpeg", title: "Veg Crispy"),
-    CardItem(urlImage: "images/Veggies_fry.jpeg", title: "Veggies Fry"),
-  ];
+  // List<CardItem> items = [
+  //   CardItem(urlImage: "images/Paneer_chilli.jpeg", title: "Paneer chilli"),
+  //   CardItem(urlImage: "images/idly_chilli.jpeg", title: "Idly Chilli"),
+  //   CardItem(urlImage: "images/gobi.jpeg", title: "Gobi Manchurian"),
+  //   CardItem(urlImage: "images/veg_crispy.jpeg", title: "Veg Crispy"),
+  //   CardItem(urlImage: "images/Veggies_fry.jpeg", title: "Veggies Fry"),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
             const Text(
               "DANODALDS",
               style: TextStyle(
-                  color: Colors.greenAccent, fontWeight: FontWeight.bold),
+                  fontSize: 20,
+                  color: Colors.greenAccent,
+                  fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 93,
+              width: 103,
             ),
             CupertinoButton(
-                child:
-                    Icon(Icons.account_circle, color: Colors.white, size: 30.0),
+                child: Icon(Icons.settings, color: Colors.white, size: 30.0),
                 onPressed: () {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
@@ -90,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             Text(
-              ' Hello ${widget.name.text}',
+              ' Hello ${widget.name.text} !!',
               style: TextStyle(
                   fontSize: 30,
                   color: Colors.deepPurple,
@@ -302,7 +300,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             const SizedBox(
-              height: 10,
+              height: 20,
+            ),
+
+            Text(
+              '  Popular Items',
+              style: TextStyle(
+                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
             ),
 
             Container(
@@ -312,9 +316,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   BuildItem('images/Indian_thali.jpeg', 'Default Platter'),
-                  BuildItem('images/hakka_noodles.jpeg', 'hakka Noodles'),
                   BuildItem('images/candies2.jpeg', 'Candies for kids'),
                   BuildItem('images/Default_platter.jpeg', 'Indian Thali'),
+                  BuildItem('images/hakka_noodles.jpeg', 'hakka Noodles'),
                 ],
               ),
             ),
@@ -502,13 +506,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             ),
-            ListTile(
-              title: Text('Contact Us'),
-              leading: Icon(Icons.contact_emergency),
-              onTap: () {
-                setState(() {});
-              },
-            ),
+        
             ListTile(
               title: Text('Log Out'),
               leading: Icon(Icons.logout_sharp),
@@ -558,40 +556,41 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 Widget BuildItem(image, title) {
-  return Container(
-    child: CupertinoButton(
-        onPressed: () {},
-        child: Column(
-          children: [
-            Expanded(
-              child: AspectRatio(
-                aspectRatio: 18 / 12,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.asset(image, fit: BoxFit.cover),
-                ),
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      child: Column(
+        children: [
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 14 / 8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(image, fit: BoxFit.cover),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Center(
-                child: Text(
-              title,
-              style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic),
-            )),
-          ],
-        )),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Center(
+              child: Text(
+            title,
+            style: TextStyle(
+                color: Colors.green,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic),
+          )),
+        ],
+      ),
+    ),
   );
 }
 
 Widget BuildOutletCard(
     image, Head, icon1, rate, distance, icon2, discount, buttontext) {
   return Card(
-    margin: EdgeInsets.all(0),
+    margin: EdgeInsets.all(4.0),
     // color: Color.fromARGB(255, 223, 218, 223),
     elevation: 15,
     child: Column(
@@ -645,7 +644,7 @@ Widget BuildOutletCard(
           ],
         ),
         SizedBox(
-          height: 5,
+          height: 15,
         ),
         Row(
           children: [
@@ -656,12 +655,6 @@ Widget BuildOutletCard(
             SizedBox(
               width: 90,
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context as BuildContext)
-                      .pushNamed('/Menu_Screen');
-                },
-                child: Text(buttontext)),
           ],
         ),
         SizedBox(

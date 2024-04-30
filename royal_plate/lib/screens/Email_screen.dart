@@ -59,6 +59,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
         title: Text(
           'DANODALDS',
           style: TextStyle(
+              fontSize: 20,
               color: Colors.greenAccent,
               fontWeight: FontWeight.bold,
               fontStyle: FontStyle.italic),
