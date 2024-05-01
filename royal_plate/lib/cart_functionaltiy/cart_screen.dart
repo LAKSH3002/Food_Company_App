@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
+import 'package:royal_plate/Extra_files/cart_model.dart';
+import 'package:royal_plate/Extra_files/cart_provider.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -29,7 +29,7 @@ class _CartScreenState extends State<CartScreen>
         body: Column(
           children: [
             FutureBuilder(
-                future: Provider.of<CartProvider>(context,listen: false).getData(),
+                // future: Provider.of<CartProvider>(context,listen: false).getData(),
                 builder: (context, AsyncSnapshot<List<Cart>> snapshot) {
                   if (snapshot.hasData) {
                     return Expanded(

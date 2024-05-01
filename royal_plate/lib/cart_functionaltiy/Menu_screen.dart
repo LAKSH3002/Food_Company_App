@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
+import 'package:royal_plate/Extra_files/cart_model.dart';
+import 'package:royal_plate/Extra_files/cart_provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
-import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
+import 'package:royal_plate/Extra_files/db_helper.dart';
 
 class Menu_Screen extends StatefulWidget {
   const Menu_Screen({super.key});
@@ -16,7 +16,6 @@ class Menu_Screen extends StatefulWidget {
 }
 
 class _Menu_ScreenState extends State<Menu_Screen> {
-  DBHelper dbHelper = DBHelper();
 
   List<String> foodname = [
     'Idli Chilly',
@@ -154,26 +153,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                           print('1');
                                           print(food_image[index].toString());
 
-                                          dbHelper.insert(Provider.of(context,
-                                                      listen: false)(
-                                                  id: index,
-                                                  productId: index.toString(),
-                                                  productname: foodname[index]
-                                                      .toString(),
-                                                  initialprice:
-                                                      food_rate[index],
-                                                  productprice:
-                                                      food_rate[index],
-                                                  quantity: 1,
-                                                  image: food_image[index]
-                                                      .toString())
-                                              .then((value) {
-                                            print('product is added');
-                                            Cart.addTotalPrice(double.parse(
-                                                food_rate[index].toString()));
-                                          }).onError((error, StackTrace) {
-                                            print(error);
-                                          }));
+                                       
                                         },
                                         child: Container(
                                           height: 35,

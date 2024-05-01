@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
-import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
+import 'package:royal_plate/Extra_files/cart_model.dart';
+import 'package:royal_plate/Extra_files/db_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CartProvider with ChangeNotifier {
-  DBHelper db = DBHelper();
   int _counter = 0;
   int get counter => _counter;
 
@@ -14,10 +13,10 @@ class CartProvider with ChangeNotifier {
   late Future<List<Cart>> _cart;
   Future<List<Cart>> get cart => _cart;
 
-  Future<List<Cart>> getData() async {
-    _cart = db.getCartList();
-    return _cart;
-  }
+  // Future<List<Cart>> getData() async {
+  //   _cart = db.getCartList();
+  //   return _cart;
+  // }
 
   void _setPrefItems() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
