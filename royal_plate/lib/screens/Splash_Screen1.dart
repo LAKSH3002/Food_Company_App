@@ -18,20 +18,7 @@ class SplashScreen1 extends StatefulWidget {
 class _SplashScreen1State extends State<SplashScreen1> 
 {
 
-  @override
-  // What is the use Of InitState?
-  void initState() {
-    
-    super.initState();
-
-    Timer(const Duration(seconds: 8), () {
-      Navigator.pushReplacement(
-      context, MaterialPageRoute(
-      builder: (context) => const SplashScreen2()));
-    });
-  }
-
-  @override
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.deepPurple,
@@ -41,6 +28,7 @@ class _SplashScreen1State extends State<SplashScreen1>
         color: Colors.deepPurple,
         // Animated Splash Screen
         child: AnimatedSplashScreen(   
+        duration: 3000,
         backgroundColor: Colors.deepPurple,
         // splash - is the animation.
         splash: const Text("WELCOME",

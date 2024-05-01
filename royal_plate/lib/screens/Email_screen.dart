@@ -16,10 +16,10 @@ class OnBoarding4 extends StatefulWidget {
 }
 
 class _OnBoarding4State extends State<OnBoarding4> {
+  
   // text editing controller
   bool passwordVisible = true;
   TextEditingController emailcontroller = TextEditingController();
-  // TextEditingController confirmpasswordcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController namecontroller = TextEditingController();
   bool _validate = false;
@@ -88,12 +88,20 @@ class _OnBoarding4State extends State<OnBoarding4> {
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
                 child: SizedBox(
                   width: screenwidth * 0.93,
-                  child: TextField(
+                  child: TextFormField(
                     controller: namecontroller,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter a book name';
+                      }
+                      if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)) {
+                        return 'Book name must only contain letters';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
                       hintText: "Enter Your Full name*",
-                      errorText: _validate ? 'Name filed is required' : null,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0)),
                       errorBorder: OutlineInputBorder(),
@@ -108,7 +116,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
                 child: SizedBox(
                   width: screenwidth * 0.93,
-                  child: TextField(
+                  child: TextFormField(
                     controller: emailcontroller,
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
@@ -129,7 +137,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
                 child: SizedBox(
                   width: screenwidth * 0.93,
-                  child: TextField(
+                  child: TextFormField(
                       controller: passwordcontroller,
                       obscureText: passwordVisible,
                       decoration: InputDecoration(
@@ -247,7 +255,8 @@ class _OnBoarding4State extends State<OnBoarding4> {
                           backgroundColor: Colors.deepPurple,
                           onPrimary: Colors.yellowAccent),
                       // User entry with email and password.
-                      onPressed: () async {
+                      onPressed: () async 
+                      {
                         try {
                           setState(() {
                             namecontroller.text.isEmpty
@@ -259,9 +268,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                             passwordcontroller.text.isEmpty
                                 ? _validate = true
                                 : _validate = false;
-                            // confirmpasswordcontroller.text.isEmpty ? _validate = true : _validate = false;
                           });
-
                           await FirebaseAuth.instance
                               .createUserWithEmailAndPassword(
                                   email: emailcontroller.text,
@@ -314,45 +321,45 @@ class _OnBoarding4State extends State<OnBoarding4> {
       ),
     );
   }
-
-  Widget dialogbox() {
-    return Container(
-        child: ElevatedButton(
-      onPressed: () {
-        showDialog(
-          context: context,
-          builder: (ctx) => AlertDialog(
-            title: const Text("Successful registration!!"),
-            content: const Text("You have Created A New Account!!"),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(
-                          builder: (BuildContext context) => HomeScreen(
-                                name: namecontroller,
-                                email: emailcontroller,
-                              )))
-                      .onError((error, stackTrace) {});
-                },
-                child: Container(
-                  color: Colors.green,
-                  padding: const EdgeInsets.all(14),
-                  child: const Text("okay"),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-      child: null,
-    ));
-  }
 }
+
+//   Widget dialogbox() {
+//     return Container(
+//         child: ElevatedButton(
+//       onPressed: () {
+//         showDialog(
+//           context: context,
+//           builder: (ctx) => AlertDialog(
+//             title: const Text("Successful registration!!"),
+//             content: const Text("You have Created A New Account!!"),
+//             actions: <Widget>[
+//               TextButton(
+//                 onPressed: () {
+//                   Navigator.of(context)
+//                       .push(MaterialPageRoute(
+//                           builder: (BuildContext context) => HomeScreen(
+//                                 name: namecontroller,
+//                                 email: emailcontroller,
+//                               )))
+//                       .onError((error, stackTrace) {});
+//                 },
+//                 child: Container(
+//                   color: Colors.green,
+//                   padding: const EdgeInsets.all(14),
+//                   child: const Text("okay"),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         );
+//       },
+//       child: null,
+//     ));
+//   }
 
 // Email Validation done.
 // Password Validation done.
 // Password icon visibility on and off done.
-// Now Firebase Authentiaction done.
+// Firebase Authentiaction done.
 // Firebase Auth done.
 // Navigating to home screen on successful registration done.

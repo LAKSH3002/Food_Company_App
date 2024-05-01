@@ -51,6 +51,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   });
                 }),
           ])),
+          
       body: SingleChildScrollView(
         child: Container(
           child: Column(

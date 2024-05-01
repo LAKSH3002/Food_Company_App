@@ -86,13 +86,18 @@ class _MyOtpState extends State<MyOtp> {
                         } catch (e) {
                           showDialog(
                             context: context,
-                            builder: (ctx) => AlertDialog(
+                            builder: (context) => AlertDialog(
                               title: const Text("OTP ALERT!!"),
                               content: const Text(
                                   "You Have Entered A wrong OTP, Make Sure Enter The Correct One!!"),
                               actions: <Widget>[
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                const MyOtp()));
+                                  },
                                   child: Container(
                                     padding: const EdgeInsets.all(14),
                                     child: const Text("OKAY"),

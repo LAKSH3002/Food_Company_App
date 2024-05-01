@@ -9,7 +9,7 @@ App has following pages
 5 - Enter User details for signup with option of login if already have an account
 6 - Login Screen
 
-7 - Home Screen
+7 - Home Screen - drawer
 - Home screen navigates to chatbot, menu page, set favourite page, settings page through drawer.
 
 8 - Chatbot screen
@@ -18,3 +18,20 @@ App has following pages
 10 - Menu page
 11 - Cart Screen
 12 - Settings page.
+
+
+Commands to run:
+Flutter run.
+
+Manas
+- Splash Screen 1
+- Splash Screen 2
+- Settings.
+
+
+DialogBox
+Password must be 6 characters login
+Email id Validation
+Contact number verification through OTP
+Required fields.
+

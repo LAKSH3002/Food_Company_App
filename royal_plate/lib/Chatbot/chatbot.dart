@@ -54,7 +54,8 @@ class _HomeState extends State<Home> {
         color: Color.fromARGB(255, 210, 206, 206),
         child: Column(
           children: [
-            Expanded(child: MessagesScreen(messages: messaged)),
+            Expanded(
+            child: MessagesScreen(messages: messaged)),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               color: Color.fromARGB(255, 231, 201, 119),

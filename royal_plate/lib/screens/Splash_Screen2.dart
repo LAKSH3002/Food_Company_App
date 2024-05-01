@@ -16,16 +16,6 @@ class SplashScreen2 extends StatefulWidget {
 }
 
 class _SplashScreen2State extends State<SplashScreen2> {
-  @override
-  void initState() {
-    super.initState();
-
-    Timer(Duration(seconds: 8), () {
-      Navigator.pushReplacement(
-      context, MaterialPageRoute(
-      builder: (context) => Walkthrough()));
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +23,13 @@ class _SplashScreen2State extends State<SplashScreen2> {
     final screenheight = MediaQuery.of(context).size.height;
     
     return Scaffold(
-      body: Container(
+      body: Container(  
         height: double.infinity,
         width: double.infinity,
         color: Colors.deepPurple,
         // Animated Splash Screen
         child: AnimatedSplashScreen(   
+        duration: 3000,
         backgroundColor: Colors.deepPurple,
         // splash - is the animation.
         splash: Column(
@@ -60,28 +51,6 @@ class _SplashScreen2State extends State<SplashScreen2> {
         nextScreen: const OnBoarding15(),
         splashTransition: SplashTransition.fadeTransition),
       )
-    );    
-          //     Container(
-          //     child: const Center(
-          //     child: Text("Craft My Plate",
-          //     style: TextStyle(
-          //     color: Colors.greenAccent,
-          //     fontSize: 40,
-          //     fontWeight:FontWeight.w500,
-          //     fontStyle: FontStyle.italic ),)),
-          //     ),
-        
-          //     Container(
-          // child: const Text(
-          //   "You customise, We Cater",
-          //   style: TextStyle(
-          //     letterSpacing: 1,
-          //     color: Colors.greenAccent,
-          //     fontSize: 14,
-          //     fontWeight:FontWeight.w400,
-          //     fontStyle: FontStyle.italic
-          // ),
-          //     )
-          //     )        
+    );         
 }
 }

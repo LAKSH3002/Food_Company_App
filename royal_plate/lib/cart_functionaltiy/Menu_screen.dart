@@ -135,6 +135,17 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                       alignment: Alignment.centerRight,
                                       child: InkWell(
                                         onTap: () {
+                                          const snackdemo = SnackBar(
+                                            content: Text(
+                                                'Product added to Cart!!'),
+                                            backgroundColor: Colors.green,
+                                            elevation: 10,
+                                            behavior: SnackBarBehavior.floating,
+                                            margin: EdgeInsets.all(5),
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(snackdemo);
+                                              
                                           print(index);
                                           print(index.toString());
                                           print(foodname[index].toString());

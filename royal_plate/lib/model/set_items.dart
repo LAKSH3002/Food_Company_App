@@ -19,7 +19,6 @@ class SetItems extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: EdgeInsets.symmetric(horizontal: 30,vertical: 5),
         tileColor: Colors.white,
-
         title: Text(setFavourite.SetFavouriteText,
         style: const TextStyle(fontSize: 20,color: tdBlack,),),
         trailing: Container(

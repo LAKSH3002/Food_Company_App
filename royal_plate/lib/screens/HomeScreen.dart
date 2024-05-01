@@ -37,18 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController namecontroller = TextEditingController();
   TextEditingController contactcontroller = TextEditingController();
 
-  final List<Widget> _widgetOptions = <Widget>[
-    CartScreen(),
-  ];
-
-  // List<CardItem> items = [
-  //   CardItem(urlImage: "images/Paneer_chilli.jpeg", title: "Paneer chilli"),
-  //   CardItem(urlImage: "images/idly_chilli.jpeg", title: "Idly Chilli"),
-  //   CardItem(urlImage: "images/gobi.jpeg", title: "Gobi Manchurian"),
-  //   CardItem(urlImage: "images/veg_crispy.jpeg", title: "Veg Crispy"),
-  //   CardItem(urlImage: "images/Veggies_fry.jpeg", title: "Veggies Fry"),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,155 +112,151 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             // List View 1
-            Container(
-              // color: Colors.red,
-              height: 136,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  // container -1
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.black,
-                    ),
-                    width: 362,
-                    child: Row(
-                      children: [
-                        Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              " Enjoy Your First     ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                            Text(
-                              "  order, the taste of   ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                            Text(
-                              " our delicious food!",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                            child: AspectRatio(
-                          aspectRatio: 5 / 4.3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(5.0),
-                            child: Image.asset(
-                              "images/Food_home.jpeg",
-                            ),
+            ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                // container -1
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: Colors.black,
+                  ),
+                  width: 362,
+                  child: Row(
+                    children: [
+                      Column(
+                        children: const [
+                          SizedBox(
+                            height: 30,
                           ),
-                        )),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(
-                    width: 11,
-                  ),
-
-                  // container-2
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.black,
-                    ),
-                    width: 362,
-                    child: Row(
-                      children: [
-                        Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "    Enjoy The Best      ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                            Text(
-                              "   of italian Dishes   ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                            Text(
-                              "   with Danodaldss..  ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                            child: AspectRatio(
-                          aspectRatio: 5 / 4.3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(5.0),
-                            child: Image.asset(
-                              "images/Pasta_image.jpeg",
-                            ),
+                          Text(
+                            " Enjoy Your First     ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
                           ),
-                        )),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-
-                  // container-3
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.black,
-                    ),
-                    width: 362,
-                    child: Row(
-                      children: [
-                        Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Enjoy The Best of   ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                            Text(
-                              "  of chinese starters   ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                            Text(
-                              "with Danodaldss..   ",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                            child: AspectRatio(
-                          aspectRatio: 6 / 4.3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(5.0),
-                            child: Image.asset(
-                              "images/idly_chilli.jpeg",
-                            ),
+                          Text(
+                            "  order, the taste of   ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
                           ),
-                        )),
-                      ],
-                    ),
+                          Text(
+                            " our delicious food!",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                          child: AspectRatio(
+                        aspectRatio: 5 / 4.3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset(
+                            "images/Food_home.jpeg",
+                          ),
+                        ),
+                      )),
+                    ],
                   ),
-                ],
-              ),
+                ),
+
+                const SizedBox(
+                  width: 11,
+                ),
+
+                // container-2
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: Colors.black,
+                  ),
+                  width: 362,
+                  child: Row(
+                    children: [
+                      Column(
+                        children: const [
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            "    Enjoy The Best      ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                          Text(
+                            "   of italian Dishes   ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                          Text(
+                            "   with Danodaldss..  ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                          child: AspectRatio(
+                        aspectRatio: 5 / 4.3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset(
+                            "images/Pasta_image.jpeg",
+                          ),
+                        ),
+                      )),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+
+                // container-3
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: Colors.black,
+                  ),
+                  width: 362,
+                  child: Row(
+                    children: [
+                      Column(
+                        children: const [
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            "Enjoy The Best of   ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                          Text(
+                            "  of chinese starters   ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                          Text(
+                            "with Danodaldss..   ",
+                            style:
+                                TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                          child: AspectRatio(
+                        aspectRatio: 6 / 4.3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image.asset(
+                            "images/idly_chilli.jpeg",
+                          ),
+                        ),
+                      )),
+                    ],
+                  ),
+                ),
+              ],
             ),
 
             const SizedBox(
@@ -350,8 +334,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   '4.2',
                   '2.0 Km',
                   Icons.delivery_dining,
-                  '  10% discount',
-                  'Order Now'),
+                  '  10% discount'
+                  ),
             ),
 
             const SizedBox(
@@ -373,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   '4.6 Km',
                   Icons.delivery_dining,
                   '  12% discount',
-                  'Order Now'),
+                  ),
             ),
 
             const SizedBox(
@@ -395,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   '7.6 Km',
                   Icons.delivery_dining,
                   '  10% discount',
-                  'Order Now'),
+                  ),
             ),
 
             const SizedBox(
@@ -417,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   '8.0 Km',
                   Icons.delivery_dining,
                   '  10% discount',
-                  'Order Now'),
+                  ),
             ),
 
             const SizedBox(
@@ -586,7 +570,7 @@ Widget BuildItem(image, title) {
 }
 
 Widget BuildOutletCard(
-    image, Head, icon1, rate, distance, icon2, discount, buttontext) {
+    image, Head, icon1, rate, distance, icon2, discount,) {
   return Card(
     margin: EdgeInsets.all(4.0),
     // color: Color.fromARGB(255, 223, 218, 223),

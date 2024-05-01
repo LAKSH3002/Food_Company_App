@@ -7,7 +7,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
 
-class Login_Screen extends StatefulWidget {
+class Login_Screen extends StatefulWidget 
+{
   const Login_Screen({super.key});
 
   @override
@@ -126,21 +127,12 @@ class _Login_ScreenState extends State<Login_Screen> {
                           : _validate = false;
                     });
                     try {
-                      final userCredential =
-                          await auth.signInWithEmailAndPassword(
+                      final userCredential = await auth.signInWithEmailAndPassword(
                         email: emailcontroller.text.trim(),
                         password: passwordcontroller.text.trim(),
                       );
-                      if (userCredential.user != null) {
-                        // Navigate to home screen or perform any desired action upon successful login
-                        // For example:
-                        // Navigator.pushReplacementNamed(context, '/home');
-                      } else {
-                        // Handle case when user credential is null
-                      }
                     } catch (e) {
                       print('Error: $e');
-                      // Handle login errors, e.g., display error message
                     }
                   },
                   child: const Text(

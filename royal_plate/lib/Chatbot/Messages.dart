@@ -19,7 +19,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
       return Container(
         margin: EdgeInsets.all(10),
         child: Row(
-          mainAxisAlignment: widget.messages[index]['isUserMessage']?MainAxisAlignment.end:MainAxisAlignment.start,
+          mainAxisAlignment: 
+          widget.messages[index]['isUserMessage']?MainAxisAlignment.end:MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
@@ -42,8 +43,10 @@ class _MessagesScreenState extends State<MessagesScreen> {
                   ? Colors.grey
                   :  Colors.grey.shade900.withOpacity(0.8)
                   ),
+                  // Adding constraints so that user message dont enter agent message area and vice versa.
                   constraints: BoxConstraints(maxWidth: w*2.5/3), 
-                  child: Text(widget.messages[index]['message'].text.text[0],style: TextStyle(fontSize: 19,color: Colors.white),),
+                  child: Text(widget.messages[index]['message'].text.text[0],
+                  style: TextStyle(fontSize: 19,color: Colors.white),),
                   )]
                 ),
       );
