@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(useMaterial3: true),
-          home: Menu_Screen(),
+          home: SplashScreen1(),
         );
       }),
     );

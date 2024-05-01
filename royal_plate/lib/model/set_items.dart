@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/widgets.dart';
+import 'package:royal_plate/screens/SetFav_home.dart';
 
 class SetItems extends StatelessWidget {
   final SetFavourite setFavourite;
   final OnDeleteItem;
-  const SetItems({super.key, required this.setFavourite,required this.OnDeleteItem});
+  const SetItems(
+      {super.key, required this.setFavourite, required this.OnDeleteItem});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +19,15 @@ class SetItems extends StatelessWidget {
       child: ListTile(
         onTap: () {},
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        contentPadding: EdgeInsets.symmetric(horizontal: 30,vertical: 5),
+        contentPadding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
         tileColor: Colors.white,
-        title: Text(setFavourite.SetFavouriteText,
-        style: const TextStyle(fontSize: 20,color: tdBlack,),),
+        title: Text(
+          setFavourite.SetFavouriteText,
+          style: const TextStyle(
+            fontSize: 20,
+            color: tdBlack,
+          ),
+        ),
         trailing: Container(
           padding: EdgeInsets.all(0),
           margin: EdgeInsets.symmetric(vertical: 12),
@@ -30,9 +37,21 @@ class SetItems extends StatelessWidget {
             color: tdRed,
             borderRadius: BorderRadius.circular(5),
           ),
-          child: IconButton(onPressed: (){
-            OnDeleteItem(setFavourite.id);
-          }, icon: Icon(Icons.delete),color: Colors.white,iconSize: 18,),
+          child: IconButton(
+            onPressed: () {
+              OnDeleteItem(setFavourite.id);
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text("Item Deleted"),
+                  content: const Text("You have deleted an item"),
+                ),
+              );
+            },
+            icon: Icon(Icons.delete),
+            color: Colors.white,
+            iconSize: 18,
+          ),
         ),
       ),
     );

@@ -37,6 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController namecontroller = TextEditingController();
   TextEditingController contactcontroller = TextEditingController();
 
+  final List<Widget> _widgetOptions = <Widget>[
+    CartScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,354 +69,361 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 }),
           ])),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const SizedBox(
-              height: 10,
-            ),
-
-            Text(
-              ' Hello ${widget.name.text} !!',
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.deepPurple,
-                  fontFamily: AutofillHints.addressCity,
-                  fontWeight: FontWeight.w400),
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: const [
-                Text(
-                  "   Your Current Location",
-                  style: TextStyle(fontSize: 15, color: Colors.blueGrey),
-                ),
-                SizedBox(
-                  width: 100,
-                ),
-                Icon(Icons.location_on),
-                SizedBox(
-                  width: 3,
-                ),
-                Text("Mumbai"),
-              ],
-            ),
-
-            const SizedBox(
-              height: 8,
-            ),
-
-            const SizedBox(
-              height: 20,
-            ),
-
-            // List View 1
-            ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                // container -1
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
-                    color: Colors.black,
-                  ),
-                  width: 362,
-                  child: Row(
-                    children: [
-                      Column(
-                        children: const [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            " Enjoy Your First     ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          Text(
-                            "  order, the taste of   ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          Text(
-                            " our delicious food!",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                          child: AspectRatio(
-                        aspectRatio: 5 / 4.3,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0),
-                          child: Image.asset(
-                            "images/Food_home.jpeg",
-                          ),
-                        ),
-                      )),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(
-                  width: 11,
-                ),
-
-                // container-2
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
-                    color: Colors.black,
-                  ),
-                  width: 362,
-                  child: Row(
-                    children: [
-                      Column(
-                        children: const [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            "    Enjoy The Best      ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          Text(
-                            "   of italian Dishes   ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          Text(
-                            "   with Danodaldss..  ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                          child: AspectRatio(
-                        aspectRatio: 5 / 4.3,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0),
-                          child: Image.asset(
-                            "images/Pasta_image.jpeg",
-                          ),
-                        ),
-                      )),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-
-                // container-3
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
-                    color: Colors.black,
-                  ),
-                  width: 362,
-                  child: Row(
-                    children: [
-                      Column(
-                        children: const [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            "Enjoy The Best of   ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          Text(
-                            "  of chinese starters   ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                          Text(
-                            "with Danodaldss..   ",
-                            style:
-                                TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                          child: AspectRatio(
-                        aspectRatio: 6 / 4.3,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0),
-                          child: Image.asset(
-                            "images/idly_chilli.jpeg",
-                          ),
-                        ),
-                      )),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-
-            const SizedBox(
-              height: 20,
-            ),
-
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
+      body: Container(
+        color: Color.fromARGB(255, 236, 234, 234),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const SizedBox(
+                height: 10,
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: " Search Food/Outlet of Your Choice",
-                  hintStyle: TextStyle(color: Colors.red),
-                  suffixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25.0)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25.0)),
-                ),
+      
+              Text(
+                ' Hello ${widget.name.text} !!',
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.deepPurple,
+                    fontFamily: AutofillHints.addressCity,
+                    fontWeight: FontWeight.w400),
               ),
-            ),
-
-            const SizedBox(
-              height: 20,
-            ),
-
-            Text(
-              '  Popular Items',
-              style: TextStyle(
-                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
-            ),
-
-            Container(
-              // color: Color.fromARGB(255, 229, 232, 234),
-              height: 160,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  BuildItem('images/Indian_thali.jpeg', 'Default Platter'),
-                  BuildItem('images/candies2.jpeg', 'Candies for kids'),
-                  BuildItem('images/Default_platter.jpeg', 'Indian Thali'),
-                  BuildItem('images/hakka_noodles.jpeg', 'hakka Noodles'),
+      
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: const [
+                  Text(
+                    "   Your Current Location",
+                    style: TextStyle(fontSize: 15, color: Colors.blueGrey),
+                  ),
+                  SizedBox(
+                    width: 100,
+                  ),
+                  Icon(Icons.location_on),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Text("Mumbai"),
                 ],
               ),
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            Text(
-              '  Delivery Outlets Near You',
-              style: TextStyle(
-                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
-            ),
-
-            CupertinoButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_Screen()));
-                });
-              },
-              child: BuildOutletCard(
-                  'images/entry.jpeg',
-                  ' Byculla West, 1st Cross Lane',
-                  Icons.star,
-                  '4.2',
-                  '2.0 Km',
-                  Icons.delivery_dining,
-                  '  10% discount'
+      
+              const SizedBox(
+                height: 8,
+              ),
+      
+              const SizedBox(
+                height: 20,
+              ),
+      
+              // List View 1
+              Container(
+                // color: Colors.red,
+                height: 136,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    // container -1
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: Colors.black,
+                      ),
+                      width: 362,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: const [
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text(
+                                " Enjoy Your First     ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                              Text(
+                                "  order, the taste of   ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                              Text(
+                                " our delicious food!",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                              child: AspectRatio(
+                            aspectRatio: 5 / 4.3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.0),
+                              child: Image.asset(
+                                "images/Food_home.jpeg",
+                              ),
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+      
+                    const SizedBox(
+                      width: 11,
+                    ),
+      
+                    // container-2
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: Colors.black,
+                      ),
+                      width: 362,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: const [
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text(
+                                "    Enjoy The Best      ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                              Text(
+                                "   of italian Dishes   ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                              Text(
+                                "   with Danodaldss..  ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                              child: AspectRatio(
+                            aspectRatio: 5 / 4.3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.0),
+                              child: Image.asset(
+                                "images/Pasta_image.jpeg",
+                              ),
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+      
+                    // container-3
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: Colors.black,
+                      ),
+                      width: 362,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: const [
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Text(
+                                "Enjoy The Best of   ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                              Text(
+                                "  of chinese starters   ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                              Text(
+                                "with Danodaldss..   ",
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                              child: AspectRatio(
+                            aspectRatio: 6 / 4.3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5.0),
+                              child: Image.asset(
+                                "images/idly_chilli.jpeg",
+                              ),
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+      
+              const SizedBox(
+                height: 20,
+              ),
+      
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: " Search Food/Outlet of Your Choice",
+                    hintStyle: TextStyle(color: Colors.red),
+                    suffixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25.0)),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25.0)),
                   ),
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            CupertinoButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_Screen()));
-                });
-              },
-              child: BuildOutletCard(
-                  'images/outlets/outlet.jpeg',
-                  ' Bombay Central, Reliance Mart',
-                  Icons.star,
-                  '3.8',
-                  '4.6 Km',
-                  Icons.delivery_dining,
-                  '  12% discount',
-                  ),
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            CupertinoButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_Screen()));
-                });
-              },
-              child: BuildOutletCard(
-                  'images/outlets/outlet2.jpeg',
-                  '  Breach Candy, Napency Road',
-                  Icons.star,
-                  '4.6',
-                  '7.6 Km',
-                  Icons.delivery_dining,
-                  '  10% discount',
-                  ),
-            ),
-
-            const SizedBox(
-              height: 10,
-            ),
-
-            CupertinoButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const Menu_Screen()));
-                });
-              },
-              child: BuildOutletCard(
-                  'images/outlets/outlet3.jpeg',
-                  '  Matunga Road, Kings Circle',
-                  Icons.star,
-                  '4.0',
-                  '8.0 Km',
-                  Icons.delivery_dining,
-                  '  10% discount',
-                  ),
-            ),
-
-            const SizedBox(
-              height: 20,
-            ),
-
-            Text(
-              'GET DELICIOUS FOOD WITH OUR EXCELLENT SERVICE!!',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            )
-          ]),
+                ),
+              ),
+      
+              const SizedBox(
+                height: 20,
+              ),
+      
+              Text(
+                '  Popular Items',
+                style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
+              ),
+      
+              Container(
+                // color: Color.fromARGB(255, 229, 232, 234),
+                height: 160,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    BuildItem('images/Indian_thali.jpeg', 'Default Platter'),
+                    BuildItem('images/candies2.jpeg', 'Candies for kids'),
+                    BuildItem('images/Default_platter.jpeg', 'Indian Thali'),
+                    BuildItem('images/hakka_noodles.jpeg', 'hakka Noodles'),
+                  ],
+                ),
+              ),
+      
+              const SizedBox(
+                height: 10,
+              ),
+      
+              const SizedBox(
+                height: 10,
+              ),
+      
+              Text(
+                '  Delivery Outlets Near You',
+                style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
+              ),
+      
+              CupertinoButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => const Menu_Screen()));
+                  });
+                },
+                child: BuildOutletCard(
+                    'images/entry.jpeg',
+                    ' Byculla West, 1st Cross Lane',
+                    Icons.star,
+                    '4.2',
+                    '2.0 Km',
+                    Icons.delivery_dining,
+                    '  10% discount',
+                    'Order Now'),
+              ),
+      
+              const SizedBox(
+                height: 10,
+              ),
+      
+              CupertinoButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => const Menu_Screen()));
+                  });
+                },
+                child: BuildOutletCard(
+                    'images/outlets/outlet.jpeg',
+                    ' Bombay Central, Reliance Mart',
+                    Icons.star,
+                    '3.8',
+                    '4.6 Km',
+                    Icons.delivery_dining,
+                    '  12% discount',
+                    'Order Now'),
+              ),
+      
+              const SizedBox(
+                height: 10,
+              ),
+      
+              CupertinoButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => const Menu_Screen()));
+                  });
+                },
+                child: BuildOutletCard(
+                    'images/outlets/outlet2.jpeg',
+                    '  Breach Candy, Napency Road',
+                    Icons.star,
+                    '4.6',
+                    '7.6 Km',
+                    Icons.delivery_dining,
+                    '  10% discount',
+                    'Order Now'),
+              ),
+      
+              const SizedBox(
+                height: 10,
+              ),
+      
+              CupertinoButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => const Menu_Screen()));
+                  });
+                },
+                child: BuildOutletCard(
+                    'images/outlets/outlet3.jpeg',
+                    '  Matunga Road, Kings Circle',
+                    Icons.star,
+                    '4.0',
+                    '8.0 Km',
+                    Icons.delivery_dining,
+                    '  10% discount',
+                    'Order Now'),
+              ),
+      
+              const SizedBox(
+                height: 20,
+              ),
+      
+              Text(
+                'GET DELICIOUS FOOD WITH OUR EXCELLENT SERVICE!!',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              )
+            ]),
+          ),
         ),
       ),
 
@@ -476,8 +487,8 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              title: Text('Your Account'),
-              leading: Icon(Icons.person),
+              title: Text('Settings'),
+              leading: Icon(Icons.settings),
               onTap: () {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -570,7 +581,7 @@ Widget BuildItem(image, title) {
 }
 
 Widget BuildOutletCard(
-    image, Head, icon1, rate, distance, icon2, discount,) {
+    image, Head, icon1, rate, distance, icon2, discount, buttontext) {
   return Card(
     margin: EdgeInsets.all(4.0),
     // color: Color.fromARGB(255, 223, 218, 223),
