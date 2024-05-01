@@ -7,8 +7,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
 
-class Login_Screen extends StatefulWidget 
-{
+class Login_Screen extends StatefulWidget {
   const Login_Screen({super.key});
 
   @override
@@ -16,19 +15,12 @@ class Login_Screen extends StatefulWidget
 }
 
 class _Login_ScreenState extends State<Login_Screen> {
+  final _formkey = GlobalKey<FormState>();
   bool passwordVisible = true;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
-  bool _validate = false;
 
   @override
-
-  // Function to validate email id.
-  void Validate(String email) {
-    bool isvalid = EmailValidator.validate(email);
-    print(isvalid);
-  }
-
   @override
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
@@ -48,116 +40,134 @@ class _Login_ScreenState extends State<Login_Screen> {
               fontWeight: FontWeight.bold),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // const SizedBox(height:50),
-            Center(child: Image.asset('images/trace.jpeg')),
-            const SizedBox(
-              height: 10,
-            ),
-
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                child: TextField(
-                  controller: emailcontroller,
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                    errorText: _validate ? 'Email filed is required' : null,
-                    prefixIcon: Icon(Icons.email),
-                    hintText: "Enter Your Email id*",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0)),
-                    errorBorder: OutlineInputBorder(),
-                  ),
-                ),
+      body: Form(
+        key: _formkey,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // const SizedBox(height:50),
+              Center(child: Image.asset('images/trace.jpeg')),
+              const SizedBox(
+                height: 10,
               ),
-            ),
 
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                child: TextField(
-                    obscureText: passwordVisible,
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  child: TextFormField(
+                    controller: emailcontroller,
+                    keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                      errorText:
-                          _validate ? 'Password filed is required' : null,
-                      prefixIcon: Icon(Icons.password_rounded),
-                      hintText: "Enter Your Password*",
+                      prefixIcon: Icon(Icons.email),
+                      hintText: "Enter Your Email id*",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0)),
                       errorBorder: OutlineInputBorder(),
-                      // helperText:"Password must contain special character",
-                      suffixIcon: IconButton(
-                        icon: Icon(passwordVisible
-                            ? Icons.visibility_off
-                            : Icons.visibility),
-                        onPressed: () {
-                          setState(
-                            () {
-                              passwordVisible = !passwordVisible;
-                            },
-                          );
-                        },
-                      ),
                     ),
-                    keyboardType: TextInputType.visiblePassword,
-                    textInputAction: TextInputAction.done),
-              ),
-            ),
-
-            const SizedBox(height: 50),
-            Center(
-              child: SizedBox(
-                width: screenwidth * 0.6,
-                height: 45,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      onPrimary: Colors.yellowAccent),
-                  onPressed: () async {
-                    setState(() {
-                      emailcontroller.text.isEmpty
-                          ? _validate = true
-                          : _validate = false;
-                      passwordcontroller.text.isEmpty
-                          ? _validate = true
-                          : _validate = false;
-                    });
-                    try {
-                      final userCredential = await auth.signInWithEmailAndPassword(
-                        email: emailcontroller.text.trim(),
-                        password: passwordcontroller.text.trim(),
-                      );
-                    } catch (e) {
-                      print('Error: $e');
-                    }
-                  },
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(fontSize: 22, fontStyle: FontStyle.italic),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter an email';
+                      }
+                      final emailRegex =
+                          RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                      if (!emailRegex.hasMatch(value)) {
+                        return 'Please enter a valid email';
+                      }
+                    },
                   ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  child: TextFormField(
+                      obscureText: passwordVisible,
+                      controller: passwordcontroller,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.password_rounded),
+                        hintText: "Enter Your Password*",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0)),
+                        errorBorder: OutlineInputBorder(),
+                        // helperText:"Password must contain special character",
+                        suffixIcon: IconButton(
+                          icon: Icon(passwordVisible
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: () {
+                            setState(
+                              () {
+                                passwordVisible = !passwordVisible;
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your password';
+                        }
+                        // Validate password length between 6 to 13 characters
+                        if (value.length < 6 || value.length > 13) {
+                          return 'Password must be 6 to 13 characters long';
+                        }
+                      },
+                      keyboardType: TextInputType.visiblePassword,
+                      textInputAction: TextInputAction.done),
+                ),
+              ),
 
-            Center(
-              child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const OnBoarding4()));
-                  },
-                  child: Text(
-                    'Dont have an Account?? Sign_Up',
-                    style: TextStyle(fontSize: 19),
-                  )),
-            ),
-          ],
+              const SizedBox(height: 50),
+              Center(
+                child: SizedBox(
+                  width: screenwidth * 0.6,
+                  height: 45,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        onPrimary: Colors.yellowAccent),
+                    onPressed: () async {
+                      if (_formkey.currentState!.validate()) {
+                        print('Email: ${emailcontroller.text}');
+                        print('Password: ${passwordcontroller.text}');
+                      }
+                      try {
+                        final userCredential =
+                            await auth.signInWithEmailAndPassword(
+                          email: emailcontroller.text.trim(),
+                          password: passwordcontroller.text.trim(),
+                        );
+                      } catch (e) {
+                        print('Error: $e');
+                      }
+                    },
+                    child: const Text(
+                      "Login",
+                      style:
+                          TextStyle(fontSize: 22, fontStyle: FontStyle.italic),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Center(
+                child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const OnBoarding4()));
+                    },
+                    child: Text(
+                      'Dont have an Account?? Sign_Up',
+                      style: TextStyle(fontSize: 19),
+                    )),
+              ),
+            ],
+          ),
         ),
       ),
     );
