@@ -63,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => AccountScreen(
-                              
-                              // phone: contactcontroller,
+
+                            // phone: contactcontroller,
                             )));
                   });
                 }),
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 10,
               ),
-      
+
               Text(
                 ' Hello ${widget.name.text} !!',
                 style: TextStyle(
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontFamily: AutofillHints.addressCity,
                     fontWeight: FontWeight.w400),
               ),
-      
+
               const SizedBox(
                 height: 10,
               ),
@@ -108,15 +108,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text("Mumbai"),
                 ],
               ),
-      
+
               const SizedBox(
                 height: 8,
               ),
-      
+
               const SizedBox(
                 height: 20,
               ),
-      
+
               // List View 1
               Container(
                 // color: Colors.red,
@@ -140,18 +140,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 " Enjoy Your First     ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                               Text(
                                 "  order, the taste of   ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                               Text(
                                 " our delicious food!",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ],
                           ),
@@ -168,11 +168,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-      
+
                     const SizedBox(
                       width: 11,
                     ),
-      
+
                     // container-2
                     Container(
                       decoration: BoxDecoration(
@@ -189,18 +189,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 "    Enjoy The Best      ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                               Text(
                                 "   of italian Dishes   ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                               Text(
                                 "   with Danodaldss..  ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ],
                           ),
@@ -220,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: 5,
                     ),
-      
+
                     // container-3
                     Container(
                       decoration: BoxDecoration(
@@ -237,18 +237,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 "Enjoy The Best of   ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                               Text(
                                 "  of chinese starters   ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                               Text(
                                 "with Danodaldss..   ",
-                                style:
-                                    TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ],
                           ),
@@ -268,11 +268,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-      
+
               const SizedBox(
                 height: 20,
               ),
-      
+
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -291,17 +291,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-      
+
               const SizedBox(
                 height: 20,
               ),
-      
+
               Text(
                 '  Popular Items',
                 style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
               ),
-      
+
               Container(
                 // color: Color.fromARGB(255, 229, 232, 234),
                 height: 160,
@@ -315,26 +317,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-      
+
               const SizedBox(
                 height: 10,
               ),
-      
+
               const SizedBox(
                 height: 10,
               ),
-      
+
               Text(
                 '  Delivery Outlets Near You',
                 style: TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
               ),
-      
+
               CupertinoButton(
                 onPressed: () {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => const Menu_Screen()));
+                        builder: (BuildContext context) =>
+                            const Menu_Screen()));
                   });
                 },
                 child: BuildOutletCard(
@@ -347,16 +352,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     '  10% discount',
                     'Order Now'),
               ),
-      
+
               const SizedBox(
                 height: 10,
               ),
-      
+
               CupertinoButton(
                 onPressed: () {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => const Menu_Screen()));
+                        builder: (BuildContext context) =>
+                            const Menu_Screen()));
                   });
                 },
                 child: BuildOutletCard(
@@ -369,16 +375,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     '  12% discount',
                     'Order Now'),
               ),
-      
+
               const SizedBox(
                 height: 10,
               ),
-      
+
               CupertinoButton(
                 onPressed: () {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => const Menu_Screen()));
+                        builder: (BuildContext context) =>
+                            const Menu_Screen()));
                   });
                 },
                 child: BuildOutletCard(
@@ -391,16 +398,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     '  10% discount',
                     'Order Now'),
               ),
-      
+
               const SizedBox(
                 height: 10,
               ),
-      
+
               CupertinoButton(
                 onPressed: () {
                   setState(() {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => const Menu_Screen()));
+                        builder: (BuildContext context) =>
+                            const Menu_Screen()));
                   });
                 },
                 child: BuildOutletCard(
@@ -413,11 +421,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     '  10% discount',
                     'Order Now'),
               ),
-      
+
               const SizedBox(
                 height: 20,
               ),
-      
+
               Text(
                 'GET DELICIOUS FOOD WITH OUR EXCELLENT SERVICE!!',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -493,13 +501,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => AccountScreen(
-                            
-                            // phone: contactcontroller,
+
+                          // phone: contactcontroller,
                           )));
                 });
               },
             ),
-        
             ListTile(
               title: Text('Log Out'),
               leading: Icon(Icons.logout_sharp),
