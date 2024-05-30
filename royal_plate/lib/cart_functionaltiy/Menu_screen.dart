@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
-import 'package:royal_plate/Extra_files/cart_model.dart';
-import 'package:royal_plate/Extra_files/cart_provider.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
-import 'package:royal_plate/Extra_files/db_helper.dart';
+import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
 
 class Menu_Screen extends StatefulWidget {
   const Menu_Screen({super.key});

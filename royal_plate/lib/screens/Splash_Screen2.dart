@@ -16,41 +16,46 @@ class SplashScreen2 extends StatefulWidget {
 }
 
 class _SplashScreen2State extends State<SplashScreen2> {
-
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    
-    return Scaffold(
-      body: Container(  
-        height: double.infinity,
-        width: double.infinity,
-        color: Colors.deepPurple,
-        // Animated Splash Screen
-        child: AnimatedSplashScreen(   
-        duration: 3000,
-        backgroundColor: Colors.deepPurple,
-        // splash - is the animation.
-        splash: Column(
-          children: [
-            const Text("/DANODALDS/",style: TextStyle(
-            fontSize: 30,
-            color: Colors.greenAccent,
-            letterSpacing: 4,
-            fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
 
-            const Text("You Starve? Order Our Food",style: TextStyle(
-            fontSize: 12,
-            color: Colors.greenAccent,
-            letterSpacing: 3,
-            fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
-          ],
-        ),
-        // The Navigation to the next Screen and then Transition to reach there. 
-        nextScreen: const OnBoarding15(),
-        splashTransition: SplashTransition.fadeTransition),
-      )
-    );         
-}
+    return Scaffold(
+        body: Container(
+      height: double.infinity,
+      width: double.infinity,
+      color: Colors.deepPurple,
+      // Animated Splash Screen
+      child: AnimatedSplashScreen(
+          duration: 3000,
+          backgroundColor: Colors.deepPurple,
+          // splash - is the animation.
+          splash: Column(
+            children: [
+              const Text(
+                "/DANODALDS/",
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.greenAccent,
+                    letterSpacing: 4,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ),
+              const Text(
+                "You Starve? Order Our Food",
+                style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.greenAccent,
+                    letterSpacing: 3,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ),
+            ],
+          ),
+          // The Navigation to the next Screen and then Transition to reach there.
+          nextScreen: const OnBoarding4(),
+          splashTransition: SplashTransition.fadeTransition),
+    ));
+  }
 }
