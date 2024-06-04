@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
 // This is the Accounts Screen
 
@@ -23,6 +22,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(

@@ -1,13 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:royal_plate/screens/Email_screen.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:royal_plate/otp.dart';
-
-import 'constants/Color.dart';
 
 class OnBoarding15 extends StatefulWidget {
   const OnBoarding15({super.key});
@@ -21,8 +17,8 @@ class OnBoarding15 extends StatefulWidget {
 class _OnBoarding15State extends State<OnBoarding15> {
   @override
   Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
+    // double screenwidth = MediaQuery.of(context).size.width;
+    // double screenheight = MediaQuery.of(context).size.height;
     TextEditingController _countrycodecontroller = TextEditingController();
     var phone = '';
 
@@ -92,8 +88,8 @@ class _OnBoarding15State extends State<OnBoarding15> {
                   height: 45,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.yellowAccent,
                         backgroundColor: Colors.deepPurple,
-                        onPrimary: Colors.yellowAccent,
                       ),
                       onPressed: () async {
                         await FirebaseAuth.instance.verifyPhoneNumber(

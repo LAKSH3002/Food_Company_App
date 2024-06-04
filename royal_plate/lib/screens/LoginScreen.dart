@@ -1,10 +1,6 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
 
 class Login_Screen extends StatefulWidget {
@@ -25,7 +21,7 @@ class _Login_ScreenState extends State<Login_Screen> {
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
     final screenwidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
+    // final screenheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -74,6 +70,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       if (!emailRegex.hasMatch(value)) {
                         return 'Please enter a valid email';
                       }
+                      return null;
                     },
                   ),
                 ),
@@ -113,6 +110,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         if (value.length < 6 || value.length > 13) {
                           return 'Password must be 6 to 13 characters long';
                         }
+                        return null;
                       },
                       keyboardType: TextInputType.visiblePassword,
                       textInputAction: TextInputAction.done),
@@ -126,14 +124,14 @@ class _Login_ScreenState extends State<Login_Screen> {
                   height: 45,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
-                        onPrimary: Colors.yellowAccent),
+                        foregroundColor: Colors.yellowAccent, backgroundColor: Colors.deepPurple),
                     onPressed: () async {
                       if (_formkey.currentState!.validate()) {
                         print('Email: ${emailcontroller.text}');
                         print('Password: ${passwordcontroller.text}');
                       }
                       try {
+                        // ignore: unused_local_variable
                         final userCredential =
                             await auth.signInWithEmailAndPassword(
                           email: emailcontroller.text.trim(),

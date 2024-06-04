@@ -1,8 +1,6 @@
 import 'package:royal_plate/phone.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Walkthrough extends StatefulWidget {
   const Walkthrough({super.key});
@@ -19,6 +17,7 @@ class _WalkthroughState extends State<Walkthrough>
   );
   
   // The index of the current page
+  // ignore: unused_field
   int _activepage = 0;
 
   // list of widgets.

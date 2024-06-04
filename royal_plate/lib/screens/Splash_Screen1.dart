@@ -1,12 +1,7 @@
-import 'dart:async';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:royal_plate/screens/Splash_Screen2.dart';
-import 'package:royal_plate/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
-import '../constants/Color.dart';
 
 class SplashScreen1 extends StatefulWidget {
   const SplashScreen1({super.key});

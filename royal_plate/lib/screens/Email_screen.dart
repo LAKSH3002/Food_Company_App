@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:royal_plate/screens/Accounts.dart';
-import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:royal_plate/screens/LoginScreen.dart';
 
@@ -22,15 +20,13 @@ class _OnBoarding4State extends State<OnBoarding4> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController namecontroller = TextEditingController();
-  bool _validate = false;
+  // bool _validate = false;
 
   @override
   void dispose() {
     emailcontroller.dispose();
     super.dispose();
   }
-
-  @override
 
   // Method to validate the email the take
   // the user email as an input and
@@ -49,7 +45,6 @@ class _OnBoarding4State extends State<OnBoarding4> {
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -137,6 +132,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                         if (!emailRegex.hasMatch(value)) {
                           return 'Please enter a valid email';
                         }
+                        return null;
                       },
                     ),
                   ),
@@ -179,6 +175,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                           if (value.length < 6 || value.length > 13) {
                             return 'Password must be 6 to 13 characters long';
                           }
+                          return null;
                         },
                         keyboardType: TextInputType.visiblePassword,
                         textInputAction: TextInputAction.done),
@@ -213,8 +210,8 @@ class _OnBoarding4State extends State<OnBoarding4> {
                     height: 45,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
-                            onPrimary: Colors.yellowAccent),
+                            foregroundColor: Colors.yellowAccent, 
+                            backgroundColor: Colors.deepPurple),
                         // User entry with email and password.
                         onPressed: () async {
                           try {

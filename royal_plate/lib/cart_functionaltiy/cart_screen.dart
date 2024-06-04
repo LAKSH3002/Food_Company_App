@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:provider/provider.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:provider/provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
+// import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -105,7 +105,7 @@ class _CartScreenState extends State<CartScreen> {
                         }));
               }
               return Text('');
-            })
+            }, future: null,)
           ],
         ));
   }

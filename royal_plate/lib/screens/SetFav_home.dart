@@ -3,7 +3,7 @@ import 'package:royal_plate/model/set.dart';
 import 'package:royal_plate/model/set_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
 
 class SetFavouritehome extends StatefulWidget {
   const SetFavouritehome({super.key});
@@ -17,7 +17,6 @@ class _SetFavouritehomeState extends State<SetFavouritehome> {
   List<SetFavourite> _foundItem = [];
   final _setController = TextEditingController();
 
-  @override
   void initstate() {
     _foundItem = setlist;
     super.initState();
@@ -102,7 +101,7 @@ class _SetFavouritehomeState extends State<SetFavouritehome> {
                     style: TextStyle(fontSize: 40),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: tdBlue,
+                    backgroundColor: tdBlue,
                     minimumSize: Size(60, 60),
                     elevation: 10,
                   ),

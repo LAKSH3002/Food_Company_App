@@ -1,4 +1,3 @@
-import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io' as io;
@@ -9,6 +8,7 @@ class DBHelper{
 
   static Database? _db;
 
+  // ignore: body_might_complete_normally_nullable
   Future<Database?> get db async{
     if(_db!=null)
     {

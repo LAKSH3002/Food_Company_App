@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
-import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CartProvider with ChangeNotifier {

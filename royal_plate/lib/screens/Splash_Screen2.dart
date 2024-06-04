@@ -1,12 +1,7 @@
-import 'dart:async';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
-import 'package:royal_plate/WalkThrough1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
-import '../phone.dart';
 
 class SplashScreen2 extends StatefulWidget {
   const SplashScreen2({super.key});
@@ -18,8 +13,8 @@ class SplashScreen2 extends StatefulWidget {
 class _SplashScreen2State extends State<SplashScreen2> {
   @override
   Widget build(BuildContext context) {
-    final screenwidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
+    // final screenwidth = MediaQuery.of(context).size.width;
+    // final screenheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
         body: Container(

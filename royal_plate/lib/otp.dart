@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pinput/pinput.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
-import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:royal_plate/phone.dart';
 
 class MyOtp extends StatefulWidget {
@@ -69,8 +67,8 @@ class _MyOtpState extends State<MyOtp> {
                   height: 45,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.yellowAccent, 
                         backgroundColor: Colors.deepPurple,
-                        onPrimary: Colors.yellowAccent,
                       ),
                       onPressed: () async {
                         try {

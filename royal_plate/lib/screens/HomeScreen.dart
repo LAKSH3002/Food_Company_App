@@ -1,17 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
 import 'package:royal_plate/screens/Accounts.dart';
 import 'package:royal_plate/Chatbot/chatbot.dart';
 import 'package:royal_plate/screens/LoginScreen.dart';
-import 'package:royal_plate/Extra_files/Menu.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
-import 'package:royal_plate/phone.dart';
-import 'package:royal_plate/screens/Email_screen.dart';
 import 'package:royal_plate/screens/SetFav_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/services.dart';
 
 class CardItem {
@@ -32,11 +27,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // ignore: unused_field
   int _selectedIndex = 0;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController contactcontroller = TextEditingController();
 
+  // ignore: unused_field
   final List<Widget> _widgetOptions = <Widget>[
     CartScreen(),
   ];
