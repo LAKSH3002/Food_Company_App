@@ -210,7 +210,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                     height: 45,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.yellowAccent, 
+                            foregroundColor: Colors.yellowAccent,
                             backgroundColor: Colors.deepPurple),
                         // User entry with email and password.
                         onPressed: () async {

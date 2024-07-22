@@ -67,7 +67,7 @@ class _MyOtpState extends State<MyOtp> {
                   height: 45,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.yellowAccent, 
+                        foregroundColor: Colors.yellowAccent,
                         backgroundColor: Colors.deepPurple,
                       ),
                       onPressed: () async {
