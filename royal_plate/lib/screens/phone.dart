@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:royal_plate/otp.dart';
+import 'package:royal_plate/screens/otp.dart';
 
 class OnBoarding15 extends StatefulWidget {
   const OnBoarding15({super.key});
@@ -42,12 +42,12 @@ class _OnBoarding15State extends State<OnBoarding15> {
                       fontWeight: FontWeight.bold),
                 )),
               ),
-      
+
               const SizedBox(height: 20),
-      
+
               // Text('$screenwidth'),
               // Text('$screenheight'),
-      
+
               Padding(
                 padding: const EdgeInsets.fromLTRB(18, 0, 5, 0),
                 child: const Text(
@@ -59,7 +59,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                 ),
               ),
               const SizedBox(height: 10),
-      
+
               Padding(
                 padding: EdgeInsets.all(12.0),
                 child: TextFormField(
@@ -80,7 +80,7 @@ class _OnBoarding15State extends State<OnBoarding15> {
                   ),
                 ),
               ),
-      
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
@@ -113,25 +113,25 @@ class _OnBoarding15State extends State<OnBoarding15> {
                       )),
                 ),
               ),
-      
+
               const SizedBox(height: 175),
-      
+
               // const Center(child: Text("By Continuing, You Agree to Our",
               // style: TextStyle(color: Colors.black87, fontSize: 17,fontWeight: FontWeight.bold),),),
-      
+
               // // const SizedBox(height: 4),
-      
+
               //  Row(
               //    children: [
               //      Center(child: CupertinoButton(child: const Text("       Terms Of Service",style: TextStyle(fontSize: 18),),
               //         onPressed:(){
-      
+
               //         } )),
-      
+
               //       CupertinoButton(child: const Text("Privacy Policy",
               //       style: TextStyle(fontSize: 18),),
               //         onPressed:(){
-      
+
               //         } ),
               //    ],
               //  ),

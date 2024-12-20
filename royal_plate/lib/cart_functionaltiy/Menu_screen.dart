@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
 
@@ -13,7 +14,6 @@ class Menu_Screen extends StatefulWidget {
 }
 
 class _Menu_ScreenState extends State<Menu_Screen> {
-
   List<String> foodname = [
     'Idli Chilly',
     'Veggies Fry',
@@ -50,29 +50,24 @@ class _Menu_ScreenState extends State<Menu_Screen> {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         titleSpacing: 2,
-        title: Row(
-          children: [
-            Text(
-              'Danodalds Product List',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.greenAccent,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            CupertinoButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => CartScreen()));
-                },
-                child: Icon(
-                  Icons.shopping_bag_outlined,
-                  color: Colors.white,
-                ))
-          ],
+        centerTitle: true,
+        title: Text(
+          'Danodalds Product List',
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.greenAccent,
+              fontWeight: FontWeight.bold),
         ),
+        actions: [Center()],
+        // CupertinoButton(
+        //     onPressed: () {
+        //       Navigator.of(context).push(MaterialPageRoute(
+        //           builder: (BuildContext context) => CartScreen()));
+        //     },
+        //     child: Icon(
+        //       Icons.shopping_bag_outlined,
+        //       color: Colors.white,
+        //     ))
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,8 +128,8 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                       child: InkWell(
                                         onTap: () {
                                           const snackdemo = SnackBar(
-                                            content: Text(
-                                                'Product added to Cart!!'),
+                                            content:
+                                                Text('Product added to Cart!!'),
                                             backgroundColor: Colors.green,
                                             elevation: 10,
                                             behavior: SnackBarBehavior.floating,
@@ -142,7 +137,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                           );
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(snackdemo);
-                                              
+
                                           print(index);
                                           print(index.toString());
                                           print(foodname[index].toString());
@@ -150,8 +145,6 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                           print(food_rate[index]);
                                           print('1');
                                           print(food_image[index].toString());
-
-                                       
                                         },
                                         child: Container(
                                           height: 35,

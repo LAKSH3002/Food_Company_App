@@ -1,4 +1,5 @@
 import 'package:provider/provider.dart';
+import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:royal_plate/screens/Splash_Screen1.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(useMaterial3: true),
-          home: SplashScreen1(),
+          home: Menu_Screen(),
         );
       }),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:pinput/pinput.dart';
 import 'package:royal_plate/screens/Email_screen.dart';
-import 'package:royal_plate/phone.dart';
+import 'package:royal_plate/screens/phone.dart';
 
 class MyOtp extends StatefulWidget {
   const MyOtp({super.key});
