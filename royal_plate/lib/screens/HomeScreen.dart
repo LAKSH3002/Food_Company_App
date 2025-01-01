@@ -6,8 +6,6 @@ import 'package:royal_plate/screens/LoginScreen.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
 import 'package:royal_plate/screens/SetFav_home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/services.dart';
 
 class CardItem {
   final String title;

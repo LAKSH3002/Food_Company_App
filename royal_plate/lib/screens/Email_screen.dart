@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:royal_plate/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 // import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:royal_plate/screens/LoginScreen.dart';

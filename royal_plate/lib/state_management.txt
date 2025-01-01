@@ -1,0 +1,18 @@
+There are various state management techniques in Flutter
+
+1 - Getx
+
+-	Its role is the same as that of a provider, it is used to manage the state of the applications 
+    and ensure off payload on the mobile application and its widgets.
+-	With GETX, we can have easy creation of snack bar, bottom Sheet, dialog box and changing theme 
+    of the mobile applications.
+-	It Can be done using Get.snackbar, Get.defalutdialog, Get.ChangeTheme and more.
+
+2 - provider
+
+-	It is commonly used to efficiently share and update data between different parts of your app, such as widgets, 
+    without the need for prop drilling (passing data through multiple widget layers).
+-	By number there are 2 types of provider, a single provider called through the function ChangeNotifierProvider 
+    and multiple provider – Multipleprovider ().
+
+3 - BLOC

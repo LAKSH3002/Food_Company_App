@@ -1,6 +1,5 @@
 import 'package:royal_plate/screens/phone.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Walkthrough extends StatefulWidget {
   const Walkthrough({super.key});

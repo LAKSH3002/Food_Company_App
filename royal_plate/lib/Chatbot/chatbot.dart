@@ -1,6 +1,5 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:royal_plate/Chatbot/Messages.dart';
 
 class Royalplate_chatbot extends StatefulWidget {

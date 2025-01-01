@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:badges/badges.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
-import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
 
 class Menu_Screen extends StatefulWidget {
   const Menu_Screen({super.key});
