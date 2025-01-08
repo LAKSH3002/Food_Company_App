@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
+import 'package:badges/badges.dart' as badges;
 
 class Menu_Screen extends StatefulWidget {
   const Menu_Screen({super.key});
@@ -44,17 +45,34 @@ class _Menu_ScreenState extends State<Menu_Screen> {
     final Cart = Provider.of<CartProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Color.fromARGB(255, 158, 120, 224),
         titleSpacing: 2,
         centerTitle: true,
         title: Text(
-          'Danodalds Product List',
+          'Product List',
           style: TextStyle(
               fontSize: 20,
               color: Colors.greenAccent,
               fontWeight: FontWeight.bold),
         ),
-        actions: [Center()],
+
+        actions: [
+          Center(
+            child: badges.Badge(
+              badgeContent: Text(
+                '0',
+                style: TextStyle(color: Colors.white),
+              ),
+              badgeAnimation: badges.BadgeAnimation.rotation(
+                  animationDuration: Duration(milliseconds: 300),
+                  loopAnimation: false),
+              child: Icon(Icons.shopping_bag_outlined, color: Colors.white),
+            ),
+          ),
+          SizedBox(
+            width: 20.0,
+          )
+        ],
         // CupertinoButton(
         //     onPressed: () {
         //       Navigator.of(context).push(MaterialPageRoute(
@@ -72,7 +90,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
             height: 10,
           ),
           Text(
-            '  Items List',
+            '   Food Items List',
             style: TextStyle(
                 fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),
           ),
@@ -87,8 +105,12 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Image.asset(
@@ -96,10 +118,9 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                   height: 120,
                                   width: 140,
                                 ),
-                                SizedBox(
-                                  width: 10,
-                                ),
+                                SizedBox(width: 10),
                                 Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       foodname[index].toString(),
@@ -120,7 +141,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                       height: 5,
                                     ),
                                     Align(
-                                      alignment: Alignment.centerRight,
+                                      //alignment: Alignment.centerLeft,
                                       child: InkWell(
                                         onTap: () {
                                           const snackdemo = SnackBar(

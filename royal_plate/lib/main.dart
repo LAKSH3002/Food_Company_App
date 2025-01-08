@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController name = TextEditingController();
-    name.text = 'laksh';
-    TextEditingController email = TextEditingController();
-    email.text = 'laksh123@gmail.com';
+    // TextEditingController name = TextEditingController();
+    // name.text = 'laksh';
+    // TextEditingController email = TextEditingController();
+    // email.text = 'laksh123@gmail.com';
     return ChangeNotifierProvider(
       create: (_) => CartProvider(),
       child: Builder(builder: (BuildContext context) {
