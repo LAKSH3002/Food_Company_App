@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:flutter/src/widgets/placeholder.dart';
 // import 'package:provider/provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 // import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
+import 'package:badges/badges.dart' as badges;
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -14,21 +17,55 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color.fromARGB(255, 158, 120, 224),
+          titleSpacing: 2,
+          centerTitle: true,
           title: Text(
-            'Danodalds - Cart Page',
+            'Danodalds - Cart List',
             style: TextStyle(
                 fontSize: 20,
                 color: Colors.greenAccent,
                 fontWeight: FontWeight.bold),
           ),
+
+          actions: [
+            Center(
+              child: badges.Badge(
+                badgeContent: Consumer<CartProvider>(
+                  builder: (context, value, child) {
+                    return Text(
+                      value.getCounter().toString(),
+                      style: TextStyle(color: Colors.white),
+                    );
+                  },
+                ),
+                badgeAnimation: badges.BadgeAnimation.rotation(
+                    animationDuration: Duration(milliseconds: 300),
+                    loopAnimation: false),
+                child: Icon(Icons.shopping_bag_outlined, color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              width: 20.0,
+            )
+          ],
+          // CupertinoButton(
+          //     onPressed: () {
+          //       Navigator.of(context).push(MaterialPageRoute(
+          //           builder: (BuildContext context) => CartScreen()));
+          //     },
+          //     child: Icon(
+          //       Icons.shopping_bag_outlined,
+          //       color: Colors.white,
+          //     ))
         ),
         body: Column(
           children: [
             FutureBuilder(
-              // future: Provider.of<CartProvider>(context,listen: false).getData(),
+              future: cart.getData(),
               builder: (context, AsyncSnapshot<List<Cart>> snapshot) {
                 if (snapshot.hasData) {
                   return Expanded(
@@ -106,7 +143,6 @@ class _CartScreenState extends State<CartScreen> {
                 }
                 return Text('');
               },
-              future: null,
             )
           ],
         ));

@@ -8,11 +8,18 @@ class DBHelper {
   static Database? _db;
 
   // ignore: body_might_complete_normally_nullable
+  // Future<Database?> get db async {
+  //   if (_db != null) {
+  //     return _db!;
+  //   }
+  //   _db = await initDatabase();
+  // }
   Future<Database?> get db async {
     if (_db != null) {
-      return _db!;
+      return _db;
     }
     _db = await initDatabase();
+    return _db;
   }
 
   initDatabase() async {

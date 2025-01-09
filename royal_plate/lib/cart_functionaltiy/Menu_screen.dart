@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:royal_plate/cart_functionaltiy/cart_screen.dart';
+import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
 
 class Menu_Screen extends StatefulWidget {
   const Menu_Screen({super.key});
@@ -11,7 +14,8 @@ class Menu_Screen extends StatefulWidget {
 }
 
 class _Menu_ScreenState extends State<Menu_Screen> {
-  List<String> foodname = [
+  DBHelper? dbHelper = DBHelper();
+  List<String> productname = [
     'Idli Chilly',
     'Veggies Fry',
     'Paneer Crispy',
@@ -24,7 +28,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
     'Subway Special',
     'fried Rice',
   ];
-  List<int> food_rate = [280, 260, 300, 320, 330, 260, 300, 320, 400, 420, 380];
+  List<int> productprice = [280, 260, 300, 320, 330, 260, 300, 320, 400, 420, 380];
   List<String> food_image = [
     'images/idly_chilli.jpeg',
     'images/Veggies_fry.jpeg',
@@ -42,7 +46,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    final Cart = Provider.of<CartProvider>(context, listen: false);
+    final cart = Provider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 158, 120, 224),
@@ -55,33 +59,33 @@ class _Menu_ScreenState extends State<Menu_Screen> {
               color: Colors.greenAccent,
               fontWeight: FontWeight.bold),
         ),
-
         actions: [
-          Center(
-            child: badges.Badge(
-              badgeContent: Text(
-                '0',
-                style: TextStyle(color: Colors.white),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
+            },
+            child: Center(
+              child: badges.Badge(
+                badgeContent: Consumer<CartProvider>(
+                  builder: (context, value, child) {
+                    return Text(
+                      value.getCounter().toString(),
+                      style: TextStyle(color: Colors.white),
+                    );
+                  },
+                ),
+                badgeAnimation: badges.BadgeAnimation.rotation(
+                    animationDuration: Duration(milliseconds: 300),
+                    loopAnimation: false),
+                child: Icon(Icons.shopping_bag_outlined, color: Colors.white),
               ),
-              badgeAnimation: badges.BadgeAnimation.rotation(
-                  animationDuration: Duration(milliseconds: 300),
-                  loopAnimation: false),
-              child: Icon(Icons.shopping_bag_outlined, color: Colors.white),
             ),
           ),
           SizedBox(
             width: 20.0,
           )
         ],
-        // CupertinoButton(
-        //     onPressed: () {
-        //       Navigator.of(context).push(MaterialPageRoute(
-        //           builder: (BuildContext context) => CartScreen()));
-        //     },
-        //     child: Icon(
-        //       Icons.shopping_bag_outlined,
-        //       color: Colors.white,
-        //     ))
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +103,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
           ),
           Expanded(
               child: ListView.builder(
-                  itemCount: foodname.length,
+                  itemCount: productname.length,
                   itemBuilder: (context, index) {
                     return Card(
                       child: Padding(
@@ -123,7 +127,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      foodname[index].toString(),
+                                      productname[index].toString(),
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
@@ -132,7 +136,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                       height: 10,
                                     ),
                                     Text(
-                                      food_rate[index].toString() + " Rs ",
+                                      productprice[index].toString() + " Rs ",
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
@@ -141,9 +145,30 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                       height: 5,
                                     ),
                                     Align(
-                                      //alignment: Alignment.centerLeft,
+                                      alignment: Alignment.centerLeft,
                                       child: InkWell(
                                         onTap: () {
+                                          dbHelper!
+                                              .insert(Cart(
+                                                  id: index,
+                                                  productId: index.toString(),
+                                                  productname: productname[index]
+                                                      .toString(),
+                                                  initialprice:
+                                                      productprice[index],
+                                                  productprice:
+                                                      productprice[index],
+                                                  quantity: 1,
+                                                  image: food_image[index]
+                                                      .toString()))
+                                              .then((value) {
+                                            print('Product is added to cart');
+                                            cart.addTotalPrice(double.parse(
+                                                productprice[index].toString()));
+                                            cart.addCounter();
+                                          }).onError((error, stackTrace) {
+                                            print(error.toString());
+                                          });
                                           const snackdemo = SnackBar(
                                             content:
                                                 Text('Product added to Cart!!'),
@@ -157,10 +182,9 @@ class _Menu_ScreenState extends State<Menu_Screen> {
 
                                           print(index);
                                           print(index.toString());
-                                          print(foodname[index].toString());
-                                          print(food_rate[index].toString());
-                                          print(food_rate[index]);
-                                          print('1');
+                                          print(productname[index].toString());
+                                          print(productprice[index].toString());
+                                          print(productprice[index]);
                                           print(food_image[index].toString());
                                         },
                                         child: Container(
