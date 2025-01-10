@@ -15,7 +15,7 @@ class Menu_Screen extends StatefulWidget {
 
 class _Menu_ScreenState extends State<Menu_Screen> {
   DBHelper? dbHelper = DBHelper();
-  List<String> productname = [
+  List<String> productName = [
     'Idli Chilly',
     'Veggies Fry',
     'Paneer Crispy',
@@ -28,7 +28,19 @@ class _Menu_ScreenState extends State<Menu_Screen> {
     'Subway Special',
     'fried Rice',
   ];
-  List<int> productprice = [280, 260, 300, 320, 330, 260, 300, 320, 400, 420, 380];
+  List<int> productPrice = [
+    280,
+    260,
+    300,
+    320,
+    330,
+    260,
+    300,
+    320,
+    400,
+    420,
+    380
+  ];
   List<String> food_image = [
     'images/idly_chilli.jpeg',
     'images/Veggies_fry.jpeg',
@@ -103,7 +115,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
           ),
           Expanded(
               child: ListView.builder(
-                  itemCount: productname.length,
+                  itemCount: productName.length,
                   itemBuilder: (context, index) {
                     return Card(
                       child: Padding(
@@ -123,86 +135,86 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                   width: 140,
                                 ),
                                 SizedBox(width: 10),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      productname[index].toString(),
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      productprice[index].toString() + " Rs ",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: InkWell(
-                                        onTap: () {
-                                          dbHelper!
-                                              .insert(Cart(
-                                                  id: index,
-                                                  productId: index.toString(),
-                                                  productname: productname[index]
-                                                      .toString(),
-                                                  initialprice:
-                                                      productprice[index],
-                                                  productprice:
-                                                      productprice[index],
-                                                  quantity: 1,
-                                                  image: food_image[index]
-                                                      .toString()))
-                                              .then((value) {
-                                            print('Product is added to cart');
-                                            cart.addTotalPrice(double.parse(
-                                                productprice[index].toString()));
-                                            cart.addCounter();
-                                          }).onError((error, stackTrace) {
-                                            print(error.toString());
-                                          });
-                                          const snackdemo = SnackBar(
-                                            content:
-                                                Text('Product added to Cart!!'),
-                                            backgroundColor: Colors.green,
-                                            elevation: 10,
-                                            behavior: SnackBarBehavior.floating,
-                                            margin: EdgeInsets.all(5),
-                                          );
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(snackdemo);
-
-                                          print(index);
-                                          print(index.toString());
-                                          print(productname[index].toString());
-                                          print(productprice[index].toString());
-                                          print(productprice[index]);
-                                          print(food_image[index].toString());
-                                        },
-                                        child: Container(
-                                          height: 35,
-                                          width: 100,
-                                          decoration: BoxDecoration(
-                                              color: Colors.green),
-                                          child: Center(
-                                            child: Text(
-                                              'Add to Cart',
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        productName[index].toString(),
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        productPrice[index].toString() + " Rs ",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Align(
+                                        alignment: Alignment.centerRight,
+                                        child: InkWell(
+                                          onTap: () {
+                                            dbHelper!
+                                                .insert(
+                                              Cart(
+                                                id: index, 
+                                                productId: index.toString(), 
+                                                productName: productName[index].toString(), 
+                                                initialprice: productPrice[index], 
+                                                productPrice: productPrice[index], 
+                                                quantity: 1, 
+                                                image: food_image[index].toString()))
+                                                .then((value) {
+                                              print('Product is added to cart ${productName[index]}');
+                                              cart.addTotalPrice(double.parse(productPrice[index].toString()));
+                                              cart.addCounter();
+                                            }).onError((error, stackTrace) {
+                                              print(error.toString());
+                                            });
+                                            const snackdemo = SnackBar(
+                                              content:
+                                                  Text('Product added to Cart!!'),
+                                              backgroundColor: Colors.green,
+                                              elevation: 10,
+                                              behavior: SnackBarBehavior.floating,
+                                              margin: EdgeInsets.all(5),
+                                            );
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(snackdemo);
+                                  
+                                            print(index);
+                                            // print(index.toString());
+                                            print(productName[index].toString());
+                                            print(productPrice[index].toString());
+                                            // print(productprice[index]);
+                                            print(food_image[index].toString());
+                                          },
+                                          child: Container(
+                                            height: 35,
+                                            width: 100,
+                                            decoration: BoxDecoration(
+                                                color: Colors.green,
+                                                borderRadius: BorderRadius.circular(5)),
+                                            child: Center(
+                                              child: Text(
+                                                'Add to Cart',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    )
-                                  ],
+                                      )
+                                    ],
+                                  ),
                                 )
                               ],
                             )

@@ -8,7 +8,7 @@ class CartProvider with ChangeNotifier {
   int _counter = 0;
   int get counter => _counter;
 
-  double _totalPrice = 0.0;
+  double _totalPrice = 0;
   double get totalPrice => _totalPrice;
 
   late Future<List<Cart>> _cart;
@@ -39,7 +39,7 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void _removeCounter() {
+  void removeCounter() {
     _counter--;
     _setPrefItems();
     notifyListeners();

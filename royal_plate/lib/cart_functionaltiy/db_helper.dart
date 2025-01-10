@@ -7,13 +7,6 @@ import 'package:path/path.dart';
 class DBHelper {
   static Database? _db;
 
-  // ignore: body_might_complete_normally_nullable
-  // Future<Database?> get db async {
-  //   if (_db != null) {
-  //     return _db!;
-  //   }
-  //   _db = await initDatabase();
-  // }
   Future<Database?> get db async {
     if (_db != null) {
       return _db;
@@ -31,7 +24,7 @@ class DBHelper {
 
   _onCreate(Database db, int version) async {
     await db.execute(
-        'CREATE TABLE cart (id INTEGER PRIMARY KEY , productId VARCHAR UNIQUE,productName TEXT,initialPrice INTEGER, productPrice INTEGER , quantity INTEGER, unitTag TEXT , image TEXT )');
+        'CREATE TABLE cart (id INTEGER PRIMARY KEY , productId VARCHAR UNIQUE,productName TEXT, initialprice INTEGER, productPrice INTEGER , quantity INTEGER, image TEXT )');
   }
 
   Future<Cart> insert(Cart cart) async {
@@ -46,5 +39,16 @@ class DBHelper {
     final List<Map<String, Object?>> queryResult =
         await dbClient!.query('cart');
     return queryResult.map((e) => Cart.fromMap(e)).toList();
+  }
+
+  Future<int> delete(int id) async {
+    var dbClient = await db;
+    return await dbClient!.delete('cart', where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<int> updatequantity(Cart cart) async {
+    var dbClient = await db;
+    return await dbClient!
+        .update('cart', cart.toMap(), where: 'id = ?', whereArgs: [cart.id]);
   }
 }
