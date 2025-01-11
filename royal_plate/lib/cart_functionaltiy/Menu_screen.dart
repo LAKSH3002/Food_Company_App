@@ -105,10 +105,12 @@ class _Menu_ScreenState extends State<Menu_Screen> {
           SizedBox(
             height: 10,
           ),
-          Text(
-            '   Food Items List',
-            style: TextStyle(
-                fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),
+          Center(
+            child: Text(
+              '--> Food Items List <--',
+              style: TextStyle(
+                  fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),
+            ),
           ),
           SizedBox(
             height: 10,
@@ -132,7 +134,7 @@ class _Menu_ScreenState extends State<Menu_Screen> {
                                 Image.asset(
                                   food_image[index].toString(),
                                   height: 120,
-                                  width: 140,
+                                  width: 160,
                                 ),
                                 SizedBox(width: 10),
                                 Expanded(

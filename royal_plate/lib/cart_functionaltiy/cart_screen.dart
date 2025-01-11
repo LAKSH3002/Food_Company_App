@@ -6,6 +6,7 @@ import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
+import 'package:royal_plate/screens/HomeScreen.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -17,12 +18,18 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
 
   DBHelper? dbHelper = DBHelper();
+  TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.white
+          ),
           backgroundColor: Color.fromARGB(255, 158, 120, 224),
           titleSpacing: 2,
           centerTitle: true,
@@ -30,7 +37,7 @@ class _CartScreenState extends State<CartScreen> {
             'Danodalds - Cart List',
             style: TextStyle(
                 fontSize: 20,
-                color: Colors.greenAccent,
+                color: Colors.yellowAccent,
                 fontWeight: FontWeight.bold),
           ),
           actions: [
@@ -38,6 +45,7 @@ class _CartScreenState extends State<CartScreen> {
               child: badges.Badge(
                 badgeContent: Consumer<CartProvider>(
                   builder: (context, value, child) {
+                    // print(value.getCounter().toString());
                     return Text(
                       value.getCounter().toString(),
                       style: TextStyle(color: Colors.white),
@@ -64,8 +72,24 @@ class _CartScreenState extends State<CartScreen> {
               {
                 if (snapshot.hasData) 
                 {
-                  // print(snapshot.data);
-                  return Expanded(
+                  if(snapshot.data!.isEmpty){
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 100,),
+                          Image.asset('images/img1.png', height: 170,
+                                    width: 170,),
+                          SizedBox(height: 30,),
+                          Text('Explore Products', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+                        ],
+                      ),
+                    );
+                  }
+                  else{
+                    // print(snapshot.data);
+                    return Expanded(
                       child: ListView.builder(
                           itemCount: snapshot.data!.length,
                           itemBuilder: (context, index) {
@@ -83,10 +107,10 @@ class _CartScreenState extends State<CartScreen> {
                                           snapshot.data![index].image
                                               .toString(),
                                           height: 120,
-                                          width: 140,
+                                          width: 160,
                                         ),
                                         SizedBox(
-                                          width: 20,
+                                          width: 10,
                                         ),
                                         
                                         Expanded(
@@ -106,11 +130,30 @@ class _CartScreenState extends State<CartScreen> {
                                               ),
                                               
                                               InkWell(child: Icon(Icons.delete, size: 20.0,),
-                                              onTap: (){
-                                                dbHelper!.delete(snapshot.data![index].id!);                                               
-                                                cart.removeTotalPrice(double.parse(snapshot.data![index].productPrice.toString()));
-                                                cart.removeCounter();
-                                              },)
+                                                onTap: () {
+                                                  // Fetch the product price
+                                                  double productPrice = double.tryParse(snapshot.data![index].productPrice.toString()) ?? 0.0;
+                                                  // Delete the item from the database
+                                                  dbHelper!.delete(snapshot.data![index].id!).then((_) {                                                   
+                                                    cart.removeTotalPrice(productPrice);
+                                                    cart.removeCounter();                                                    
+                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                      SnackBar(
+                                                        content: Text('Product removed from the cart.'),
+                                                        backgroundColor: Colors.red,
+                                                      ),
+                                                    );
+                                                  }).catchError((error) {
+                                                    // Handle errors gracefully
+                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                      SnackBar(
+                                                        content: Text('Error removing product: $error'),
+                                                        backgroundColor: Colors.red,
+                                                      ),
+                                                    );
+                                                  });
+                                                },
+                                              )
                                               ],
                                               ),
                                               
@@ -144,11 +187,12 @@ class _CartScreenState extends State<CartScreen> {
                                                   InkWell(
                                                     onTap: (){
                                                       int quantity = snapshot.data![index].quantity!;
-                                                      int price = snapshot.data![index].initialprice!;
-                                                      quantity--;
-                                                      int? newPrice = price*quantity;
-
-                                                      if(quantity >0){
+                                                      int price = snapshot.data![index].productPrice!;
+                                                      if(quantity>1){
+                                                        quantity--;
+                                                        // Calculation of new Price
+                                                        int newPrice = price*quantity;
+                                                                                                                                                                                                                                                        
                                                         dbHelper!.updatequantity(Cart(
                                                         id: snapshot.data![index].id!, 
                                                         productId: snapshot.data![index].id!.toString(), 
@@ -157,28 +201,31 @@ class _CartScreenState extends State<CartScreen> {
                                                         initialprice: snapshot.data![index].initialprice!, 
                                                         quantity: quantity, 
                                                         image: snapshot.data![index].image.toString())
-                                                        ).then((value){
-                                                          
-                                                          quantity = 0;
-                                                          cart.removeTotalPrice(double.parse(snapshot.data![index].initialprice.toString()));
+                                                        ).then((value){                                                          
+                                                          cart.removeTotalPrice(double.parse(price.toString()));
                                                         }).onError((error, stackTrace) {
                                                           print(error.toString());
                                                         },);
+                                                        print('Quantity: $quantity');
+                                                        print('New Price: $newPrice');
+                                                        print('Total Price: ${cart.totalPrice}');
                                                       }
                                                       
                                                     },
                                                   child: Icon(Icons.remove, color: Colors.white,)),
+
                                                   Text(
                                                     snapshot.data![index].quantity.toString(),
                                                     style: TextStyle(
                                                         color: Colors.white),
                                                   ),
+
                                                   InkWell(
                                                     onTap: (){
                                                       int quantity = snapshot.data![index].quantity!;
-                                                      int price = snapshot.data![index].initialprice!;
+                                                      int price = snapshot.data![index].productPrice!;
                                                       quantity++;
-                                                      int? newPrice = price*quantity;
+                                                      int newPrice = quantity*price;
                                           
                                                       dbHelper!.updatequantity(Cart(
                                                         id: snapshot.data![index].id!, 
@@ -189,12 +236,13 @@ class _CartScreenState extends State<CartScreen> {
                                                         quantity: quantity, 
                                                         image: snapshot.data![index].image.toString())
                                                         ).then((value){
-                                                          
-                                                          quantity = 0;
-                                                          cart.addTotalPrice(double.parse(snapshot.data![index].initialprice.toString()));
+                                                          cart.addTotalPrice(double.parse(price.toString()));
                                                         }).onError((error, stackTrace) {
                                                           print(error.toString());
                                                         },);
+                                                        print('Quantity: $quantity');
+                                                        print('New Price: $newPrice');
+                                                        print('Total Price: ${cart.totalPrice}');
                                                     },
                                                     child: Icon(Icons.add, color: Colors.white,))
                                                 ],
@@ -215,16 +263,68 @@ class _CartScreenState extends State<CartScreen> {
                             );
                           }));
                 }
+                  }                                  
                 return Center(child: CircularProgressIndicator());
               },
             ),
+            
             Consumer<CartProvider>(builder: (context, value, child){
+              double totalPrice = value.getTotalPrice();
               return Visibility(
-                visible: value.getTotalPrice().toStringAsFixed(2) == '0.0' ? false: true,
-                child: Column(
-                  children: [
-                    Reusablewidget(title: ' Sub Total: ', value: value.getTotalPrice().toStringAsFixed(2)+" Rs")
-                  ],
+                visible: totalPrice>0.0,
+                child: Container(
+                  color: Colors.amberAccent,
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 10,),
+                      Reusablewidget(title: 'Total: ', value: value.getTotalPrice().toStringAsFixed(2)+" Rs"),
+                      const SizedBox(width: 50,),
+                      ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.yellowAccent, backgroundColor: Colors.deepPurple),
+                      onPressed: () async {     
+                        showDialog(
+                                context: context,
+                                builder: (ctx) => AlertDialog(
+                                  title:
+                                      const Text("Successfully placed your Order!!"),
+                                  content: const Text(
+                                      "Your Order will be delivered soon!!"),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        HomeScreen(
+                                                          name: namecontroller,
+                                                          email:
+                                                              emailcontroller,
+                                                        )))
+                                            .onError((error, stackTrace) {});
+                                            
+                                      },
+                                      child: Container(
+                                        color: Colors.green,
+                                        padding: const EdgeInsets.all(14),
+                                        child: const Text("okay"),
+                                      ),
+                                    ),
+                                  ],
+                                ));
+                      },
+                      child: const Text(
+                        "Order Now!!",
+                        style:
+                            TextStyle(fontSize: 22, fontStyle: FontStyle.italic),
+                      ),
+                    ),
+                      
+                      
+                    ],
+                  ),
                 ),
               );
             },)
@@ -240,12 +340,12 @@ class Reusablewidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+    return Container(
+      color: Colors.amberAccent,
       child: Row(
         children: [
-        Text(title, style: Theme.of(context).textTheme.headlineLarge,),
-        Text(value, style: Theme.of(context).textTheme.headlineMedium,),
+        Text(title, style: Theme.of(context).textTheme.titleLarge,),
+        Text(value, style: Theme.of(context).textTheme.titleLarge,),
       ],),
     );
   }
