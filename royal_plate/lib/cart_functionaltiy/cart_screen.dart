@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:royal_plate/cart_functionaltiy/Menu_screen.dart';
 // import 'package:flutter/src/widgets/placeholder.dart';
 // import 'package:provider/provider.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_model.dart';
 import 'package:royal_plate/cart_functionaltiy/cart_provider.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:royal_plate/cart_functionaltiy/db_helper.dart';
-import 'package:royal_plate/screens/HomeScreen.dart';
+// import 'package:royal_plate/screens/HomeScreen.dart';
+
+/*
+2 problems to solve
+- Proper calculation of total price
+- Once order is placed, returning user to home page
+ */
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -298,11 +305,7 @@ class _CartScreenState extends State<CartScreen> {
                                             .push(MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        HomeScreen(
-                                                          name: namecontroller,
-                                                          email:
-                                                              emailcontroller,
-                                                        )))
+                                                        Menu_Screen()))
                                             .onError((error, stackTrace) {});
                                             
                                       },
@@ -320,9 +323,7 @@ class _CartScreenState extends State<CartScreen> {
                         style:
                             TextStyle(fontSize: 22, fontStyle: FontStyle.italic),
                       ),
-                    ),
-                      
-                      
+                    ),      
                     ],
                   ),
                 ),
