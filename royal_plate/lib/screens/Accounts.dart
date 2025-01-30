@@ -36,7 +36,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 93,
+              width: 85,
             ),
             CupertinoButton(
                 child: Icon(Icons.home, color: Colors.white, size: 30.0),

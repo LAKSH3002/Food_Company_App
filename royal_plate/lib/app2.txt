@@ -1,22 +1,45 @@
 App has following pages
 
 1 - splash screen 1
+Animated splash screen
+duration
+transition type
+nextscreen
 2 - splash screen 2
 
 3 - phone number screen
+FirebaseAuth.instance.verifyPhoneNumber
+Firebase container
+phone number, verification failed
+codesent
+
 4 - Enter OTP screen and verify code
+Phoneauth provider
+signinwithcredential
 
 5 - Enter User details for signup with option of login if already have an account
+createuserwithemailand password
 6 - Login Screen
+signinwithemailandpassword
 
 7 - Home Screen - drawer
 - Home screen navigates to chatbot, menu page, set favourite page, settings page through drawer.
 
 8 - Chatbot screen
+built using google dialogflow: created new agents and intent
+readymade answers to few set of ready made questions
+used a package named dialogflotter and used .fromfile function of it
+two functions: send message and add message
+
 9 - set favourite food page
+a form of todolist
+created a list in which data is stored once text is unput from the user
+then from the list data is fetched and presented to the user
+.add and .remove function
 
 10 - Menu page
 11 - Cart Screen
+SharedPreferences and sqlite for creating a database inside it
 12 - Settings page.
 
 

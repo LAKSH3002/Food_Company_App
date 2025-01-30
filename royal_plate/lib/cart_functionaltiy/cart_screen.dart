@@ -285,7 +285,7 @@ class _CartScreenState extends State<CartScreen> {
                     children: [
                       const SizedBox(width: 10,),
                       Reusablewidget(title: 'Total: ', value: value.getTotalPrice().toStringAsFixed(2)+" Rs"),
-                      const SizedBox(width: 50,),
+                      const SizedBox(width: 40,),
                       ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.yellowAccent, backgroundColor: Colors.deepPurple),
@@ -321,7 +321,7 @@ class _CartScreenState extends State<CartScreen> {
                       child: const Text(
                         "Order Now!!",
                         style:
-                            TextStyle(fontSize: 22, fontStyle: FontStyle.italic),
+                            TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
                       ),
                     ),      
                     ],

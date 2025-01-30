@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              width: 93,
+              width: 85,
             ),
             CupertinoButton(
                 child: Icon(Icons.settings, color: Colors.white, size: 30.0),
@@ -585,7 +585,7 @@ Widget BuildItem(image, title) {
 Widget BuildOutletCard(
     image, Head, icon1, rate, distance, icon2, discount, buttontext) {
   return Card(
-    margin: EdgeInsets.all(4.0),
+    margin: EdgeInsets.all(1.0),
     // color: Color.fromARGB(255, 223, 218, 223),
     elevation: 15,
     child: Column(
